@@ -1,0 +1,172 @@
+\documentclass[pdflatex,sn-mathphys-num]{sn-jnl}
+
+%%%% Standard Packages from original sn-article.tex
+\usepackage{graphicx}%
+\usepackage{array}%
+\usepackage{multirow}%
+\usepackage{amsmath,amssymb,amsfonts}%
+\usepackage{amsthm}%
+\usepackage{mathrsfs}%
+\usepackage[title]{appendix}%
+\usepackage{xcolor}%
+\usepackage{textcomp}%
+\usepackage{manyfoot}%
+\usepackage{booktabs}%
+\usepackage{array}%
+\usepackage{algorithm}%
+\usepackage{algorithmicx}%
+\usepackage{algpseudocode}%
+\usepackage{listings}%
+\usepackage{float}
+% Thư viện tiếng việt
+\usepackage[T5]{fontenc}%
+\usepackage[utf8]{inputenc}% 
+\usepackage{tikz}
+\usetikzlibrary{positioning,arrows.meta}
+
+
+%%%% Theorem styles from original sn-article.tex
+\theoremstyle{thmstyleone}%
+\newtheorem{theorem}{Theorem}%
+\newtheorem{proposition}[theorem]{Proposition}%
+
+\theoremstyle{thmstyletwo}%
+\newtheorem{example}{Example}%
+\newtheorem{remark}{Remark}%
+
+\theoremstyle{thmstylethree}%
+\newtheorem{definition}{Definition}%
+
+\raggedbottom
+
+
+\makeatletter
+
+
+
+\def\keywordfont{\reset@font\fontsize{8bp}{9.5bp}\selectfont\leftskip=0pt\rightskip=0pt}
+
+
+
+\makeatother
+\makeatletter
+
+\renewcommand\normalsize{%
+   \@setfontsize\normalsize{11bp}{13.2bp}%
+   \abovedisplayskip 10\p@ \@plus 2\p@ \@minus 5\p@
+   \abovedisplayshortskip \z@ \@plus 3\p@
+   \belowdisplayshortskip 6\p@ \@plus 3\p@ \@minus 3\p@
+   \belowdisplayskip \abovedisplayskip
+   \let\@listi\@listI
+}
+\normalsize
+
+\def\keywordfont{%
+  \reset@font\normalsize\selectfont
+  \leftskip=-17pt
+  \rightskip=0pt
+}
+\usepackage{tikz}
+\usetikzlibrary{positioning,arrows.meta,shapes.multipart,fit,calc}
+
+\tikzset{
+  node distance=12mm and 22mm,
+  dataset/.style={draw, rounded corners=6pt, minimum width=40mm, minimum height=14mm, align=center, fill=blue!15},
+  model/.style={draw, rounded corners=6pt, minimum width=44mm, minimum height=14mm, align=center, fill=green!20},
+  calc/.style={draw, rounded corners=6pt, minimum width=40mm, minimum height=14mm, align=center, fill=red!18},
+  service/.style={draw, rounded corners=8pt, minimum width=52mm, minimum height=28mm, align=center, fill=brown!10}
+}
+
+\begin{document}
+
+% ============================================================
+% COVER PAGE
+% ============================================================
+\begin{titlepage}
+\centering
+
+{\small\textbf{HANOI UNIVERSITY OF SCIENCE AND TECHNOLOGY}}
+
+\vspace{2cm}
+
+{\LARGE\textbf{GRADUATION THESIS}}
+
+\vspace{1cm}
+
+{\normalsize Edge-based Traffic Prediction via Federated Learning}
+
+\vspace{2cm}
+
+{\normalsize
+\textbf{HOANG ANH}\\
+Anh.NH2417093@sis.hust.edu.vn\\[0.5em]
+\textbf{DANG XUAN BACH}\\
+Bach.DX2417099@sis.hust.edu.vn\\[0.5em]
+\textbf{TRAN DUC NAM}\\
+Nam.TD2417175@sis.hust.edu.vn\\[0.5em]
+\textbf{LUU QUOC KHANH}\\
+Khanh.LQ2417140@sis.hust.edu.vn\\[0.5em]
+\textbf{DOAN NGUYEN NGOC SON}\\
+Son.DNN2417191@sis.hust.edu.vn\\[1em]
+Program: Global ICT
+}
+
+\vspace{2cm}
+
+\begin{flushleft}
+\textbf{Supervisor:} Associate Professor PHAM VAN HAI\\[1em]
+\textbf{Department:} Computer Science\\
+\textbf{School:} School of Information and Communications Technology
+\end{flushleft}
+
+\vfill
+
+{\normalsize HANOI, 12/2025}
+
+\end{titlepage}
+
+% ============================================================
+% SECTION 1: INTRODUCTION
+% ============================================================
+\section{Introduction}
+
+
+
+% ============================================================
+% SECTION 2: RELATED WORK
+% ============================================================
+\section{Related Work}
+
+
+
+% ============================================================
+% SECTION 3: METHODOLOGY
+% ============================================================
+\section{Methodology}
+
+
+
+% ============================================================
+% SECTION 4: EXPERIMENTS
+% ============================================================
+\section{Experiments}
+
+
+
+% ============================================================
+% SECTION 5: CONCLUSION
+% ============================================================
+\section{Conclusion}
+
+
+
+% ============================================================
+% BIBLIOGRAPHY
+% ============================================================
+\backmatter
+
+\begin{thebibliography}{99}
+
+\end{thebibliography}
+
+\end{document}

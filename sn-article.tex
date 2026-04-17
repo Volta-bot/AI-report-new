@@ -156,7 +156,7 @@ The following pseudo-code outlines the three core loops of the system: the SUMO 
 
 \subsubsection{Benchmark Dataset Description}
 
-This report uses data collected from PeMS-BAY~\cite{pemsbay} and METR-LA~\cite{metrla}, two widely used benchmark traffic datasets.
+This report uses data collected from PeMS-BAY and METR-LA, two widely used benchmark traffic datasets.
 
 \begin{figure}[H]
     \centering
@@ -277,30 +277,27 @@ Traffic data is distributed to edge clients using a WebSocket-based publisher. T
 \end{figure}
 
 The data is displayed through a Streamlit-based monitoring dashboard that visualizes the federated learning process and system performance in real time. It displays key metrics such as training loss, validation error, and current training round.
+The dashboard also provides filtering options, client selection for focused monitoring, and data export for further analysis.
 
 \begin{figure}[H]
   \centering
   \includegraphics[width=1.0\textwidth]{Figure/dashboard-training-loss.png}
   \caption{Training Loss Over Rounds (Per Client).}\label{fig:dashboard_filter}
 \end{figure}
-
-The dashboard also provides filtering options, client selection for focused monitoring, and data export for further analysis.
+The training loss decreases steadily across 160 rounds for 10 different edge clients, indicating successful model convergence. While different clients show varying convergence patterns due to data heterogeneity, all remain stable without divergence, demonstrating effective federated learning.
 
 \begin{figure}[H]
   \centering
   \includegraphics[width=1.0\textwidth]{Figure/dashboard-validation-mae.png}
   \caption{Validation MAE Over Rounds (Per Client).}\label{fig:train_loss}
 \end{figure}
-
-The training loss decreases steadily across 160 rounds for 10 different edge clients, indicating successful model convergence. While different clients show varying convergence patterns due to data heterogeneity, all remain stable without divergence, demonstrating effective federated learning.
+The validation MAE decreases over training rounds, showing continuous improvement of the model. Different clients achieve different levels of accuracy depending on traffic complexity, with some performing better in predictable environments and others showing higher error in more complex regions. Differences in MAE across all clients demonstrate that federated learning preserves regional specialization while enabling global knowledge sharing.
 
 \begin{figure}[H]
   \centering
   \includegraphics[width=1.0\textwidth]{Figure/dashboard-client-table.png}
   \caption{Latest Evaluation Metrics by Client.}\label{fig:per_client}
 \end{figure}
-
-The validation MAE decreases over training rounds, showing continuous improvement of the model. Different clients achieve different levels of accuracy depending on traffic complexity, with some performing better in predictable environments and others showing higher error in more complex regions. Differences in MAE across all clients demonstrate that federated learning preserves regional specialization while enabling global knowledge sharing.
 
 \paragraph{Interpretation of Per-Client Metrics.}
 \begin{itemize}

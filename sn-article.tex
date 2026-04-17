@@ -30,26 +30,46 @@
 
 \begin{document}
 
-\title{AI Report - Edge-based Traffic Prediction via Federated learning}
+\title{Edge-based Traffic Prediction via Federated Learning}
 
-\author{Doan Nguyen Ngoc Son - 202417191}\nomail
-\author{Luu Quoc Khanh - 202417140}\nomail
-\author{Hoang Anh - 202417093}\nomail
-\author{Tran Duc Nam - 202417175}\nomail
-\author{Dang Xuan Bach - 202417099}\nomail
+\author*[1]{\fnm{Hoang} \sur{Anh} - 202417093}
+\author[1]{\fnm{Dang Xuan} \sur{Bach} (202417099)}
+\author[1]{\fnm{Tran Duc} \sur{Nam} (202417175)}
+\author[1]{\fnm{Luu Quoc} \sur{Khanh} (202417140)}
+\author[1]{\fnm{Doan Nguyen Ngoc} \sur{Son} (202417191)}
 
-\affil{\orgname{Ha Noi University of Science and Technology}, \orgaddress{\city{Hanoi}, \country{Viet Nam}}}
+\affil*[1]{School of Information and Communications Technology, Hanoi University of Science and Technology, Hanoi, Vietnam}
 
-\abstract{
-Traffic prediction is an integral part of Intelligent Transportation Systems (ITS) amid growing urbanization needs. Even though deep learning methods usually give highly accurate predictions, traditional centralized prediction models come with several disadvantages such as privacy risks, high-bandwidth requirements, and processing latency. To address these problems, this thesis proposes a new privacy-preserving edge-based traffic prediction framework using Federated Learning (FL). Specifically, a customized Multi-Horizon Long Short-Term Memory (LSTM) model is deployed at the edge with the help of Federated Learning, where only the parameters are transferred to the centralized server via Federated Averaging (FedAvg) algorithm. The framework further implements Louvain clustering and graph partitioning methods to select edges and overcome spatial disparities, respectively. SUMO simulation experiments and two real-world benchmark datasets (PeMs-Bay, METR-LA) are utilized to validate the proposed framework's performance. The experiments show that the privacy-preserving federated traffic prediction model achieves 92-96\% accuracy of the baseline model but saves up to 80-262 times more communication bandwidth.
-}
+% Instructor and Department placed neatly beneath the University
+\affil{\vspace{0.5em} \textit{Instructor:} Pham Van Hai - Department of Computer Science}
 
-\keywords{Federated Learning (FL), Traffic Prediction, Intelligent Transportation Systems (ITS), Edge Computing, LSTM, Spatio-Temporal Modeling, Privacy-Preserving, Intelligent Transportation Systems}
+\abstract{On a global scale, rapid urbanization has led to a significant increase in vehicular traffic, requiring Intelligent Transportation Systems (ITS) to accurately predict traffic flow for congestion management. However, traditional centralized prediction models rely on continuously streaming high-frequency data from distributed sensors, raising severe privacy risks regarding user mobility patterns, massive bandwidth consumption, and processing latency. To address these challenges, this research proposes a privacy-preserving Edge-based Traffic Prediction framework via Federated Learning (FL). A customized, lightweight Multi-Horizon Long Short-Term Memory (LSTM) model is deployed at the edge to simultaneously forecast short-, medium-, and long-term traffic conditions. During collaborative training, edge clients transmit only 20\,KB model weight updates to a central server using the Federated Averaging (FedAvg) algorithm, keeping raw data strictly local. Furthermore, the framework applies Louvain clustering and centrality metrics to automate the optimal topological placement of edge nodes, naturally handling spatial disparities. Experimental results using SUMO simulations and real-world benchmark datasets (PeMS-BAY and METR-LA) demonstrate that the federated model achieves 92\%--96\% of the centralized baseline accuracy. Moreover, this approach drastically reduces communication bandwidth usage by 80--262 times. The proposed solution offers a scalable and secure architecture, making privacy-preserving traffic prediction highly effective for modern ITS management.}
+
+\keywords{Federated Learning, Edge Computing, Traffic Prediction, Intelligent Transportation Systems, LSTM, Privacy Preservation, Multi-Horizon Forecasting}
 
 \maketitle
 
 \section{Introduction}
-Write your introduction here.
+
+Rapid urbanization on a global scale has led to a significant increase in vehicular traffic, resulting in severe congestion, elevated emissions, and reduced efficiency within modern transportation networks. To mitigate these cascading challenges, Intelligent Transportation Systems (ITS) have emerged as a critical data-driven solution, leveraging predictive analytics to optimize traffic flow, proactively manage congestion, and enhance overall road safety. With the advent of deep learning, advanced neural network architectures---such as Long Short-Term Memory (LSTM) networks and Graph Neural Networks (GNNs)---have become the academic and industry standard for accurately capturing the complex, non-linear spatiotemporal dependencies inherent in urban traffic data.
+
+Traditionally, these highly effective predictive models operate on a centralized architecture, continuously streaming high-frequency data from thousands of distributed sensors to a central server for processing and training. However, this centralized paradigm faces critical operational and ethical limitations. Most prominently, it introduces severe privacy vulnerabilities; raw traffic data inherently encodes sensitive user mobility patterns, commute routines, and behavioral habits. The centralization of this data creates an attractive surface for cyberattacks, enables unauthorized inference attacks, and risks violating stringent data protection regulations such as the GDPR. Furthermore, continuously streaming massive amounts of raw data consumes substantial network bandwidth and introduces processing latency, which severely hinders real-time decision-making. While keeping data at the edge is desirable, adapting powerful deep learning models to operate locally poses significant challenges, particularly in handling the spatial heterogeneity and non-IID (Independent and Identically Distributed) nature of traffic data across different city regions.
+
+To address these critical gaps, this research proposes a privacy-preserving Edge-based Traffic Prediction system utilizing Federated Learning (FL). Methodologically, this framework centers on a customized, highly lightweight Multi-Horizon LSTM network that is deployed directly at the edge to predict traffic conditions at 15, 30, and 60-minute intervals simultaneously. Instead of centralizing raw sensor data, the framework utilizes the Federated Averaging (FedAvg) algorithm, wherein edge clients train their models locally and securely transmit only minimal model weight updates to a coordinating server. A notable innovation in this methodology is its automated network topology analysis. Rather than relying on manual edge placement, the system employs Louvain clustering and centrality metrics to automatically partition road networks and place edge nodes in optimally representative locations, naturally addressing spatial disparities.
+
+The significance of this study lies in its ability to effectively balance high predictive accuracy with uncompromising privacy guarantees. By retaining raw data strictly localized at the edge, the framework ensures regulatory compliance, minimizes the attack surface for potential data breaches, and guarantees absolute data sovereignty for municipalities. 
+
+To systematically address the challenges of modern ITS infrastructure, the key highlights and contributions proposed by this study are as follows:
+
+\begin{enumerate}
+    \item \textbf{Federated Architecture Innovation:} Development of a scalable FL framework that coordinates training seamlessly across distributed edge clients, robustly validated through realistic multi-modal traffic generation via the SUMO (Simulation of Urban MObility) platform.
+    \item \textbf{Edge-Optimized Forecasting:} Design of a lightweight Multi-Horizon LSTM capable of extracting temporal dependencies and forecasting multiple future traffic states simultaneously using strictly local data.
+    \item \textbf{Automated Topological Placement:} Application of network topology analysis to group road networks into natural traffic communities, ensuring optimal and representative edge node placement.
+    \item \textbf{Bandwidth and Privacy Optimization:} The proposed federated model successfully achieves 92\% to 96\% of the accuracy of an ideal centralized baseline, while concurrently reducing communication bandwidth consumption by an unprecedented factor of 80 to 262 times by exchanging merely 20 KB weight files.
+\end{enumerate}
+
+To present these findings systematically, the remainder of this report is organized as follows: Section 2 provides a comprehensive review of related literature concerning deep learning-based traffic prediction and the application of Federated Learning in ITS. Section 3 details the proposed methodology, delineating the system architecture, the multi-horizon LSTM design, and the network topology analysis. Section 4 describes the experimental setup, introduces the simulation environment and datasets, and discusses the evaluation metrics and empirical results. Finally, Section 5 summarizes the core contributions, acknowledges the inherent limitations of the framework, and outlines potential directions for future research.
+
 
 \section{Related Work}
 (Optional) Review related studies.
@@ -393,9 +413,11 @@ To validate the effectiveness of the proposed framework, the FL model was benchm
 \textbf{Operational Conclusion:} For Intelligent Transportation Systems, where signal control algorithms typically tolerate a $\pm$5--10\% error margin, the FL model's performance is functionally equivalent to centralized systems while offering superior operational resilience and security.
 
 \section{Conclusion}
-Summarize your work and future directions.
 
-\bibliographystyle{sn-mathphys-num}
-\bibliography{sn-bibliography}
+This research presented a comprehensive, privacy-preserving Edge-based Traffic Prediction framework utilizing Federated Learning. By deploying a specialized, lightweight Multi-Horizon LSTM architecture at the network edge, the system successfully forecasted short-term (15-minute), medium-term (30-minute), and long-term (60-minute) traffic conditions simultaneously. A key methodological innovation was the automated topological placement of edge clients using Louvain clustering and centrality metrics, which naturally addressed spatial disparities in the road network. Through the Federated Averaging (FedAvg) algorithm, edge devices trained collaboratively by exchanging only model weights, ensuring that raw, sensitive mobility data remained strictly localized.
+
+Experimental evaluations on the PeMS-BAY and METR-LA benchmark datasets demonstrated the framework's high efficacy. The proposed federated model achieved highly competitive predictive performance, retaining 92\% to 96\% of the centralized baseline accuracy. Most notably, this approach drastically optimized network efficiency, reducing communication bandwidth consumption by a massive factor of 80 to 262 times through the exchange of minimal 20\,KB weight files.
+
+Despite these promising results, certain limitations remain. The current implementation relies on the standard FedAvg algorithm, which can experience slower convergence when faced with extreme non-IID (Independent and Identically Distributed) data distributions. Furthermore, the continuous transmission of model weights still poses a communication overhead for highly resource-constrained edge devices. To address these operational challenges, future work will focus on integrating advanced optimization algorithms, such as FedProx or SCAFFOLD, to better handle statistical heterogeneity. Additionally, investigating Spatio-Temporal Graph Neural Networks (ST-GNNs) and fusing multimodal data streams---including roadside camera feeds and real-time weather conditions---will further enhance the system's robustness, accuracy, and reliability for practical ITS deployments.
 
 \end{document}

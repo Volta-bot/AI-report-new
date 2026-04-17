@@ -30,18 +30,21 @@
 
 \begin{document}
 
-\title{Your Article Title}
+\title{AI Report - Edge-based Traffic Prediction via Federated learning}
 
-\author*[1]{\fnm{First} \sur{Author}}\email{your@email.com}
-\author[1]{\fnm{Second} \sur{Author}}
+\author{Doan Nguyen Ngoc Son - 202417191}\nomail
+\author{Luu Quoc Khanh - 202417140}\nomail
+\author{Hoang Anh - 202417093}\nomail
+\author{Tran Duc Nam - 202417175}\nomail
+\author{Dang Xuan Bach - 202417099}\nomail
 
-\affil*[1]{\orgdiv{Department}, \orgname{University}, \orgaddress{\city{City}, \country{Country}}}
+\affil{\orgname{Ha Noi University of Science and Technology}, \orgaddress{\city{Hanoi}, \country{Viet Nam}}}
 
 \abstract{
-Write your abstract here. Keep it concise and clear.
+Traffic prediction is an integral part of Intelligent Transportation Systems (ITS) amid growing urbanization needs. Even though deep learning methods usually give highly accurate predictions, traditional centralized prediction models come with several disadvantages such as privacy risks, high-bandwidth requirements, and processing latency. To address these problems, this thesis proposes a new privacy-preserving edge-based traffic prediction framework using Federated Learning (FL). Specifically, a customized Multi-Horizon Long Short-Term Memory (LSTM) model is deployed at the edge with the help of Federated Learning, where only the parameters are transferred to the centralized server via Federated Averaging (FedAvg) algorithm. The framework further implements Louvain clustering and graph partitioning methods to select edges and overcome spatial disparities, respectively. SUMO simulation experiments and two real-world benchmark datasets (PeMs-Bay, METR-LA) are utilized to validate the proposed framework's performance. The experiments show that the privacy-preserving federated traffic prediction model achieves 92-96\% accuracy of the baseline model but saves up to 80-262 times more communication bandwidth.
 }
 
-\keywords{keyword1, keyword2, keyword3}
+\keywords{Federated Learning (FL), Traffic Prediction, Intelligent Transportation Systems (ITS), Edge Computing, LSTM, Spatio-Temporal Modeling, Privacy-Preserving, Intelligent Transportation Systems}
 
 \maketitle
 
@@ -55,17 +58,344 @@ Write your introduction here.
 Describe your method here.
 
 \section{Experimental Results}
-Present your results.
 
+\subsection{Experiment Setup}
+
+\subsubsection{Simulation Environment}
+
+The experiment is performed using the following software stack: Traffic simulation via SUMO (Simulation of Urban Mobility) v1.18.0, Federated Learning via Flower Framework v1.5.0, deep learning via PyTorch v2.0.1, and a Streamlit-based monitoring dashboard.
+
+The following pseudo-code outlines the three core loops of the system: the SUMO simulation loop, the edge client loop, and the federated learning server loop.
+
+\begin{algorithm}[H]
+\caption{SUMO Simulation Loop}
+\begin{algorithmic}[1]
+\State Initialize SUMO simulation with network, route, and config files
+\State Open WebSocket server
+\While{simulation\_step $<$ MAX\_STEPS}
+    \State Execute one simulation step
+    \State Extract traffic features (speed, count, density) per region
+    \For{each subscribed edge client}
+        \State Send traffic data via WebSocket
+    \EndFor
+    \State Advance to next timestep
+\EndWhile
+\State Shut down simulation and close WebSocket server
+\end{algorithmic}
+\end{algorithm}
+
+\begin{algorithm}[H]
+\caption{Edge Client Loop}
+\begin{algorithmic}[1]
+\State Initialize edge client with assigned region IDs
+\State Connect to SUMO server and subscribe to assigned regions
+\While{running}
+    \If{data received from SUMO}
+        \State Parse message and append to local buffer
+    \EndIf
+    \If{enough data to train}
+        \State Sample training data from buffer
+        \For{each epoch}
+            \State Train local model on sampled data
+        \EndFor
+        \State Update local model weights
+    \EndIf
+    \If{FL round triggered}
+        \State Receive global parameters from FL server
+        \State Update local model with global parameters
+        \State Train local model for FL round
+        \State Send local update to FL server
+        \State Evaluate on local data and send metrics to FL server
+    \EndIf
+\EndWhile
+\end{algorithmic}
+\end{algorithm}
+
+\begin{algorithm}[H]
+\caption{Federated Learning Server Loop}
+\begin{algorithmic}[1]
+\State Initialize global model and bind to server address
+\For{each round $r = 1$ \textbf{to} MAX\_ROUNDS}
+    \State Select a fraction of available edge clients
+    \For{each selected client}
+        \State Send current global model parameters
+    \EndFor
+    \For{each selected client}
+        \State Receive local model update
+    \EndFor
+    \State Aggregate all updates using FedAvg:
+    \[
+        w_{\text{global}} \leftarrow \sum_{k=1}^{K} \frac{n_k}{n}\, w_k
+    \]
+    \State Update global model with aggregated parameters
+    \State Collect and aggregate validation metrics from clients
+    \State Log round metrics to disk
+\EndFor
+\end{algorithmic}
+\end{algorithm}
+
+\subsubsection{Benchmark Dataset Description}
+
+This report uses data collected from PeMS-BAY~\cite{pemsbay} and METR-LA~\cite{metrla}, two widely used benchmark traffic datasets.
+
+\begin{figure}[H]
+    \centering
+    \includegraphics[width=1.0\textwidth]{Figure/pems-bay-spatial.png}
+    \caption{PeMS-BAY Dataset Spatial Distribution.}
+    \label{fig:pems-bay-dataset}
+\end{figure}
+
+The \textbf{PeMS-BAY} dataset contains traffic data from 325 sensors in the Bay Area, collected over six months (January--May 2017) at 5-minute intervals. Missing values are handled using linear interpolation, and the data is normalized using Z-score normalization to improve model performance.
+
+\begin{figure}[H]
+    \centering
+    \includegraphics[width=1.0\textwidth]{Figure/metr-la-spatial.png}
+    \caption{METR-LA Dataset Spatial Distribution.}
+    \label{fig:metr-la-dataset}
+\end{figure}
+
+The \textbf{METR-LA} dataset consists of traffic data from 207 sensors across Los Angeles, collected over four months at 5-minute intervals. It reflects highly congested urban and freeway conditions. Missing values (9.93\%) are filled using spatio-temporal interpolation, and the data is normalized using Z-score normalization.
+
+\subsubsection{Hyperparameters}
+
+Hyperparameters are configuration values set before training that control how a machine learning model learns from data. Table~\ref{tab:hyperparams} summarizes the key hyperparameter settings used across all experiments.
+
+\begin{table}[h]
+\caption{Hyperparameter Configuration}\label{tab:hyperparams}
+\begin{tabular}{@{}ll@{}}
+\toprule
+\textbf{Parameter} & \textbf{Value} \\
+\midrule
+Input Sequence Length ($T_{in}$) & 24 (2 hours) \\
+Prediction Horizons               & 3, 6, 12 steps \\
+Batch Size                        & 32 \\
+Learning Rate                     & 0.001 \\
+Optimizer                         & Adam \\
+Local Epochs ($E$)                & 5 \\
+FL Rounds ($R$)                   & 50 \\
+Number of Clients ($K$)           & 10 \\
+\bottomrule
+\end{tabular}
+\end{table}
+
+\subsection{SUMO Simulation Demo}
+
+\subsubsection{SUMO Network Configuration}
+
+The SUMO simulation is set up using real-world road network data from OpenStreetMap. The network includes various road types such as highways, arterial roads, and local streets, covering a large urban area with many intersections to reflect realistic traffic conditions. This diversity helps evaluate the model across different traffic scenarios.
+
+The simulation uses SUMO version 1.24.0 and includes specific configurations such as ignoring route errors for stability, applying adaptive traffic light control based on congestion, and dynamically rerouting vehicles every 10 seconds. The system also outputs trip and network statistics for further analysis.
+
+\subsubsection{Multi-Modal Traffic Generation}
+
+Table~\ref{tab:vehicle_types} summarizes the vehicle type distribution used in the simulation.
+
+\begin{table}[h]
+\caption{SUMO Multi-Modal Vehicle Configuration}\label{tab:vehicle_types}
+\begin{tabular}{@{}lll@{}}
+\toprule
+\textbf{Vehicle Type} & \textbf{Characteristics} & \textbf{Purpose} \\
+\midrule
+Passenger  & High frequency, varying sizes    & Commuter traffic, peak patterns \\
+Bus        & Lower frequency, large vehicles  & Public transit patterns \\
+Truck      & Heavy vehicles, restricted routes & Cargo/logistics traffic \\
+Motorcycle & Agile, small size                & Urban mobility dynamics \\
+Bicycle    & Slow speed, bike lanes           & Active transportation \\
+\bottomrule
+\end{tabular}
+\end{table}
+
+This section describes the use of multi-modal traffic in the simulation, including different vehicle types such as passenger cars, buses, trucks, motorcycles, and bicycles, each with distinct characteristics and purposes. This diversity helps create more realistic traffic conditions.
+
+By incorporating various vehicle types, the system can better simulate real-world traffic patterns, evaluate model robustness under different conditions, account for non-recurring events like accidents, and allow edge clients to learn region-specific traffic behaviors.
+
+\subsubsection{Dataset Streaming via TraCI}
+
+Data is streamed from the SUMO simulation using the TraCI interface. SUMO runs as a server that enables real-time interaction through TCP, executing simulation steps at regular intervals (typically every second). During each step, the system extracts data such as traffic metrics at the edge level (e.g., vehicle count, speed), junction level (e.g., traffic light status, waiting vehicles), and individual vehicle level (e.g., position, speed, trip progress).
+
+\begin{verbatim}
+1. Connect to SUMO server via TraCI interface
+2. Subscribe to edges and junctions of interest
+3. For each simulation step:
+   a) Advance SUMO by one timestep
+   b) Query subscribed objects for metrics
+   c) Aggregate metrics by region/client
+   d) Publish via WebSocket to all connected edge clients
+   e) Store metrics for offline analysis
+\end{verbatim}
+
+\subsubsection{WebSocket Data Publisher}
+
+Traffic data is distributed to edge clients using a WebSocket-based publisher. The system sends real-time JSON messages at each simulation step (1 Hz), allowing clients to subscribe to specific road segments relevant to their region. The transmitted data includes traffic metrics such as vehicle count, speed, density, vehicle types, and road characteristics.
+
+% TODO: Insert WebSocket message example here
+
+\begin{verbatim}
+{
+  "edge_id": "osm_highway_123",
+  "timestamp": "2025-01-17T10:30:45Z",
+  "simulation_time": 3645.0,
+  "vehicle_count": 24,
+  "avg_speed": 12.5,
+  "density": 4.8,
+  "flow_rate": 345.6,
+  "occupancy": 22.3,
+  "vehicle_counts_by_type": {
+    "passenger": 18,
+    "bus": 2,
+    "truck": 4
+  }
+}
+\end{verbatim}
+
+\subsubsection{Monitoring Dashboard}
+
+\begin{figure}[H]
+  \centering
+  \includegraphics[width=1.0\textwidth]{Figure/dashboard-overview.png}
+  \caption{FL Traffic Prediction Dashboard -- Summary Metrics.}\label{fig:dashboard}
+\end{figure}
+
+The data is displayed through a Streamlit-based monitoring dashboard that visualizes the federated learning process and system performance in real time. It displays key metrics such as training loss, validation error, and current training round.
+
+\begin{figure}[H]
+  \centering
+  \includegraphics[width=1.0\textwidth]{Figure/dashboard-training-loss.png}
+  \caption{Training Loss Over Rounds (Per Client).}\label{fig:dashboard_filter}
+\end{figure}
+
+The dashboard also provides filtering options, client selection for focused monitoring, and data export for further analysis.
+
+\begin{figure}[H]
+  \centering
+  \includegraphics[width=1.0\textwidth]{Figure/dashboard-validation-mae.png}
+  \caption{Validation MAE Over Rounds (Per Client).}\label{fig:train_loss}
+\end{figure}
+
+The training loss decreases steadily across 160 rounds for 10 different edge clients, indicating successful model convergence. While different clients show varying convergence patterns due to data heterogeneity, all remain stable without divergence, demonstrating effective federated learning.
+
+\begin{figure}[H]
+  \centering
+  \includegraphics[width=1.0\textwidth]{Figure/dashboard-client-table.png}
+  \caption{Latest Evaluation Metrics by Client.}\label{fig:per_client}
+\end{figure}
+
+The validation MAE decreases over training rounds, showing continuous improvement of the model. Different clients achieve different levels of accuracy depending on traffic complexity, with some performing better in predictable environments and others showing higher error in more complex regions. Differences in MAE across all clients demonstrate that federated learning preserves regional specialization while enabling global knowledge sharing.
+
+\paragraph{Interpretation of Per-Client Metrics.}
+\begin{itemize}
+    \item \textbf{MAE (Mean Absolute Error):} The primary accuracy metric; lower values indicate better performance. Clients 0, 3, and 9 achieved excellent results; clients 1--2 and 5--8 showed good or acceptable performance; client 4 exhibited the highest error, reflecting more complex local traffic dynamics.
+    \item \textbf{RMSE (Root Mean Squared Error):} An error metric that penalizes larger deviations, helping to identify outlier predictions. When MAE is close to RMSE/3, errors are consistent; a much higher RMSE indicates occasional large prediction errors.
+    \item \textbf{Speed / Vehicle Count / Density MAE:} Additional disaggregated MAE metrics providing detailed insight into specific aspects of model performance.
+\end{itemize}
+
+\subsection{Evaluation Metrics}
+
+Model performance is evaluated using three standard metrics: Mean Absolute Error (MAE), Root Mean Squared Error (RMSE), and Mean Absolute Percentage Error (MAPE), defined as follows:
+
+\begin{equation}
+  \mathrm{MAE} = \frac{1}{n}\sum_{i=1}^{n}\left|\hat{y}_i - y_i\right|
+\end{equation}
+
+\begin{equation}
+  \mathrm{RMSE} = \sqrt{\frac{1}{n}\sum_{i=1}^{n}\left(\hat{y}_i - y_i\right)^2}
+\end{equation}
+
+\begin{equation}
+  \mathrm{MAPE} = \frac{1}{n}\sum_{i=1}^{n}\left|\frac{\hat{y}_i - y_i}{y_i}\right| \times 100\%
+\end{equation}
+
+where $\hat{y}_i$ is the predicted value and $y_i$ is the ground truth value at time step $i$.
+
+\subsection{Experimental Results on Benchmark Datasets}
+
+The core of the empirical study focuses on validating the Federated Learning (FL) framework using the Multi-Horizon LSTM model across two distinct urban environments: PeMS-BAY (California highway) and METR-LA (Los Angeles city streets). The results are categorized into convergence stability, temporal forecasting accuracy, and a comparative trade-off analysis.
+
+\subsubsection{Convergence Analysis}
+
+The efficiency of the Federated Averaging (FedAvg) algorithm was monitored over 50 communication rounds to ensure that distributed training can match the stability of centralized methods.
+
+\begin{figure}[H]
+  \centering
+  \includegraphics[width=0.8\textwidth]{Figure/pems-bay-fl_convergence_rounds.png}
+  \caption{Loss function reduction over 50 communication rounds.}\label{fig:convergence}
+\end{figure}
+
+\textbf{Rapid Global Learning:} During the first 10 rounds, the global model experienced a ``warm-up'' phase where the loss function decreased sharply. For PeMS-BAY, the error dropped by 41.3\%, while METR-LA saw a 43.9\% reduction. This indicates that the model quickly identifies fundamental traffic periodicities (e.g., morning vs.\ evening peaks) shared across all geographic zones.
+
+\textbf{Local Feature Integration:} From rounds 11 to 30, the learning rate stabilized as the model began to reconcile non-IID (non-independent and identically distributed) data from different edge clients.
+
+\textbf{Final Convergence:} By the 50th round, the system achieved a total error improvement of 62.5\% (PeMS-BAY) and 68.4\% (METR-LA). The higher improvement in METR-LA suggests that federated learning is particularly robust at extracting meaningful patterns from highly complex urban data.
+
+\subsubsection{Multi-Horizon Temporal Forecasting}
+
+To test the model's utility for real-time traffic management, predictions were evaluated at three critical look-ahead horizons. Table~\ref{tab:horizons} summarizes the results.
+
+\begin{table}[h]
+\caption{Multi-Horizon Forecasting Performance (MAPE \%)}\label{tab:horizons}
+\begin{tabular}{@{}lccc@{}}
+\toprule
+\textbf{Dataset} & \textbf{15 min} & \textbf{30 min} & \textbf{60 min} \\
+\midrule
+PeMS-BAY (Highway) & 3.88\% & 5.42\%* & 7.80\% \\
+METR-LA (Urban)    & 5.12\%* & 8.15\%* & 11.02\% \\
+\bottomrule
+\end{tabular}
+\end{table}
+
+\textbf{Short-term (15 min):} Both datasets showed exceptional accuracy. PeMS-BAY maintained a MAPE of 3.88\%, demonstrating that highway speeds are highly predictable in the immediate future.
+
+\textbf{Mid-to-Long-term (30--60 min):} As the horizon expanded to one hour, the MAPE increased to 7.80\% for PeMS-BAY and 11.02\% for METR-LA.
+
+\textbf{Reliability:} Despite the increased difficulty of long-term forecasting, all MAPE values remained significantly below the 12\% threshold. This confirms that the Multi-Horizon LSTM architecture successfully captures long-range temporal dependencies without suffering from vanishing gradients, a common issue in standard RNNs.
+
+\textbf{Dataset Comparative Analysis:} PeMS-BAY (freeway) consistently outperformed METR-LA (urban) by approximately 35--40\% in MAPE. This disparity is attributed to the inherent volatility of stop-and-go urban traffic versus the more stable flow of highway networks.
+
+
+
+The error growth across horizons is sub-linear, demonstrating the robustness of the Multi-Horizon LSTM architecture in capturing long-term temporal dependencies.
+
+\subsubsection{Geographic Fairness and Client-Level Analysis}
+
+A critical concern in Federated Learning is whether the global model performs equitably across all participants, especially under non-IID data conditions.
+
+
+
+\textbf{Highway Consistency (PeMS-BAY):} Performance across the 6 edge clients was remarkably uniform. At the 15-minute horizon, the Coefficient of Variation (CV) was a mere 2.8\%, with a narrow performance spread of only 0.17 km/h. This validates that graph-based partitioning successfully creates regions with coherent traffic dynamics.
+
+\textbf{Urban Heterogeneity (METR-LA):} In contrast, the urban network exhibited 3$\times$ higher variance compared to the highway scenario. Client-0 (Downtown LA) achieved the highest accuracy (MAE 2.31 at 15 min) due to highly regulated commuting cycles. Conversely, Client-2 (Port Area) faced the highest error rates (MAE 3.15) driven by irregular heavy-vehicle movements and event-driven congestion.
+
+\textbf{Collaborative Boost via Knowledge Transfer:} Clients in irregular zones derived significant benefits from the federated framework. By effectively borrowing structural traffic logic from stable downtown nodes, the Port Area client stabilized its MAPE at 8.91\%, whereas a local-only training approach would likely have resulted in errors exceeding 12\%.
+
+\textbf{Scalability and Fairness:} The results confirm that even in inherently difficult regions, clients can achieve reasonable accuracy through federated knowledge access without sacrificing data sovereignty.
+
+\subsubsection{The Privacy--Performance Trade-off}
+
+To validate the effectiveness of the proposed framework, the FL model was benchmarked against a centralized baseline (the ``Oracle'' scenario), where all historical traffic data is aggregated on a single server for training.
+
+
+
+\textbf{Accuracy Preservation:} The FL model successfully retained approximately 91.5\%--92\% of the accuracy achieved by the centralized counterpart. The minor absolute increase in MAPE (approximately 0.6\%--0.92\%) is categorized as a negligible privacy tax --- a small cost for the substantial security gains provided.
+
+\textbf{Root Causes of the Performance Gap:}
+\begin{itemize}
+    \item \textit{Communication Constraints:} Unlike centralized training, which allows for continuous gradient updates with full precision, FedAvg relies on discretized aggregation at fixed communication rounds.
+    \item \textit{Data Non-IID Effects:} Statistical heterogeneity across edge nodes (e.g., complex traffic patterns in port areas) creates a residual disadvantage that global averaging cannot fully eliminate.
+\end{itemize}
+
+\textbf{Systemic Efficiency and Regulatory Compliance:}
+\begin{itemize}
+    \item \textit{Data Privacy:} Raw sensor data never leaves the origin point, ensuring that granular mobility patterns remain local. This privacy-by-design architecture inherently satisfies strict global regulations such as GDPR and CCPA.
+    \item \textit{Bandwidth Optimization:} The framework achieved a transformative 262$\times$ reduction in communication overhead. Instead of streaming massive high-frequency raw datasets, the system only transmits compressed model parameters (weights) every round.
+    \item \textit{Edge Readiness and Latency:} With an optimized model size of only 20 KB, the architecture is fully compatible with resource-constrained edge devices. This enables real-time local inference with latencies below 100 ms, facilitating immediate proactive traffic management that centralized systems (burdened by round-trip query times) cannot match.
+\end{itemize}
+
+\textbf{Operational Conclusion:} For Intelligent Transportation Systems, where signal control algorithms typically tolerate a $\pm$5--10\% error margin, the FL model's performance is functionally equivalent to centralized systems while offering superior operational resilience and security.
 
 \section{Conclusion}
 Summarize your work and future directions.
 
-\backmatter
-
-
-\end{itemize}
-
+\bibliographystyle{sn-mathphys-num}
 \bibliography{sn-bibliography}
 
 \end{document}

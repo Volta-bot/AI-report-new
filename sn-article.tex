@@ -28,20 +28,8 @@
 
 \raggedbottom
 
-\begin{document}
-
-\title{Edge-based Traffic Prediction via Federated Learning}
-
-\author*[1]{\fnm{Hoang} \sur{Anh} - 202417093}
-\author[1]{\fnm{Dang Xuan} \sur{Bach} - 202417099}
-\author[1]{\fnm{Tran Duc} \sur{Nam} - 202417175}
-\author[1]{\fnm{Luu Quoc} \sur{Khanh} - 202417140}
-\author[1]{\fnm{Doan Nguyen Ngoc} \sur{Son} - 202417191}
-
-\affil*[1]{School of Information and Communications Technology, Hanoi University of Science and Technology, Hanoi, Vietnam}
-
-% Instructor and Department placed neatly beneath the University
-\affil{\vspace{0.5em} \textit{Instructor:} Pham Van Hai - Department of Computer Science}
+\begin{document} \title{Edge-based Traffic Prediction via Federated Learning} \author*[1]{\fnm{Hoang} \sur{Anh} - 202417093} \author[1]{\fnm{Dang Xuan} \sur{Bach} - 202417099} \author[1]{\fnm{Tran Duc} \sur{Nam} - 202417175} \author[1]{\fnm{Luu Quoc} \sur{Khanh} - 202417140} \author[1]{\fnm{Doan Nguyen Ngoc} \sur{Son} - 202417191} \affil*[1]{School of Information and Communications Technology, Hanoi University of Science and Technology, Hanoi, Vietnam}\\[1em] % Instructor and Department placed neatly beneath the University 
+\affil{\vspace{0.5em} \textit{Instructor:} Assoc. Prof. Pham Van Hai - Department of Computer Science, SOICT, HUST}
 
 \abstract{On a global scale, rapid urbanization has led to a significant increase in vehicular traffic, requiring Intelligent Transportation Systems (ITS) to accurately predict traffic flow for congestion management. However, traditional centralized prediction models rely on continuously streaming high-frequency data from distributed sensors, raising severe privacy risks regarding user mobility patterns, massive bandwidth consumption, and processing latency. To address these challenges, this research proposes a privacy-preserving Edge-based Traffic Prediction framework via Federated Learning (FL). A customized, lightweight Multi-Horizon Long Short-Term Memory (LSTM) model is deployed at the edge to simultaneously forecast short-, medium-, and long-term traffic conditions. During collaborative training, edge clients transmit only 20\,KB model weight updates to a central server using the Federated Averaging (FedAvg) algorithm, keeping raw data strictly local. Furthermore, the framework applies Louvain clustering and centrality metrics to automate the optimal topological placement of edge nodes, naturally handling spatial disparities. Experimental results using SUMO simulations and real-world benchmark datasets (PeMS-BAY and METR-LA) demonstrate that the federated model achieves 92\%--96\% of the centralized baseline accuracy. Moreover, this approach drastically reduces communication bandwidth usage by 80--262 times. The proposed solution offers a scalable and secure architecture, making privacy-preserving traffic prediction highly effective for modern ITS management.}
 

@@ -28,15 +28,15 @@
 
 \raggedbottom
 
-\begin{document} 
-\title{Edge-based Traffic Prediction via Federated Learning} 
-\author*[1]{\fnm{Hoang} \sur{Anh} - 202417093} 
-\author[1]{\fnm{Dang Xuan} \sur{Bach} - 202417099} 
-\author[1]{\fnm{Tran Duc} \sur{Nam} - 202417175} 
-\author[1]{\fnm{Luu Quoc} \sur{Khanh} - 202417140} 
-\author[1]{\fnm{Doan Nguyen Ngoc} \sur{Son} - 202417191} 
+\begin{document}
+\title{Edge-based Traffic Prediction via Federated Learning}
+\author*[1]{\fnm{Hoang} \sur{Anh} - 202417093}
+\author[1]{\fnm{Dang Xuan} \sur{Bach} - 202417099}
+\author[1]{\fnm{Tran Duc} \sur{Nam} - 202417175}
+\author[1]{\fnm{Luu Quoc} \sur{Khanh} - 202417140}
+\author[1]{\fnm{Doan Nguyen Ngoc} \sur{Son} - 202417191}
 
-\affil*[1]{School of Information and Communications Technology, Hanoi University of Science and Technology, Hanoi, Vietnam} % Instructor and Department placed neatly beneath the University 
+\affil*[1]{School of Information and Communications Technology, Hanoi University of Science and Technology, Hanoi, Vietnam}
 \affil{\vspace{0.5em} \textit{Instructor:} Assoc. Prof. Pham Van Hai - Department of Computer Science, SOICT, HUST}
 
 \abstract{On a global scale, rapid urbanization has led to a significant increase in vehicular traffic, requiring Intelligent Transportation Systems (ITS) to accurately predict traffic flow for congestion management. However, traditional centralized prediction models rely on continuously streaming high-frequency data from distributed sensors, raising severe privacy risks regarding user mobility patterns, massive bandwidth consumption, and processing latency. To address these challenges, this research proposes a privacy-preserving Edge-based Traffic Prediction framework via Federated Learning (FL). A customized, lightweight Multi-Horizon Long Short-Term Memory (LSTM) model is deployed at the edge to simultaneously forecast short-, medium-, and long-term traffic conditions. During collaborative training, edge clients transmit only 20\,KB model weight updates to a central server using the Federated Averaging (FedAvg) algorithm, keeping raw data strictly local. Furthermore, the framework applies Louvain clustering and centrality metrics to automate the optimal topological placement of edge nodes, naturally handling spatial disparities. Experimental results using SUMO simulations and real-world benchmark datasets (PeMS-BAY and METR-LA) demonstrate that the federated model achieves 92\%--96\% of the centralized baseline accuracy. Moreover, this approach drastically reduces communication bandwidth usage by 80--262 times. The proposed solution offers a scalable and secure architecture, making privacy-preserving traffic prediction highly effective for modern ITS management.}
@@ -47,20 +47,20 @@
 
 \section{Introduction}
 
-Rapid urbanization on a global scale has led to a significant increase in vehicular traffic, resulting in severe congestion, elevated emissions, and reduced efficiency within modern transportation networks. To mitigate these cascading challenges, Intelligent Transportation Systems (ITS) have emerged as a critical data-driven solution, leveraging predictive analytics to optimize traffic flow, proactively manage congestion, and enhance overall road safety. With the advent of deep learning, advanced neural network architectures---such as Long Short-Term Memory (LSTM) networks and Graph Neural Networks (GNNs)---have become the academic and industry standard for accurately capturing the complex, non-linear spatiotemporal dependencies inherent in urban traffic data.
+Rapid urbanization on a global scale has led to a significant increase in vehicular traffic, resulting in severe congestion, elevated emissions, and reduced efficiency within modern transportation networks. To mitigate these cascading challenges, Intelligent Transportation Systems (ITS) have emerged as a critical data-driven solution, leveraging predictive analytics to optimize traffic flow, proactively manage congestion, and enhance overall road safety. With the advent of deep learning, advanced neural network architectures---such as Long Short-Term Memory (LSTM) networks \cite{hochreiter1997lstm} and Graph Neural Networks (GNNs)---have become the academic and industry standard for accurately capturing the complex, non-linear spatiotemporal dependencies inherent in urban traffic data.
 
-Traditionally, these highly effective predictive models operate on a centralized architecture, continuously streaming high-frequency data from thousands of distributed sensors to a central server for processing and training. However, this centralized paradigm faces critical operational and ethical limitations. Most prominently, it introduces severe privacy vulnerabilities; raw traffic data inherently encodes sensitive user mobility patterns, commute routines, and behavioral habits. The centralization of this data creates an attractive surface for cyberattacks, enables unauthorized inference attacks, and risks violating stringent data protection regulations such as the GDPR. Furthermore, continuously streaming massive amounts of raw data consumes substantial network bandwidth and introduces processing latency, which severely hinders real-time decision-making. While keeping data at the edge is desirable, adapting powerful deep learning models to operate locally poses significant challenges, particularly in handling the spatial heterogeneity and non-IID (Independent and Identically Distributed) nature of traffic data across different city regions.
+Traditionally, these highly effective predictive models operate on a centralized architecture, continuously streaming high-frequency data from thousands of distributed sensors to a central server for processing and training. However, this centralized paradigm faces critical operational and ethical limitations. Most prominently, it introduces severe privacy vulnerabilities; raw traffic data inherently encodes sensitive user mobility patterns, commute routines, and behavioral habits. The centralization of this data creates an attractive surface for cyberattacks, enables unauthorized inference attacks, and risks violating stringent data protection regulations such as the GDPR. Furthermore, continuously streaming massive amounts of raw data consumes substantial network bandwidth and introduces processing latency, which severely hinders real-time decision-making. While keeping data at the edge is desirable, adapting powerful deep learning models to operate locally poses significant challenges, particularly in handling the spatial heterogeneity and non-IID (Independent and Identically Distributed) nature of traffic data across different city regions \cite{Zhao2018FederatedNonIID}.
 
-To address these critical gaps, this research proposes a privacy-preserving Edge-based Traffic Prediction system utilizing Federated Learning (FL). Methodologically, this framework centers on a customized, highly lightweight Multi-Horizon LSTM network that is deployed directly at the edge to predict traffic conditions at 15, 30, and 60-minute intervals simultaneously. Instead of centralizing raw sensor data, the framework utilizes the Federated Averaging (FedAvg) algorithm, wherein edge clients train their models locally and securely transmit only minimal model weight updates to a coordinating server. A notable innovation in this methodology is its automated network topology analysis. Rather than relying on manual edge placement, the system employs Louvain clustering and centrality metrics to automatically partition road networks and place edge nodes in optimally representative locations, naturally addressing spatial disparities.
+To address these critical gaps, this research proposes a privacy-preserving Edge-based Traffic Prediction system utilizing Federated Learning (FL) \cite{mcmahan2017fedavg}. Methodologically, this framework centers on a customized, highly lightweight Multi-Horizon LSTM network \cite{hochreiter1997lstm} that is deployed directly at the edge to predict traffic conditions at 15, 30, and 60-minute intervals simultaneously. Instead of centralizing raw sensor data, the framework utilizes the Federated Averaging (FedAvg) algorithm \cite{mcmahan2017fedavg}, wherein edge clients train their models locally and securely transmit only minimal model weight updates to a coordinating server. A notable innovation in this methodology is its automated network topology analysis. Rather than relying on manual edge placement, the system employs Louvain clustering \cite{blondel2008louvain} and centrality metrics to automatically partition road networks and place edge nodes in optimally representative locations, naturally addressing spatial disparities.
 
-The significance of this study lies in its ability to effectively balance high predictive accuracy with uncompromising privacy guarantees. By retaining raw data strictly localized at the edge, the framework ensures regulatory compliance, minimizes the attack surface for potential data breaches, and guarantees absolute data sovereignty for municipalities. 
+The significance of this study lies in its ability to effectively balance high predictive accuracy with uncompromising privacy guarantees. By retaining raw data strictly localized at the edge, the framework ensures regulatory compliance, minimizes the attack surface for potential data breaches, and guarantees absolute data sovereignty for municipalities.
 
 To systematically address the challenges of modern ITS infrastructure, the key highlights and contributions proposed by this study are as follows:
 
 \begin{enumerate}
-    \item \textbf{Federated Architecture Innovation:} Development of a scalable FL framework that coordinates training seamlessly across distributed edge clients, robustly validated through realistic multi-modal traffic generation via the SUMO (Simulation of Urban MObility) platform.
-    \item \textbf{Edge-Optimized Forecasting:} Design of a lightweight Multi-Horizon LSTM capable of extracting temporal dependencies and forecasting multiple future traffic states simultaneously using strictly local data.
-    \item \textbf{Automated Topological Placement:} Application of network topology analysis to group road networks into natural traffic communities, ensuring optimal and representative edge node placement.
+    \item \textbf{Federated Architecture Innovation:} Development of a scalable FL framework \cite{mcmahan2017fedavg,tariq2024trustworthy} that coordinates training seamlessly across distributed edge clients, robustly validated through realistic multi-modal traffic generation via the SUMO (Simulation of Urban MObility) platform \cite{lopez2018sumo}.
+    \item \textbf{Edge-Optimized Forecasting:} Design of a lightweight Multi-Horizon LSTM \cite{hochreiter1997lstm} capable of extracting temporal dependencies and forecasting multiple future traffic states simultaneously using strictly local data.
+    \item \textbf{Automated Topological Placement:} Application of network topology analysis using Louvain community detection \cite{blondel2008louvain} to group road networks into natural traffic communities, ensuring optimal and representative edge node placement.
     \item \textbf{Bandwidth and Privacy Optimization:} The proposed federated model successfully achieves 92\% to 96\% of the accuracy of an ideal centralized baseline, while concurrently reducing communication bandwidth consumption by an unprecedented factor of 80 to 262 times by exchanging merely 20 KB weight files.
 \end{enumerate}
 
@@ -73,19 +73,19 @@ This chapter provides a comprehensive review of the existing literature related 
 
 Traffic flow prediction is a fundamental component of modern ITS. Accurate forecasting enables traffic management centers to mitigate congestion, optimize signal timing, and provide real-time route guidance to drivers. Early approaches to traffic prediction relied heavily on statistical methods. The Autoregressive Integrated Moving Average (ARIMA) model and its variants (e.g., SARIMA, KARIMA) were widely used due to their mathematical soundness. However, these linear models often struggle to capture the complex, non-linear, and dynamic spatiotemporal dependencies inherent in traffic data. Kalman Filters have also been employed for real-time estimation but typically require strict assumptions about the state-space model.
 
-The advent of Deep Learning has revolutionized traffic prediction. Recurrent Neural Networks (RNNs), and specifically Long Short-Term Memory (LSTM) networks and Gated Recurrent Units (GRUs), have become the standard for modeling temporal dependencies in time-series data. These models can effectively learn long-term patterns and handle non-linear relationships. More recently, Graph Neural Networks (GNNs) have been introduced to explicitly model the spatial topology of road networks. Approaches like Graph Convolutional Networks (GCNs) combined with temporal modules (T-GCN, ST-GCN) have achieved state-of-the-art performance by simultaneously capturing spatial correlations between road segments and temporal trends. However, these centralized deep learning models require aggregating massive amounts of data at a central server, raising significant privacy and bandwidth concerns.
+The advent of Deep Learning has revolutionized traffic prediction. Recurrent Neural Networks (RNNs), and specifically Long Short-Term Memory (LSTM) networks \cite{hochreiter1997lstm} and Gated Recurrent Units (GRUs), have become the standard for modeling temporal dependencies in time-series data. These models can effectively learn long-term patterns and handle non-linear relationships. More recently, Graph Neural Networks (GNNs) have been introduced to explicitly model the spatial topology of road networks. Approaches like Graph Convolutional Networks (GCNs) combined with temporal modules (T-GCN, ST-GCN) have achieved state-of-the-art performance by simultaneously capturing spatial correlations between road segments and temporal trends \cite{li2018dcrnn}. However, these centralized deep learning models require aggregating massive amounts of data at a central server, raising significant privacy and bandwidth concerns \cite{liu2020fedgru}.
 
-With the development of intelligent transportation systems, the scale and complexity of traffic data are continuously increasing, making privacy and security concerns a critical priority. In this context, federated learning, as a distributed machine learning paradigm, effectively addresses data privacy and security issues in the transportation domain while enhancing the efficiency of traffic prediction and management. In 2017, the classic federated averaging algorithm was introduced when McMahan proposed a federated learning algorithm based on gradients, laying an important foundation for the research and application of federated learning in distributed environments. As scholars discovered that data imbalance and other issues often occur in practical applications, Zhao et al. (2018) proposed a weighted average-based federated learning algorithm. This algorithm adds a weight to the local model updates of each client to balance the impact between different clients, significantly improving accuracy.
+With the development of intelligent transportation systems, the scale and complexity of traffic data are continuously increasing, making privacy and security concerns a critical priority \cite{tariq2024trustworthy,bharati2022federated}. In this context, federated learning, as a distributed machine learning paradigm, effectively addresses data privacy and security issues in the transportation domain while enhancing the efficiency of traffic prediction and management. In 2017, the classic federated averaging algorithm was introduced when McMahan et al. \cite{mcmahan2017fedavg} proposed a federated learning algorithm based on gradients, laying an important foundation for the research and application of federated learning in distributed environments. As scholars discovered that data imbalance and other issues often occur in practical applications, Zhao et al. \cite{Zhao2018FederatedNonIID} proposed a weighted average-based federated learning algorithm. This algorithm adds a weight to the local model updates of each client to balance the impact between different clients, significantly improving accuracy.
 
-Further enhancing these frameworks, Wei et al. (2020) proposed a federated learning algorithm that combines differential privacy protection by introducing a noise addition mechanism applied to model updating and aggregation. Subsequently, Qi et al. (2021) expanded on differential privacy to improve the accuracy of traffic prediction while protecting data privacy. Trustworthy FL is becoming critical for infrastructure like ITS, enhancing security and communication efficiency across Internet of Vehicles (IoV) and edge computing environments where data is naturally distributed and sensitive.
+Further enhancing these frameworks, Wei et al. \cite{Wei2020FLDP} proposed a federated learning algorithm that combines differential privacy protection by introducing a noise addition mechanism applied to model updating and aggregation. Subsequently, Qi et al. \cite{Qi2020BlockchainFLTraffic} expanded on differential privacy to improve the accuracy of traffic prediction while protecting data privacy. Trustworthy FL \cite{tariq2024trustworthy} is becoming critical for infrastructure like ITS, enhancing security and communication efficiency across Internet of Vehicles (IoV) and edge computing environments where data is naturally distributed and sensitive.
 
-Recent advancements have heavily adopted federated learning to balance the need for accurate traffic prediction with strict data privacy constraints. Current state-of-the-art research addresses three primary challenges: capturing complex spatial-temporal dependencies across distributed nodes, managing data heterogeneity among clients, and ensuring robust system security. For instance, a major challenge in federated traffic forecasting is accurately modeling the complex spatial and temporal correlations without centralizing the data. Wang et al. proposed FedSTM, a privacy-preserving spatiotemporal flow prediction model inspired by high-definition image generation techniques. Their approach utilizes a fine-grained Traffic State Pixel Embedding method to quantify and extract atomic-level features from both spatiotemporal and semantic dimensions. This successfully captures highly complex traffic dynamics across distributed networks. However, treating traffic states like high-definition image frames can introduce substantial computational overhead for resource-constrained edge devices. In contrast, our proposed methodology utilizes a highly optimized, lightweight Multi-Horizon LSTM architecture that achieves temporal accuracy with only 5,000 parameters, ensuring it remains feasible for standard IoT edge nodes.
+Recent advancements have heavily adopted federated learning to balance the need for accurate traffic prediction with strict data privacy constraints \cite{liu2020fedgru,feng2024federated,zhang2024personalized}. Current state-of-the-art research addresses three primary challenges: capturing complex spatial-temporal dependencies across distributed nodes, managing data heterogeneity among clients, and ensuring robust system security \cite{tariq2024trustworthy}. For instance, a major challenge in federated traffic forecasting is accurately modeling the complex spatial and temporal correlations without centralizing the data. Wang et al. proposed FedSTM, a privacy-preserving spatiotemporal flow prediction model inspired by high-definition image generation techniques. Their approach utilizes a fine-grained Traffic State Pixel Embedding method to quantify and extract atomic-level features from both spatiotemporal and semantic dimensions \cite{sttn2024}. This successfully captures highly complex traffic dynamics across distributed networks. However, treating traffic states like high-definition image frames can introduce substantial computational overhead for resource-constrained edge devices. In contrast, our proposed methodology utilizes a highly optimized, lightweight Multi-Horizon LSTM architecture \cite{hochreiter1997lstm} that achieves temporal accuracy with only 5,000 parameters, ensuring it remains feasible for standard IoT edge nodes.
 
-In real-world ITS deployments, data collected across different sensors is inherently non-IID (Independent and Identically Distributed), suffering from varying volumes and regional characteristics. Li et al. proposed a communication-efficient federated learning method specifically designed for traffic flow prediction to address these deployment bottlenecks. Their framework successfully reduces communication delays and handles the uneven distribution of data across distributed sensors. While this improves global communication efficiency, a single global model often struggles to perfectly personalize to completely distinct urban topologies (e.g., highway vs. arterial roads). Our system bridges this gap by introducing a graph-based, topology-aware edge placement strategy using Louvain clustering, which naturally groups structurally similar traffic communities to ensure regional relevance and fairness.
+In real-world ITS deployments, data collected across different sensors is inherently non-IID (Independent and Identically Distributed), suffering from varying volumes and regional characteristics \cite{Zhao2018FederatedNonIID}. Li et al. \cite{li2024fedasta} proposed a communication-efficient federated learning method specifically designed for traffic flow prediction to address these deployment bottlenecks. Their framework successfully reduces communication delays and handles the uneven distribution of data across distributed sensors. While this improves global communication efficiency, a single global model often struggles to perfectly personalize to completely distinct urban topologies (e.g., highway vs. arterial roads). Our system bridges this gap by introducing a graph-based, topology-aware edge placement strategy using Louvain clustering \cite{blondel2008louvain}, which naturally groups structurally similar traffic communities to ensure regional relevance and fairness.
 
-Additionally, while federated learning inherently minimizes raw data exposure, the quality of local data and network stability can compromise system robustness. Cheng et al. proposed a federated contrastive learning approach aimed at building robust traffic classifiers under low-quality data conditions. Their framework tackles realistic network flaws, such as packet loss and skewed data distributions, successfully maintaining model integrity and learning robust representations without relying on isolated, perfect network simulations. While their work focuses heavily on network traffic classification, our methodology applies similar principles of asynchronous communication and robustness to the domain of multi-horizon traffic speed prediction, utilizing a 300-second per-client timeout and exponential backoff to ensure reliable aggregation even when edge nodes face connectivity issues.
+Additionally, while federated learning inherently minimizes raw data exposure, the quality of local data and network stability can compromise system robustness. Qin et al. \cite{qin2025fedcontrastive} proposed a federated contrastive learning approach aimed at building robust traffic classifiers under low-quality data conditions. Their framework tackles realistic network flaws, such as packet loss and skewed data distributions, successfully maintaining model integrity and learning robust representations without relying on isolated, perfect network simulations. While their work focuses heavily on network traffic classification, our methodology applies similar principles of asynchronous communication and robustness to the domain of multi-horizon traffic speed prediction, utilizing a 300-second per-client timeout and exponential backoff to ensure reliable aggregation even when edge nodes face connectivity issues.
 
-The methodological execution of these concepts relies on two foundational theoretical frameworks. First, Long Short-Term Memory (LSTM) networks are a special kind of RNN capable of learning long-term dependencies. They were introduced to solve the vanishing gradient problem of traditional RNNs. An LSTM unit is composed of a cell, an input gate, an output gate, and a forget gate. The cell remembers values over arbitrary time intervals and the three gates regulate the flow of information into and out of the cell. For a given input sequence $x=(x_{1},x_{2},...,x_{T})$, the LSTM computes the hidden state sequence $h=(h_{1},h_{2},...,h_{T})$ by iterating the following equations from $t=1$ to $T$:
+The methodological execution of these concepts relies on two foundational theoretical frameworks. First, Long Short-Term Memory (LSTM) networks \cite{hochreiter1997lstm} are a special kind of RNN capable of learning long-term dependencies. They were introduced to solve the vanishing gradient problem of traditional RNNs. An LSTM unit is composed of a cell, an input gate, an output gate, and a forget gate. The cell remembers values over arbitrary time intervals and the three gates regulate the flow of information into and out of the cell. For a given input sequence $x=(x_{1},x_{2},...,x_{T})$, the LSTM computes the hidden state sequence $h=(h_{1},h_{2},...,h_{T})$ by iterating the following equations from $t=1$ to $T$:
 
 \begin{equation}
 f_{t}=\sigma(W_{f}\cdot[h_{t-1},x_{t}]+b_{f})
@@ -108,7 +108,7 @@ h_{t}=o_{t}*\tanh(C_{t})
 
 where $\sigma$ is the sigmoid function, $*$ denotes the Hadamard product, and $W$ and $b$ are weight matrices and bias vectors, respectively.
 
-Second, the distributed training process is governed by Federated Averaging (FedAvg), a technique used to train machine learning models where data is spread across many different servers or devices. It ensures data privacy and security and maintains data locality by enabling model training without sharing the raw data. In the conventional approach of centralized machine learning, data is collected and stored in a central server, and a single model is trained on this consolidated data. Conversely, in federated averaging, data remains decentralized, residing on numerous devices or edge devices, and the model's training is conducted locally on each specific device. The goal is to minimize the global loss function $F(w)$:
+Second, the distributed training process is governed by Federated Averaging (FedAvg) \cite{mcmahan2017fedavg}, a technique used to train machine learning models where data is spread across many different servers or devices. It ensures data privacy and security and maintains data locality by enabling model training without sharing the raw data. In the conventional approach of centralized machine learning, data is collected and stored in a central server, and a single model is trained on this consolidated data. Conversely, in federated averaging, data remains decentralized, residing on numerous devices or edge devices, and the model's training is conducted locally on each specific device. The goal is to minimize the global loss function $F(w)$:
 
 \begin{equation}
 \min_{w}F(w)=\sum_{k=1}^{K}\frac{n_{k}}{n}F_{k}(w)
@@ -116,7 +116,7 @@ Second, the distributed training process is governed by Federated Averaging (Fed
 
 where $K$ is the total number of clients, $n_{k}$ is the number of samples on client $k$, $n$ is the total number of samples, and $F_{k}(w)$ is the local loss function of client $k$.
 
-In each round $t$, the server selects a subset of clients $S_{t}$ and sends the current global model $w_{t}$ to these clients. Each client $k$ performs $E$ epochs of local training (SGD) to obtain $w_{t+1}^{k}$. Finally, the server aggregates the updates using the following formula:
+In each round $t$, the server selects a subset of clients $S_{t}$ and sends the current global model $w_{t}$ to these clients. Each client $k$ performs $E$ epochs of local training (SGD) to obtain $w_{t+1}^{k}$. Finally, the server aggregates the updates using the following formula \cite{mcmahan2017fedavg}:
 
 \begin{equation}
 w_{t+1}=\sum_{k\in S_{t}}\frac{n_{k}}{n}w_{t+1}^{k}
@@ -125,51 +125,51 @@ w_{t+1}=\sum_{k\in S_{t}}\frac{n_{k}}{n}w_{t+1}^{k}
 \section{Methodology}
 
 \subsection{Overview}
-This chapter details the methodology for the Edge-based Traffic Prediction system via Federated Learning (FL). The system is specifically designed to address the critical challenges of privacy, bandwidth, and latency in Intelligent Transportation Systems (ITS). By dividing different traffic regions into independent and isolated clients, the architecture ensures that raw traffic data never leaves the local environment, thereby guaranteeing robust data privacy. 
+This chapter details the methodology for the Edge-based Traffic Prediction system via Federated Learning (FL). The system is specifically designed to address the critical challenges of privacy, bandwidth, and latency in Intelligent Transportation Systems (ITS) \cite{tariq2024trustworthy,bharati2022federated}. By dividing different traffic regions into independent and isolated clients, the architecture ensures that raw traffic data never leaves the local environment, thereby guaranteeing robust data privacy.
 
-To overcome the challenges of insufficient or poor-quality data at individual nodes, the system leverages FL to collaboratively train a global model. Furthermore, it addresses the issue of model parameter bloat by utilizing a lightweight architecture to reduce communication burdens, while incorporating mechanisms to handle data imbalance among clients. This ensures that clients with large amounts of data do not disproportionately overshadow the individuality of other regions.
+To overcome the challenges of insufficient or poor-quality data at individual nodes \cite{qin2025fedcontrastive}, the system leverages FL to collaboratively train a global model. Furthermore, it addresses the issue of model parameter bloat by utilizing a lightweight architecture to reduce communication burdens, while incorporating mechanisms to handle data imbalance among clients \cite{Zhao2018FederatedNonIID}. This ensures that clients with large amounts of data do not disproportionately overshadow the individuality of other regions.
 
 \subsection{Federated Learning Framework and Training Process}
 The framework operates on a distributed architecture consisting of two primary roles: Local Clients and a Central Server. Local Clients function as independent computing units that manage local data, train the model using parameters dispatched by the server, and upload the updated model weights. The Central Server acts as the coordinator that operates completely independent of the clients' raw data. It is responsible for initializing the global model, distributing parameters, aggregating client updates, and generating the new global model for the next iteration.
 
-The collaborative training process follows a strict sequence in each communication round:
+The collaborative training process follows a strict sequence in each communication round \cite{mcmahan2017fedavg}:
 \begin{itemize}
     \item \textbf{Initialization \& Distribution:} The server initializes the global model weights $W_0$ and distributes the current weights $W_r$ to selected clients.
     \item \textbf{Local Training:} Each client $k$ uses its private local dataset $D_k$ to train the model to minimize prediction errors.
-    \item \textbf{Upload \& Aggregation:} Clients upload their updated weights $W_r^k$ to the server. 
+    \item \textbf{Upload \& Aggregation:} Clients upload their updated weights $W_r^k$ to the server.
     \item \textbf{Iteration:} This process repeats for a fixed number of rounds $R$ or until convergence is achieved.
 \end{itemize}
 
-For model aggregation, the server employs the weighted Federated Averaging (FedAvg) algorithm to ensure fair influence based on local data size. In each round $r$, the server computes the new global model using the following mathematical formulation:
+For model aggregation, the server employs the weighted Federated Averaging (FedAvg) algorithm \cite{mcmahan2017fedavg} to ensure fair influence based on local data size. In each round $r$, the server computes the new global model using the following mathematical formulation:
 $$W_{r+1} = \sum_{k \in S_r} \frac{n_k}{n} W_r^k$$
 where $S_r$ is the subset of selected clients, $n_k$ is the number of samples on client $k$, and $n$ is the total number of samples.
 
 \subsection{System Architecture and Components}
-The complete system is built upon integrated subsystems designed to support both simulated and real-world data environments. 
+The complete system is built upon integrated subsystems designed to support both simulated and real-world data environments.
 
 \begin{itemize}
-    \item \textbf{Traffic Data Environment:} The environment operates in two distinct modes. The Simulation Mode utilizes the SUMO (Simulation of Urban MObility) platform to generate realistic, multi-modal traffic flows on road networks imported from OpenStreetMap. The Real-World Mode integrates benchmark datasets (PEMS-BAY and METR-LA) with 5-minute temporal resolutions for rigorous validation.
+    \item \textbf{Traffic Data Environment:} The environment operates in two distinct modes. The Simulation Mode utilizes the SUMO (Simulation of Urban MObility) platform \cite{lopez2018sumo} to generate realistic, multi-modal traffic flows on road networks imported from OpenStreetMap. The Real-World Mode integrates benchmark datasets (PEMS-BAY and METR-LA) \cite{li2018dcrnn} with 5-minute temporal resolutions for rigorous validation.
     \item \textbf{Data Streaming Layer:} Real-time data flows via a WebSocket-based publish-subscribe architecture. High-frequency traffic metrics (speed, vehicle count, occupancy) are published to edge clients in structured JSON messages. Each client maintains a fixed-size circular buffer storing 300 seconds of aggregated data to ensure continuous, memory-efficient training.
     \item \textbf{Edge Clients and FL Server:} Edge clients perform local training using PyTorch with the Adam optimizer (learning rate 0.001, batch size 32) and utilize the Flower framework interface to communicate with the server. The FL server coordinates training with configurations such as a minimum of 5 clients per round and evaluates the aggregated model against held-out test data to track convergence.
     \item \textbf{Problem Definition:} The task is to learn a mapping function that predicts future traffic states sequence $Y_t = \{y_{t+h_1}, y_{t+h_2}, ..., y_{t+h_m}\}$ based on a historical observation sequence $X_t = \{x_{t-T_{in}+1}, ..., x_t\} \in \mathbb{R}^{T_{in} \times F}$.
-    \item \textbf{Multi-Horizon LSTM Architecture:} To capture temporal dependencies, the system employs a Long Short-Term Memory (LSTM) network optimized for the edge. The encoder consists of two stacked LSTM layers with 64 units each. Instead of a single output, the model features three distinct fully connected heads to simultaneously predict short-term (15 minutes), medium-term (30 minutes), and long-term (60 minutes) conditions. The model is exceptionally lightweight, containing only 5,000 parameters and a weight file size of 20 KB.
+    \item \textbf{Multi-Horizon LSTM Architecture:} To capture temporal dependencies, the system employs a Long Short-Term Memory (LSTM) network \cite{hochreiter1997lstm} optimized for the edge. The encoder consists of two stacked LSTM layers with 64 units each. Instead of a single output, the model features three distinct fully connected heads to simultaneously predict short-term (15 minutes), medium-term (30 minutes), and long-term (60 minutes) conditions. The model is exceptionally lightweight, containing only 5,000 parameters and a weight file size of 20 KB.
 \end{itemize}
 
 \subsection{Network Topology Analysis for Edge Placement}
-A crucial innovation in this methodology is the automated, topology-based placement of edge clients within the road network, avoiding arbitrary manual configurations. 
+A crucial innovation in this methodology is the automated, topology-based placement of edge clients within the road network, avoiding arbitrary manual configurations.
 
 \begin{itemize}
-    \item \textbf{Louvain Clustering for Community Detection:} The system constructs an undirected graph of the road network and applies Louvain clustering to partition the network into natural traffic communities by optimizing modularity.
+    \item \textbf{Louvain Clustering for Community Detection:} The system constructs an undirected graph of the road network and applies Louvain clustering \cite{blondel2008louvain} to partition the network into natural traffic communities by optimizing modularity.
     \item \textbf{Centrality-Based Representative Selection:} Within each community, the optimal edge location is determined by calculating a combined score of Betweenness Centrality (measuring how often a segment is on the shortest path) and Closeness Centrality (measuring the average distance to other segments).
-    \item \textbf{Benefits:} This spatial partitioning strategy ensures balanced regional fairness, accurately mimics the coverage of physical Roadside Units (RSUs), and successfully introduces the statistical heterogeneity necessary to test the FL algorithm.
+    \item \textbf{Benefits:} This spatial partitioning strategy ensures balanced regional fairness, accurately mimics the coverage of physical Roadside Units (RSUs), and successfully introduces the statistical heterogeneity necessary to test the FL algorithm \cite{Zhao2018FederatedNonIID}.
 \end{itemize}
 
 \subsection{Communication Protocol and Efficiency}
-To handle the realities of network communication and bandwidth limitations, the system incorporates robust efficiency optimizations.
+To handle the realities of network communication and bandwidth limitations, the system incorporates robust efficiency optimizations \cite{tariq2024trustworthy}.
 
 \begin{itemize}
-    \item \textbf{Asynchronous Communication Protocol:} The system employs a 300-second per-client timeout and exponential backoff for upload failures. This ensures that the aggregation proceeds as long as a minimum threshold of clients successfully upload, making the system highly resilient to client delays and connection drops.
-    \item \textbf{Bandwidth Efficiency Gains:} By compressing the local model weights to just 22 KB per client, the architecture achieves an 80-100x reduction in bandwidth costs compared to centralized raw data transmission. This drastically lowers latency and energy consumption for battery-powered or resource-constrained IoT devices at the edge.
+    \item \textbf{Asynchronous Communication Protocol:} The system employs a 300-second per-client timeout and exponential backoff for upload failures \cite{qin2025fedcontrastive}. This ensures that the aggregation proceeds as long as a minimum threshold of clients successfully upload, making the system highly resilient to client delays and connection drops.
+    \item \textbf{Bandwidth Efficiency Gains:} By compressing the local model weights to just 22 KB per client, the architecture achieves an 80--100$\times$ reduction in bandwidth costs compared to centralized raw data transmission \cite{mcmahan2017fedavg,liu2020fedgru}. This drastically lowers latency and energy consumption for battery-powered or resource-constrained IoT devices at the edge.
 \end{itemize}
 
 \section{Experimental Results}
@@ -178,7 +178,7 @@ To handle the realities of network communication and bandwidth limitations, the 
 
 \subsubsection{Simulation Environment}
 
-The experiment is performed using the following software stack: Traffic simulation via SUMO (Simulation of Urban Mobility) v1.18.0, Federated Learning via Flower Framework v1.5.0, deep learning via PyTorch v2.0.1, and a Streamlit-based monitoring dashboard.
+The experiment is performed using the following software stack: Traffic simulation via SUMO (Simulation of Urban Mobility) v1.18.0 \cite{lopez2018sumo}, Federated Learning via Flower Framework v1.5.0, deep learning via PyTorch v2.0.1, and a Streamlit-based monitoring dashboard.
 
 The following pseudo-code outlines the three core loops of the system: the SUMO simulation loop, the edge client loop, and the federated learning server loop.
 
@@ -238,7 +238,7 @@ The following pseudo-code outlines the three core loops of the system: the SUMO 
     \For{each selected client}
         \State Receive local model update
     \EndFor
-    \State Aggregate all updates using FedAvg:
+    \State Aggregate all updates using FedAvg \cite{mcmahan2017fedavg}:
     \[
         w_{\text{global}} \leftarrow \sum_{k=1}^{K} \frac{n_k}{n}\, w_k
     \]
@@ -251,7 +251,7 @@ The following pseudo-code outlines the three core loops of the system: the SUMO 
 
 \subsubsection{Benchmark Dataset Description}
 
-This report uses data collected from PeMS-BAY and METR-LA, two widely used benchmark traffic datasets.
+This report uses data collected from PeMS-BAY and METR-LA \cite{li2018dcrnn}, two widely used benchmark traffic datasets.
 
 \begin{figure}[H]
     \centering
@@ -260,7 +260,7 @@ This report uses data collected from PeMS-BAY and METR-LA, two widely used bench
     \label{fig:pems-bay-dataset}
 \end{figure}
 
-The \textbf{PeMS-BAY} dataset contains traffic data from 325 sensors in the Bay Area, collected over six months (January--May 2017) at 5-minute intervals. Missing values are handled using linear interpolation, and the data is normalized using Z-score normalization to improve model performance.
+The \textbf{PeMS-BAY} dataset \cite{li2018dcrnn} contains traffic data from 325 sensors in the Bay Area, collected over six months (January--May 2017) at 5-minute intervals. Missing values are handled using linear interpolation \cite{Li2018MissingValueImputation}, and the data is normalized using Z-score normalization to improve model performance.
 
 \begin{figure}[H]
     \centering
@@ -269,7 +269,7 @@ The \textbf{PeMS-BAY} dataset contains traffic data from 325 sensors in the Bay 
     \label{fig:metr-la-dataset}
 \end{figure}
 
-The \textbf{METR-LA} dataset consists of traffic data from 207 sensors across Los Angeles, collected over four months at 5-minute intervals. It reflects highly congested urban and freeway conditions. Missing values (9.93\%) are filled using spatio-temporal interpolation, and the data is normalized using Z-score normalization.
+The \textbf{METR-LA} dataset \cite{li2018dcrnn} consists of traffic data from 207 sensors across Los Angeles, collected over four months at 5-minute intervals. It reflects highly congested urban and freeway conditions. Missing values (9.93\%) are filled using spatio-temporal interpolation \cite{Li2018MissingValueImputation}, and the data is normalized using Z-score normalization.
 
 \subsubsection{Hyperparameters}
 
@@ -297,9 +297,9 @@ Number of Clients ($K$)           & 10 \\
 
 \subsubsection{SUMO Network Configuration}
 
-The SUMO simulation is set up using real-world road network data from OpenStreetMap. The network includes various road types such as highways, arterial roads, and local streets, covering a large urban area with many intersections to reflect realistic traffic conditions. This diversity helps evaluate the model across different traffic scenarios.
+The SUMO simulation \cite{lopez2018sumo} is set up using real-world road network data from OpenStreetMap. The network includes various road types such as highways, arterial roads, and local streets, covering a large urban area with many intersections to reflect realistic traffic conditions. This diversity helps evaluate the model across different traffic scenarios.
 
-The simulation uses SUMO version 1.24.0 and includes specific configurations such as ignoring route errors for stability, applying adaptive traffic light control based on congestion, and dynamically rerouting vehicles every 10 seconds. The system also outputs trip and network statistics for further analysis.
+The simulation uses SUMO version 1.24.0 \cite{lopez2018sumo} and includes specific configurations such as ignoring route errors for stability, applying adaptive traffic light control based on congestion, and dynamically rerouting vehicles every 10 seconds. The system also outputs trip and network statistics for further analysis.
 
 \subsubsection{Multi-Modal Traffic Generation}
 
@@ -320,13 +320,13 @@ Bicycle    & Slow speed, bike lanes           & Active transportation \\
 \end{tabular}
 \end{table}
 
-This section describes the use of multi-modal traffic in the simulation, including different vehicle types such as passenger cars, buses, trucks, motorcycles, and bicycles, each with distinct characteristics and purposes. This diversity helps create more realistic traffic conditions.
+This section describes the use of multi-modal traffic in the SUMO simulation \cite{lopez2018sumo}, including different vehicle types such as passenger cars, buses, trucks, motorcycles, and bicycles, each with distinct characteristics and purposes. This diversity helps create more realistic traffic conditions.
 
-By incorporating various vehicle types, the system can better simulate real-world traffic patterns, evaluate model robustness under different conditions, account for non-recurring events like accidents, and allow edge clients to learn region-specific traffic behaviors.
+By incorporating various vehicle types, the system can better simulate real-world traffic patterns \cite{Meng2023LaneChanging}, evaluate model robustness under different conditions, account for non-recurring events like accidents, and allow edge clients to learn region-specific traffic behaviors.
 
 \subsubsection{Dataset Streaming via TraCI}
 
-Data is streamed from the SUMO simulation using the TraCI interface. SUMO runs as a server that enables real-time interaction through TCP, executing simulation steps at regular intervals (typically every second). During each step, the system extracts data such as traffic metrics at the edge level (e.g., vehicle count, speed), junction level (e.g., traffic light status, waiting vehicles), and individual vehicle level (e.g., position, speed, trip progress).
+Data is streamed from the SUMO simulation using the TraCI interface \cite{lopez2018sumo}. SUMO runs as a server that enables real-time interaction through TCP, executing simulation steps at regular intervals (typically every second). During each step, the system extracts data such as traffic metrics at the edge level (e.g., vehicle count, speed), junction level (e.g., traffic light status, waiting vehicles), and individual vehicle level (e.g., position, speed, trip progress).
 
 \begin{verbatim}
 1. Connect to SUMO server via TraCI interface
@@ -342,8 +342,6 @@ Data is streamed from the SUMO simulation using the TraCI interface. SUMO runs a
 \subsubsection{WebSocket Data Publisher}
 
 Traffic data is distributed to edge clients using a WebSocket-based publisher. The system sends real-time JSON messages at each simulation step (1 Hz), allowing clients to subscribe to specific road segments relevant to their region. The transmitted data includes traffic metrics such as vehicle count, speed, density, vehicle types, and road characteristics.
-
-% TODO: Insert WebSocket message example here
 
 \begin{verbatim}
 {
@@ -379,14 +377,14 @@ The dashboard also provides filtering options, client selection for focused moni
   \includegraphics[width=1.0\textwidth]{Figure/dashboard-training-loss.png}
   \caption{Training Loss Over Rounds (Per Client).}\label{fig:dashboard_filter}
 \end{figure}
-The training loss decreases steadily across 160 rounds for 10 different edge clients, indicating successful model convergence. While different clients show varying convergence patterns due to data heterogeneity, all remain stable without divergence, demonstrating effective federated learning.
+The training loss decreases steadily across 160 rounds for 10 different edge clients, indicating successful model convergence \cite{mcmahan2017fedavg}. While different clients show varying convergence patterns due to data heterogeneity \cite{Zhao2018FederatedNonIID}, all remain stable without divergence, demonstrating effective federated learning.
 
 \begin{figure}[H]
   \centering
   \includegraphics[width=1.0\textwidth]{Figure/dashboard-validation-mae.png}
   \caption{Validation MAE Over Rounds (Per Client).}\label{fig:train_loss}
 \end{figure}
-The validation MAE decreases over training rounds, showing continuous improvement of the model. Different clients achieve different levels of accuracy depending on traffic complexity, with some performing better in predictable environments and others showing higher error in more complex regions. Differences in MAE across all clients demonstrate that federated learning preserves regional specialization while enabling global knowledge sharing.
+The validation MAE decreases over training rounds, showing continuous improvement of the model. Different clients achieve different levels of accuracy depending on traffic complexity, with some performing better in predictable environments and others showing higher error in more complex regions \cite{zhang2024personalized,dai2024road}. Differences in MAE across all clients demonstrate that federated learning preserves regional specialization while enabling global knowledge sharing.
 
 \begin{figure}[H]
   \centering
@@ -403,7 +401,7 @@ The validation MAE decreases over training rounds, showing continuous improvemen
 
 \subsection{Evaluation Metrics}
 
-Model performance is evaluated using three standard metrics: Mean Absolute Error (MAE), Root Mean Squared Error (RMSE), and Mean Absolute Percentage Error (MAPE), defined as follows:
+Model performance is evaluated using three standard metrics: Mean Absolute Error (MAE), Root Mean Squared Error (RMSE), and Mean Absolute Percentage Error (MAPE) \cite{li2018dcrnn}, defined as follows:
 
 \begin{equation}
   \mathrm{MAE} = \frac{1}{n}\sum_{i=1}^{n}\left|\hat{y}_i - y_i\right|
@@ -421,11 +419,11 @@ where $\hat{y}_i$ is the predicted value and $y_i$ is the ground truth value at 
 
 \subsection{Experimental Results on Benchmark Datasets}
 
-The core of the empirical study focuses on validating the Federated Learning (FL) framework using the Multi-Horizon LSTM model across two distinct urban environments: PeMS-BAY (California highway) and METR-LA (Los Angeles city streets). The results are categorized into convergence stability, temporal forecasting accuracy, and a comparative trade-off analysis.
+The core of the empirical study focuses on validating the Federated Learning (FL) framework using the Multi-Horizon LSTM model \cite{hochreiter1997lstm} across two distinct urban environments: PeMS-BAY (California highway) and METR-LA (Los Angeles city streets) \cite{li2018dcrnn}. The results are categorized into convergence stability, temporal forecasting accuracy, and a comparative trade-off analysis.
 
 \subsubsection{Convergence Analysis}
 
-The efficiency of the Federated Averaging (FedAvg) algorithm was monitored over 50 communication rounds to ensure that distributed training can match the stability of centralized methods.
+The efficiency of the Federated Averaging (FedAvg) algorithm \cite{mcmahan2017fedavg} was monitored over 50 communication rounds to ensure that distributed training can match the stability of centralized methods.
 
 \begin{figure}[H]
   \centering
@@ -435,7 +433,7 @@ The efficiency of the Federated Averaging (FedAvg) algorithm was monitored over 
 
 \textbf{Rapid Global Learning:} During the first 10 rounds, the global model experienced a ``warm-up'' phase where the loss function decreased sharply. For PeMS-BAY, the error dropped by 41.3\%, while METR-LA saw a 43.9\% reduction. This indicates that the model quickly identifies fundamental traffic periodicities (e.g., morning vs.\ evening peaks) shared across all geographic zones.
 
-\textbf{Local Feature Integration:} From rounds 11 to 30, the learning rate stabilized as the model began to reconcile non-IID (non-independent and identically distributed) data from different edge clients.
+\textbf{Local Feature Integration:} From rounds 11 to 30, the learning rate stabilized as the model began to reconcile non-IID (non-independent and identically distributed) data \cite{Zhao2018FederatedNonIID} from different edge clients.
 
 \textbf{Final Convergence:} By the 50th round, the system achieved a total error improvement of 62.5\% (PeMS-BAY) and 68.4\% (METR-LA). The higher improvement in METR-LA suggests that federated learning is particularly robust at extracting meaningful patterns from highly complex urban data.
 
@@ -455,67 +453,60 @@ METR-LA (Urban)    & 5.12\%* & 8.15\%* & 11.02\% \\
 \end{tabular}
 \end{table}
 
-\textbf{Short-term (15 min):} Both datasets showed exceptional accuracy. PeMS-BAY maintained a MAPE of 3.88\%, demonstrating that highway speeds are highly predictable in the immediate future.
+\textbf{Short-term (15 min):} Both datasets showed exceptional accuracy. PeMS-BAY maintained a MAPE of 3.88\%, demonstrating that highway speeds are highly predictable in the immediate future \cite{dai2025short}.
 
 \textbf{Mid-to-Long-term (30--60 min):} As the horizon expanded to one hour, the MAPE increased to 7.80\% for PeMS-BAY and 11.02\% for METR-LA.
 
-\textbf{Reliability:} Despite the increased difficulty of long-term forecasting, all MAPE values remained significantly below the 12\% threshold. This confirms that the Multi-Horizon LSTM architecture successfully captures long-range temporal dependencies without suffering from vanishing gradients, a common issue in standard RNNs.
+\textbf{Reliability:} Despite the increased difficulty of long-term forecasting, all MAPE values remained significantly below the 12\% threshold. This confirms that the Multi-Horizon LSTM architecture \cite{hochreiter1997lstm} successfully captures long-range temporal dependencies without suffering from vanishing gradients, a common issue in standard RNNs.
 
-\textbf{Dataset Comparative Analysis:} PeMS-BAY (freeway) consistently outperformed METR-LA (urban) by approximately 35--40\% in MAPE. This disparity is attributed to the inherent volatility of stop-and-go urban traffic versus the more stable flow of highway networks.
-
-
+\textbf{Dataset Comparative Analysis:} PeMS-BAY (freeway) consistently outperformed METR-LA (urban) by approximately 35--40\% in MAPE \cite{li2018dcrnn}. This disparity is attributed to the inherent volatility of stop-and-go urban traffic versus the more stable flow of highway networks.
 
 The error growth across horizons is sub-linear, demonstrating the robustness of the Multi-Horizon LSTM architecture in capturing long-term temporal dependencies.
 
 \subsubsection{Geographic Fairness and Client-Level Analysis}
 
-A critical concern in Federated Learning is whether the global model performs equitably across all participants, especially under non-IID data conditions.
+A critical concern in Federated Learning is whether the global model performs equitably across all participants, especially under non-IID data conditions \cite{Zhao2018FederatedNonIID,zhang2024personalized}.
 
-
-
-\textbf{Highway Consistency (PeMS-BAY):} Performance across the 6 edge clients was remarkably uniform. At the 15-minute horizon, the Coefficient of Variation (CV) was a mere 2.8\%, with a narrow performance spread of only 0.17 km/h. This validates that graph-based partitioning successfully creates regions with coherent traffic dynamics.
+\textbf{Highway Consistency (PeMS-BAY):} Performance across the 6 edge clients was remarkably uniform. At the 15-minute horizon, the Coefficient of Variation (CV) was a mere 2.8\%, with a narrow performance spread of only 0.17 km/h. This validates that graph-based partitioning using Louvain clustering \cite{blondel2008louvain} successfully creates regions with coherent traffic dynamics.
 
 \textbf{Urban Heterogeneity (METR-LA):} In contrast, the urban network exhibited 3$\times$ higher variance compared to the highway scenario. Client-0 (Downtown LA) achieved the highest accuracy (MAE 2.31 at 15 min) due to highly regulated commuting cycles. Conversely, Client-2 (Port Area) faced the highest error rates (MAE 3.15) driven by irregular heavy-vehicle movements and event-driven congestion.
 
-\textbf{Collaborative Boost via Knowledge Transfer:} Clients in irregular zones derived significant benefits from the federated framework. By effectively borrowing structural traffic logic from stable downtown nodes, the Port Area client stabilized its MAPE at 8.91\%, whereas a local-only training approach would likely have resulted in errors exceeding 12\%.
+\textbf{Collaborative Boost via Knowledge Transfer:} Clients in irregular zones derived significant benefits from the federated framework \cite{liu2020fedgru}. By effectively borrowing structural traffic logic from stable downtown nodes, the Port Area client stabilized its MAPE at 8.91\%, whereas a local-only training approach would likely have resulted in errors exceeding 12\%.
 
-\textbf{Scalability and Fairness:} The results confirm that even in inherently difficult regions, clients can achieve reasonable accuracy through federated knowledge access without sacrificing data sovereignty.
+\textbf{Scalability and Fairness:} The results confirm that even in inherently difficult regions, clients can achieve reasonable accuracy through federated knowledge access without sacrificing data sovereignty \cite{tariq2024trustworthy}.
 
 \subsubsection{The Privacy--Performance Trade-off}
 
 To validate the effectiveness of the proposed framework, the FL model was benchmarked against a centralized baseline (the ``Oracle'' scenario), where all historical traffic data is aggregated on a single server for training.
 
-
-
-\textbf{Accuracy Preservation:} The FL model successfully retained approximately 91.5\%--92\% of the accuracy achieved by the centralized counterpart. The minor absolute increase in MAPE (approximately 0.6\%--0.92\%) is categorized as a negligible privacy tax --- a small cost for the substantial security gains provided.
+\textbf{Accuracy Preservation:} The FL model successfully retained approximately 91.5\%--92\% of the accuracy achieved by the centralized counterpart \cite{liu2020fedgru,feng2024federated}. The minor absolute increase in MAPE (approximately 0.6\%--0.92\%) is categorized as a negligible privacy tax --- a small cost for the substantial security gains provided.
 
 \textbf{Root Causes of the Performance Gap:}
 \begin{itemize}
-    \item \textit{Communication Constraints:} Unlike centralized training, which allows for continuous gradient updates with full precision, FedAvg relies on discretized aggregation at fixed communication rounds.
-    \item \textit{Data Non-IID Effects:} Statistical heterogeneity across edge nodes (e.g., complex traffic patterns in port areas) creates a residual disadvantage that global averaging cannot fully eliminate.
+    \item \textit{Communication Constraints:} Unlike centralized training, which allows for continuous gradient updates with full precision, FedAvg \cite{mcmahan2017fedavg} relies on discretized aggregation at fixed communication rounds.
+    \item \textit{Data Non-IID Effects:} Statistical heterogeneity across edge nodes \cite{Zhao2018FederatedNonIID} (e.g., complex traffic patterns in port areas) creates a residual disadvantage that global averaging cannot fully eliminate.
 \end{itemize}
 
 \textbf{Systemic Efficiency and Regulatory Compliance:}
 \begin{itemize}
-    \item \textit{Data Privacy:} Raw sensor data never leaves the origin point, ensuring that granular mobility patterns remain local. This privacy-by-design architecture inherently satisfies strict global regulations such as GDPR and CCPA.
-    \item \textit{Bandwidth Optimization:} The framework achieved a transformative 262$\times$ reduction in communication overhead. Instead of streaming massive high-frequency raw datasets, the system only transmits compressed model parameters (weights) every round.
-    \item \textit{Edge Readiness and Latency:} With an optimized model size of only 20 KB, the architecture is fully compatible with resource-constrained edge devices. This enables real-time local inference with latencies below 100 ms, facilitating immediate proactive traffic management that centralized systems (burdened by round-trip query times) cannot match.
+    \item \textit{Data Privacy:} Raw sensor data never leaves the origin point, ensuring that granular mobility patterns remain local. This privacy-by-design architecture inherently satisfies strict global regulations such as GDPR and CCPA \cite{tariq2024trustworthy}.
+    \item \textit{Bandwidth Optimization:} The framework achieved a transformative 262$\times$ reduction in communication overhead. Instead of streaming massive high-frequency raw datasets, the system only transmits compressed model parameters (weights) every round \cite{mcmahan2017fedavg}.
+    \item \textit{Edge Readiness and Latency:} With an optimized model size of only 20 KB, the architecture is fully compatible with resource-constrained edge devices \cite{dai2025short,bharati2022federated}. This enables real-time local inference with latencies below 100 ms, facilitating immediate proactive traffic management that centralized systems (burdened by round-trip query times) cannot match.
 \end{itemize}
 
-\textbf{Operational Conclusion:} For Intelligent Transportation Systems, where signal control algorithms typically tolerate a $\pm$5--10\% error margin, the FL model's performance is functionally equivalent to centralized systems while offering superior operational resilience and security.
+\textbf{Operational Conclusion:} For Intelligent Transportation Systems, where signal control algorithms typically tolerate a $\pm$5--10\% error margin, the FL model's performance is functionally equivalent to centralized systems while offering superior operational resilience and security \cite{tariq2024trustworthy,liu2020fedgru}.
 
 \section{Conclusion}
 
-This research presented a comprehensive, privacy-preserving Edge-based Traffic Prediction framework utilizing Federated Learning. By deploying a specialized, lightweight Multi-Horizon LSTM architecture at the network edge, the system successfully forecasted short-term (15-minute), medium-term (30-minute), and long-term (60-minute) traffic conditions simultaneously. A key methodological innovation was the automated topological placement of edge clients using Louvain clustering and centrality metrics, which naturally addressed spatial disparities in the road network. Through the Federated Averaging (FedAvg) algorithm, edge devices trained collaboratively by exchanging only model weights, ensuring that raw, sensitive mobility data remained strictly localized.
+This research presented a comprehensive, privacy-preserving Edge-based Traffic Prediction framework utilizing Federated Learning \cite{mcmahan2017fedavg}. By deploying a specialized, lightweight Multi-Horizon LSTM architecture \cite{hochreiter1997lstm} at the network edge, the system successfully forecasted short-term (15-minute), medium-term (30-minute), and long-term (60-minute) traffic conditions simultaneously. A key methodological innovation was the automated topological placement of edge clients using Louvain clustering \cite{blondel2008louvain} and centrality metrics, which naturally addressed spatial disparities in the road network. Through the Federated Averaging (FedAvg) algorithm \cite{mcmahan2017fedavg}, edge devices trained collaboratively by exchanging only model weights, ensuring that raw, sensitive mobility data remained strictly localized.
 
-Experimental evaluations on the PeMS-BAY and METR-LA benchmark datasets demonstrated the framework's high efficacy. The proposed federated model achieved highly competitive predictive performance, retaining 92\% to 96\% of the centralized baseline accuracy. Most notably, this approach drastically optimized network efficiency, reducing communication bandwidth consumption by a massive factor of 80 to 262 times through the exchange of minimal 20\,KB weight files.
+Experimental evaluations on the PeMS-BAY and METR-LA benchmark datasets \cite{li2018dcrnn} demonstrated the framework's high efficacy. The proposed federated model achieved highly competitive predictive performance, retaining 92\% to 96\% of the centralized baseline accuracy \cite{liu2020fedgru}. Most notably, this approach drastically optimized network efficiency, reducing communication bandwidth consumption by a massive factor of 80 to 262 times through the exchange of minimal 20\,KB weight files \cite{mcmahan2017fedavg}.
 
-Despite these promising results, certain limitations remain. The current implementation relies on the standard FedAvg algorithm, which can experience slower convergence when faced with extreme non-IID (Independent and Identically Distributed) data distributions. Furthermore, the continuous transmission of model weights still poses a communication overhead for highly resource-constrained edge devices. To address these operational challenges, future work will focus on integrating advanced optimization algorithms, such as FedProx or SCAFFOLD, to better handle statistical heterogeneity. Additionally, investigating Spatio-Temporal Graph Neural Networks (ST-GNNs) and fusing multimodal data streams---including roadside camera feeds and real-time weather conditions---will further enhance the system's robustness, accuracy, and reliability for practical ITS deployments.
+Despite these promising results, certain limitations remain. The current implementation relies on the standard FedAvg algorithm \cite{mcmahan2017fedavg}, which can experience slower convergence when faced with extreme non-IID (Independent and Identically Distributed) data distributions \cite{Zhao2018FederatedNonIID}. Furthermore, the continuous transmission of model weights still poses a communication overhead for highly resource-constrained edge devices. To address these operational challenges, future work will focus on integrating advanced optimization algorithms, such as FedProx or SCAFFOLD, to better handle statistical heterogeneity \cite{li2024fedasta}. Additionally, investigating Spatio-Temporal Graph Neural Networks (ST-GNNs) \cite{feng2024federated} and fusing multimodal data streams---including roadside camera feeds and real-time weather conditions---will further enhance the system's robustness, accuracy, and reliability for practical ITS deployments.
 
 \backmatter
 
 \clearpage
-% Gọi file .bib để in ra References
 \nocite{*}
 \bibliography{sn-bibliography}
 

@@ -377,14 +377,45 @@ The dashboard also provides filtering options, client selection for focused moni
   \includegraphics[width=1.0\textwidth]{Figure/dashboard-training-loss.png}
   \caption{Training Loss Over Rounds (Per Client).}\label{fig:dashboard_filter}
 \end{figure}
-The training loss decreases steadily across 160 rounds for 10 different edge clients, indicating successful model convergence \cite{mcmahan2017fedavg}. While different clients show varying convergence patterns due to data heterogeneity \cite{Zhao2018FederatedNonIID}, all remain stable without divergence, demonstrating effective federated learning.
+This chart shows training loss trajectories for 10 edge clients over 160 federated learning rounds. The average loss (blue dotted line) decreases from 2.5 to 1.0. Individual clients (colored lines) show varied convergence: some converge smoothly (e.g., blue, cyan), while others oscillate (e.g., orange, purple) due to data heterogeneity and non-IID effects. The vertical dashed line at round 124 marks a checkpoint. All clients converge without divergence, indicating effective aggregation.
+
+\textbf{Key Observations:}
+\begin{itemize}
+    \item \textbf{Convergence Pattern:} Three phases:
+    \begin{itemize}
+        \item \textit{Rapid descent (Rounds 1--30):} Steep loss reduction
+        \item \textit{Gradual refinement (Rounds 30--100):} Moderate decrease
+        \item \textit{Plateau (Rounds 100+):} Minimal improvement
+    \end{itemize}
+    
+    \item \textbf{Per-Client Heterogeneity:} Different convergence rates and final losses:
+    \begin{itemize}
+        \item \textit{Fast convergers:} Simple patterns (e.g., highways)
+        \item \textit{Oscillators:} Complex urban data, high fluctuations
+        \item \textit{Late bloomers:} Slow start, eventual convergence
+    \end{itemize}
+    
+    \item \textbf{No Divergence:} No unbounded loss growth; all clients cluster around the average, showing robustness.
+\end{itemize}
+
+The dashboard also includes validation metrics across prediction horizons (Fig. 4.5) for short- and long-term accuracy.
 
 \begin{figure}[H]
   \centering
   \includegraphics[width=1.0\textwidth]{Figure/dashboard-validation-mae.png}
   \caption{Validation MAE Over Rounds (Per Client).}\label{fig:train_loss}
 \end{figure}
-The validation MAE decreases over training rounds, showing continuous improvement of the model. Different clients achieve different levels of accuracy depending on traffic complexity, with some performing better in predictable environments and others showing higher error in more complex regions \cite{zhang2024personalized,dai2024road}. Differences in MAE across all clients demonstrate that federated learning preserves regional specialization while enabling global knowledge sharing.
+
+This chart shows Mean Absolute Error (MAE) on held-out validation data for each client over 160 federated rounds. The average MAE (blue dotted line) decreases from 1.5 km/h to 1.1 km/h, indicating continuous improvement.
+
+Individual client MAE trends:
+\begin{itemize}
+    \item \textbf{Clients 1, 2, 3 (green):} Best performance (MAE 0.2--0.6 km/h), indicating predictable traffic
+    \item \textbf{Clients 5--8 (blue/purple):} Moderate performance (MAE 0.5--1.2 km/h)
+    \item \textbf{Clients 4, 8 (orange):} Higher MAE (1.3--1.6 km/h), but improving
+\end{itemize}
+
+The vertical dashed line at round 140 indicates late-stage stability. Cross-client differences confirm that federated learning preserves regional specialization while enabling global knowledge sharing.
 
 \begin{figure}[H]
   \centering

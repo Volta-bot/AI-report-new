@@ -348,22 +348,6 @@ arXiv preprint arXiv:2405.13090
 \endbibitem
 
 %%% 19
-\bibitem[\protect\citeauthoryear{Dai et~al.}{2024}]{dai2024road}
-\begin{botherref}
-\oauthor{\bsnm{Dai}, \binits{G.}},
-\oauthor{\bsnm{Tang}, \binits{J.}},
-\oauthor{\bsnm{Zeng}, \binits{J.}},
-\oauthor{\bsnm{Zhao}, \binits{C.}},
-\oauthor{\bsnm{Hu}, \binits{C.}}:
-{Road network traffic flow prediction: A personalized federated learning method
-  based on client reputation}.
-Computers \& Electrical Engineering
-\textbf{120}
-(2024)
-\end{botherref}
-\endbibitem
-
-%%% 20
 \bibitem[\protect\citeauthoryear{Dai and Tang}{2025}]{dai2025short}
 \begin{barticle}
 \bauthor{\bsnm{Dai}, \binits{G.}},
@@ -377,7 +361,7 @@ Computers \& Electrical Engineering
 \end{barticle}
 \endbibitem
 
-%%% 21
+%%% 20
 \bibitem[\protect\citeauthoryear{Khodamoradi
   et~al.}{2025}]{khodamoradi2025vessel}
 \begin{botherref}
@@ -393,6 +377,22 @@ Computers \& Electrical Engineering
 ISPRS International Journal of Geo-Information
 \textbf{14}
 (2025)
+\end{botherref}
+\endbibitem
+
+%%% 21
+\bibitem[\protect\citeauthoryear{Dai et~al.}{2024}]{dai2024road}
+\begin{botherref}
+\oauthor{\bsnm{Dai}, \binits{G.}},
+\oauthor{\bsnm{Tang}, \binits{J.}},
+\oauthor{\bsnm{Zeng}, \binits{J.}},
+\oauthor{\bsnm{Zhao}, \binits{C.}},
+\oauthor{\bsnm{Hu}, \binits{C.}}:
+{Road network traffic flow prediction: A personalized federated learning method
+  based on client reputation}.
+Computers \& Electrical Engineering
+\textbf{120}
+(2024)
 \end{botherref}
 \endbibitem
 

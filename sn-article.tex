@@ -527,14 +527,42 @@ To validate the effectiveness of the proposed framework, the FL model was benchm
 
 \textbf{Operational Conclusion:} For Intelligent Transportation Systems, where signal control algorithms typically tolerate a $\pm$5--10\% error margin, the FL model's performance is functionally equivalent to centralized systems while offering superior operational resilience and security \cite{tariq2024trustworthy,liu2020fedgru}.
 
+
+\section{Result Discussion}
+
+Beyond quantitative evaluation, it is important to analyze the practical strengths, operational limitations, and future scalability of the proposed framework.
+
+\subsection{Strengths of the Proposed Framework}
+
+The integration of Federated Learning (FL) with a lightweight Multi-Horizon LSTM architecture successfully balances predictive accuracy with operational efficiency. A primary advantage is robust privacy preservation; by keeping raw traffic data strictly localized via the FedAvg algorithm, the system minimizes attack surfaces and ensures strict regulatory compliance (e.g., GDPR). Additionally, exchanging only minimal model updates rather than streaming raw, high-frequency sensor data drastically reduces network bandwidth requirements. 
+
+Furthermore, automated topological placement using Louvain clustering ensures that edge nodes capture locally relevant features and naturally partition the road network into structurally coherent traffic communities. This localized processing facilitates rapid, real-time inference on resource-constrained devices while maintaining predictive performance close to centralized baselines.
+
+\subsection{Limitations and Challenges}
+
+Despite its efficacy, the methodology presents several inherent limitations. A notable drawback is the performance degradation and slower convergence associated with extreme non-IID (Independent and Identically Distributed) data distributions across different edge clients. For instance, while highway environments exhibit relatively consistent predictions, complex urban networks show significantly higher variance. Clients located in irregular zones, such as port areas with heavy-vehicle movements, experience higher error rates due to highly volatile local traffic dynamics.
+
+Moreover, the reliance on the standard FedAvg algorithm means that discretized aggregation at fixed communication rounds creates a slight performance gap compared to the continuous gradient updates of centralized training. Finally, the continuous transmission of model weights in every training round still introduces communication overhead that may burden IoT devices operating under unstable network conditions.
+
+\subsection{Solutions and Improvements}
+
+To overcome these challenges and further refine the framework, several algorithmic and architectural enhancements can be implemented. The statistical heterogeneity caused by non-IID data can be mitigated by replacing the standard FedAvg approach with advanced optimization algorithms such as FedProx or SCAFFOLD. These algorithms are specifically designed to penalize client drift and improve convergence stability across varying data distributions.
+
+Furthermore, while the current Multi-Horizon LSTM effectively captures temporal dependencies with minimal computational cost, the model's accuracy in complex urban environments could be enhanced by investigating Spatio-Temporal Graph Neural Networks (ST-GNNs). Implementing ST-GNNs would allow the framework to model spatial correlations between interconnected road segments more explicitly, yielding more resilient and context-aware predictions in highly irregular traffic sectors.
+
+\subsection{Future Research Directions}
+
+Looking forward, this privacy-preserving edge architecture holds substantial potential for the scalable deployment of real-world Intelligent Transportation Systems (ITS). A highly promising research direction involves fusing multimodal data streams into the local training process. By incorporating auxiliary data such as roadside camera feeds, event schedules, and real-time weather conditions, the system's robustness and contextual awareness could be significantly improved.
+
+Ultimately, this framework offers a secure and scalable blueprint that guarantees data sovereignty for municipalities while enabling accurate and proactive congestion management without exposing sensitive mobility patterns. Consequently, the proposed methodology establishes a strong foundational architecture for the next generation of smart city infrastructure.
+
 \section{Conclusion}
 
-This research presented a comprehensive, privacy-preserving Edge-based Traffic Prediction framework utilizing Federated Learning \cite{mcmahan2017fedavg}. By deploying a specialized, lightweight Multi-Horizon LSTM architecture \cite{hochreiter1997lstm} at the network edge, the system successfully forecasted short-term (15-minute), medium-term (30-minute), and long-term (60-minute) traffic conditions simultaneously. A key methodological innovation was the automated topological placement of edge clients using Louvain clustering \cite{blondel2008louvain} and centrality metrics, which naturally addressed spatial disparities in the road network. Through the Federated Averaging (FedAvg) algorithm \cite{mcmahan2017fedavg}, edge devices trained collaboratively by exchanging only model weights, ensuring that raw, sensitive mobility data remained strictly localized.
+This research presented a comprehensive, privacy-preserving Edge-based Traffic Prediction framework utilizing Federated Learning. By deploying a specialized, lightweight Multi-Horizon LSTM architecture at the network edge, the system successfully forecasted multi-horizon traffic conditions while maintaining low computational overhead. Furthermore, automated topological placement using Louvain clustering naturally addressed spatial disparities across the road network. Crucially, through the Federated Averaging algorithm, edge devices collaboratively trained the global model by exchanging only model parameters, ensuring that sensitive raw mobility data remained strictly localized.
 
-Experimental evaluations on the PeMS-BAY and METR-LA benchmark datasets \cite{li2018dcrnn} demonstrated the framework's high efficacy. The proposed federated model achieved highly competitive predictive performance, retaining 92\% to 96\% of the centralized baseline accuracy \cite{liu2020fedgru}. Most notably, this approach drastically optimized network efficiency, reducing communication bandwidth consumption by a massive factor of 80 to 262 times through the exchange of minimal 20\,KB weight files \cite{mcmahan2017fedavg}.
+Experimental evaluations on real-world benchmark datasets demonstrated the framework’s high efficacy. The proposed federated model achieved highly competitive predictive performance that closely approached ideal centralized baselines, while simultaneously delivering substantial improvements in communication efficiency and bandwidth optimization.
 
-Despite these promising results, certain limitations remain. The current implementation relies on the standard FedAvg algorithm \cite{mcmahan2017fedavg}, which can experience slower convergence when faced with extreme non-IID (Independent and Identically Distributed) data distributions \cite{Zhao2018FederatedNonIID}. Furthermore, the continuous transmission of model weights still poses a communication overhead for highly resource-constrained edge devices. To address these operational challenges, future work will focus on integrating advanced optimization algorithms, such as FedProx or SCAFFOLD, to better handle statistical heterogeneity \cite{li2024fedasta}. Additionally, investigating Spatio-Temporal Graph Neural Networks (ST-GNNs) \cite{feng2024federated} and fusing multimodal data streams---including roadside camera feeds and real-time weather conditions---will further enhance the system's robustness, accuracy, and reliability for practical ITS deployments.
-
+Although the system proves highly viable, certain operational limitations remain, particularly regarding convergence speeds when processing extreme data heterogeneity across diverse urban zones. To address these challenges, future research will focus on integrating advanced optimization algorithms to better handle statistical imbalances, alongside investigating Spatio-Temporal Graph modeling approaches. Ultimately, by establishing a secure and scalable architecture that guarantees data sovereignty, this methodology provides a foundational blueprint for proactive congestion management in next-generation Intelligent Transportation Systems.
 \backmatter
 
 \clearpage

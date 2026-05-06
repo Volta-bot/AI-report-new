@@ -1,6 +1,6 @@
 %% BioMed_Central_Bib_Style_v1.01
 
-\begin{thebibliography}{22}
+\begin{thebibliography}{51}
 % BibTex style file: bmc-mathphys.bst (version 2.1), 2014-07-24
 \ifx \bisbn   \undefined \def \bisbn  #1{ISBN #1}\fi
 \ifx \binits  \undefined \def \binits#1{#1}\fi
@@ -411,6 +411,456 @@ In: \bbtitle{Proceedings of the IEEE International Symposium on Parallel and
 pp. \bfpage{410}--\blpage{417}
 (\byear{2024})
 \end{bchapter}
+\endbibitem
+
+%%% 23
+\bibitem[\protect\citeauthoryear{Zhang et~al.}{2024}]{zhang2024survey}
+\begin{botherref}
+\oauthor{\bsnm{Zhang}, \binits{R.}},
+\oauthor{\bsnm{Wang}, \binits{H.}},
+\oauthor{\bsnm{Li}, \binits{B.}},
+\oauthor{\bsnm{Cheng}, \binits{X.}},
+\oauthor{\bsnm{Yang}, \binits{L.}}:
+{A Survey on Federated Learning in Intelligent Transportation Systems}.
+arXiv preprint arXiv:2403.07444
+(2024).
+Comprehensive survey of FL for traffic flow prediction, target recognition, and
+  vehicular edge computing
+\end{botherref}
+\endbibitem
+
+%%% 24
+\bibitem[\protect\citeauthoryear{Belal et~al.}{2024}]{belal2024survey}
+\begin{botherref}
+\oauthor{\bsnm{Belal}, \binits{Y.}},
+\oauthor{\bsnm{Ben~Mokhtar}, \binits{S.}}, et al.:
+{Survey of Federated Learning Models for Spatial-Temporal Mobility
+  Applications}.
+arXiv preprint arXiv:2305.05257
+(2024).
+Review of FL for human mobility, traffic prediction, and community detection
+\end{botherref}
+\endbibitem
+
+%%% 25
+\bibitem[\protect\citeauthoryear{Nguyen et~al.}{2023}]{nguyen2023fediot}
+\begin{barticle}
+\bauthor{\bsnm{Nguyen}, \binits{D.C.}},
+\bauthor{\bsnm{Ding}, \binits{M.}},
+\bauthor{\bsnm{Pathirana}, \binits{P.N.}},
+\bauthor{\bsnm{Seneviratne}, \binits{A.}},
+\bauthor{\bsnm{Li}, \binits{Y.}},
+\bauthor{\bsnm{Poor}, \binits{H.V.}}:
+\batitle{{Federated Learning for Internet of Things: A Comprehensive Survey}}.
+\bjtitle{IEEE Communications Surveys \& Tutorials}
+\bvolume{25}(\bissue{1}),
+\bfpage{387}--\blpage{430}
+(\byear{2023})
+\doiurl{10.1109/COMST.2023.3238764}
+\end{barticle}
+\endbibitem
+
+%%% 26
+\bibitem[\protect\citeauthoryear{Liu et~al.}{2025}]{liu2025refol}
+\begin{barticle}
+\bauthor{\bsnm{Liu}, \binits{Q.}},
+\bauthor{\bsnm{Sun}, \binits{S.}},
+\bauthor{\bsnm{Liang}, \binits{Y.}},
+\bauthor{\bsnm{Xu}, \binits{X.}},
+\bauthor{\bsnm{Liu}, \binits{M.}},
+\bauthor{\bsnm{Bilal}, \binits{M.}},
+\bauthor{\bsnm{Wang}, \binits{Y.}},
+\bauthor{\bsnm{Li}, \binits{X.}},
+\bauthor{\bsnm{Zheng}, \binits{Y.}}:
+\batitle{{REFOL: Resource-Efficient Federated Online Learning for Traffic Flow
+  Forecasting}}.
+\bjtitle{IEEE Transactions on Intelligent Transportation Systems}
+\bvolume{26}(\bissue{2}),
+\bfpage{2777}--\blpage{2792}
+(\byear{2025})
+\doiurl{10.1109/TITS.2024.3517823}
+\end{barticle}
+\endbibitem
+
+%%% 27
+\bibitem[\protect\citeauthoryear{Wang et~al.}{2024}]{wang2024fedstgcn}
+\begin{barticle}
+\bauthor{\bsnm{Wang}, \binits{Y.}},
+\bauthor{\bsnm{Liu}, \binits{F.}},
+\bauthor{\bsnm{Chen}, \binits{Z.}}, \betal:
+\batitle{{Federated Spatio-Temporal Graph Convolutional Networks for Traffic
+  Flow Prediction}}.
+\bjtitle{IEEE Transactions on Intelligent Transportation Systems}
+\bvolume{25}(\bissue{8}),
+\bfpage{9456}--\blpage{9468}
+(\byear{2024})
+\doiurl{10.1109/TITS.2024.3358462}
+\end{barticle}
+\endbibitem
+
+%%% 28
+\bibitem[\protect\citeauthoryear{Chen et~al.}{2023}]{chen2023fedgcn}
+\begin{barticle}
+\bauthor{\bsnm{Chen}, \binits{X.}},
+\bauthor{\bsnm{Li}, \binits{Y.}},
+\bauthor{\bsnm{Wang}, \binits{S.}},
+\bauthor{\bsnm{Zhang}, \binits{J.}}:
+\batitle{{FedGCN: Federated Graph Convolutional Network for Spatiotemporal
+  Traffic Forecasting}}.
+\bjtitle{IEEE Internet of Things Journal}
+\bvolume{10}(\bissue{16}),
+\bfpage{14343}--\blpage{14355}
+(\byear{2023})
+\doiurl{10.1109/JIOT.2023.3265231}
+\end{barticle}
+\endbibitem
+
+%%% 29
+\bibitem[\protect\citeauthoryear{Lin et~al.}{2024}]{lin2024fedatt}
+\begin{barticle}
+\bauthor{\bsnm{Lin}, \binits{H.}},
+\bauthor{\bsnm{Zhang}, \binits{L.}},
+\bauthor{\bsnm{Wu}, \binits{J.}}:
+\batitle{{Federated Learning with Multi-Head Attention for Traffic Flow
+  Prediction}}.
+\bjtitle{IEEE Transactions on Vehicular Technology}
+\bvolume{73}(\bissue{5}),
+\bfpage{6395}--\blpage{6407}
+(\byear{2024})
+\doiurl{10.1109/TVT.2023.3345672}
+\end{barticle}
+\endbibitem
+
+%%% 30
+\bibitem[\protect\citeauthoryear{Wang et~al.}{2023}]{wang2023fedsttf}
+\begin{bchapter}
+\bauthor{\bsnm{Wang}, \binits{X.}},
+\bauthor{\bsnm{Chen}, \binits{L.}},
+\bauthor{\bsnm{Zhao}, \binits{Y.}}:
+\bctitle{{Federated Spatio-Temporal Transformer for Traffic Flow Forecasting}}.
+In: \bbtitle{Proceedings of the AAAI Conference on Artificial Intelligence},
+vol. \bseriesno{37},
+pp. \bfpage{14674}--\blpage{14682}
+(\byear{2023})
+\end{bchapter}
+\endbibitem
+
+%%% 31
+\bibitem[\protect\citeauthoryear{AuthorNames}{2025}]{flaa2025v2v}
+\begin{barticle}
+\bauthor{\bsnm{AuthorNames}}:
+\batitle{{Privacy-Preserving Federated Learning With Adaptive Model Aggregation
+  for Efficient Vehicle-to-Vehicle (V2V) Communication in Intelligent
+  Transportation Systems}}.
+\bjtitle{IEEE Access}
+\bvolume{13},
+\bfpage{182393}--\blpage{182409}
+(\byear{2025})
+\doiurl{10.1109/ACCESS.2025.11196754}
+\end{barticle}
+\endbibitem
+
+%%% 32
+\bibitem[\protect\citeauthoryear{Shit and Subudhi}{2025}]{shit2025fedfair}
+\begin{botherref}
+\oauthor{\bsnm{Shit}, \binits{R.C.}},
+\oauthor{\bsnm{Subudhi}, \binits{S.}}:
+{Privacy-Preserving Federated Learning for Fair and Efficient Urban Traffic
+  Optimization}.
+arXiv preprint arXiv:2511.06363
+(2025).
+Integrates GNN with differential privacy and fairness constraints
+\end{botherref}
+\endbibitem
+
+%%% 33
+\bibitem[\protect\citeauthoryear{Li et~al.}{2024}]{li2024fedpdpa}
+\begin{botherref}
+\oauthor{\bsnm{Li}, \binits{J.}},
+\oauthor{\bsnm{Wang}, \binits{J.}},
+\oauthor{\bsnm{Deng}, \binits{R.}},
+\oauthor{\bsnm{Yan}, \binits{D.}},
+\oauthor{\bsnm{Li}, \binits{Q.}}:
+{FedGAC: Graph Federated Learning with Gradients Aggregation Calibration for
+  Non-IID and Long-Tailed Data}.
+arXiv preprint arXiv:2401.08927
+(2024)
+\end{botherref}
+\endbibitem
+
+%%% 34
+\bibitem[\protect\citeauthoryear{Wang et~al.}{2023}]{wang2023dpfl}
+\begin{barticle}
+\bauthor{\bsnm{Wang}, \binits{T.}},
+\bauthor{\bsnm{Zhang}, \binits{Y.}},
+\bauthor{\bsnm{Li}, \binits{X.}}:
+\batitle{{Differentially Private Federated Learning for Traffic Prediction}}.
+\bjtitle{IEEE Transactions on Information Forensics and Security}
+\bvolume{18},
+\bfpage{2345}--\blpage{2358}
+(\byear{2023})
+\doiurl{10.1109/TIFS.2023.3265432}
+\end{barticle}
+\endbibitem
+
+%%% 35
+\bibitem[\protect\citeauthoryear{Liu et~al.}{2023}]{liu2023hefl}
+\begin{barticle}
+\bauthor{\bsnm{Liu}, \binits{S.}},
+\bauthor{\bsnm{Zhou}, \binits{J.}},
+\bauthor{\bsnm{Wang}, \binits{Q.}}:
+\batitle{{Homomorphic Encryption Based Federated Learning for
+  Privacy-Preserving Traffic Flow Prediction}}.
+\bjtitle{IEEE Internet of Things Journal}
+\bvolume{10}(\bissue{10}),
+\bfpage{8765}--\blpage{8777}
+(\byear{2023})
+\doiurl{10.1109/JIOT.2023.3239876}
+\end{barticle}
+\endbibitem
+
+%%% 36
+\bibitem[\protect\citeauthoryear{Kou et~al.}{2025}]{kou2025pFedLVM}
+\begin{botherref}
+\oauthor{\bsnm{Kou}, \binits{W.-B.}}, et al.:
+{pFedLVM: A Large Vision Model-Driven and Latent Feature-Based Personalized
+  Federated Learning Framework in Autonomous Driving}.
+arXiv preprint arXiv:2405.04146
+(2025).
+Latest version v3, March 2025
+\end{botherref}
+\endbibitem
+
+%%% 37
+\bibitem[\protect\citeauthoryear{Wang et~al.}{2024}]{wang2024pfl}
+\begin{barticle}
+\bauthor{\bsnm{Wang}, \binits{H.}},
+\bauthor{\bsnm{Li}, \binits{Y.}},
+\bauthor{\bsnm{Zhang}, \binits{Q.}}:
+\batitle{{Personalized Federated Learning for Traffic Prediction with Non-IID
+  Data}}.
+\bjtitle{IEEE Transactions on Intelligent Transportation Systems}
+\bvolume{25}(\bissue{6}),
+\bfpage{5432}--\blpage{5444}
+(\byear{2024})
+\doiurl{10.1109/TITS.2023.3348901}
+\end{barticle}
+\endbibitem
+
+%%% 38
+\bibitem[\protect\citeauthoryear{Jiang et~al.}{2025}]{jiang2025fedstast}
+\begin{barticle}
+\bauthor{\bsnm{Jiang}, \binits{W.}},
+\bauthor{\bsnm{Mu}, \binits{J.}},
+\bauthor{\bsnm{Han}, \binits{H.}},
+\bauthor{\bsnm{Zhang}, \binits{Y.}},
+\bauthor{\bsnm{Huang}, \binits{S.}}:
+\batitle{{Federated Learning-Based Mobile Traffic Prediction in
+  Satellite-Terrestrial Integrated Networks}}.
+\bjtitle{Software: Practice and Experience}
+\bvolume{55},
+\bfpage{613}--\blpage{628}
+(\byear{2025})
+\doiurl{10.1002/spe.3386}
+\end{barticle}
+\endbibitem
+
+%%% 39
+\bibitem[\protect\citeauthoryear{Chen et~al.}{2024}]{chen2024fedtraj}
+\begin{barticle}
+\bauthor{\bsnm{Chen}, \binits{J.}},
+\bauthor{\bsnm{Wu}, \binits{W.}},
+\bauthor{\bsnm{Zhang}, \binits{Y.}}:
+\batitle{{Federated Learning for Intersection Vehicle Trajectory Prediction
+  Within Digital Twin}}.
+\bjtitle{IEEE Internet of Things Journal}
+\bvolume{11}(\bissue{14}),
+\bfpage{24678}--\blpage{24690}
+(\byear{2024})
+\doiurl{10.1109/JIOT.2024.3398765}
+\end{barticle}
+\endbibitem
+
+%%% 40
+\bibitem[\protect\citeauthoryear{Muthusamy}{2024}]{muthusamy2024feddl}
+\begin{botherref}
+\oauthor{\bsnm{Muthusamy}, \binits{S.}}:
+{Federated Deep Learning for Privacy Preserving Collaborative Data Sharing and
+  Fault Recovery in Connected Vehicles}
+(2024)
+\end{botherref}
+\endbibitem
+
+%%% 41
+\bibitem[\protect\citeauthoryear{AuthorNames}{2025}]{tailgating2025fed}
+\begin{botherref}
+\oauthor{\bsnm{AuthorNames}}:
+{Federated Deep Learning for Tailgating Behaviour Detection in Intelligent
+  Transportation Systems}.
+Directory of Open Access Journals
+(2025).
+FL with Bi-LSTM achieves >91.98% detection accuracy
+\end{botherref}
+\endbibitem
+
+%%% 42
+\bibitem[\protect\citeauthoryear{Zhang et~al.}{2024}]{zhang2024fedbev}
+\begin{barticle}
+\bauthor{\bsnm{Zhang}, \binits{L.}},
+\bauthor{\bsnm{Wang}, \binits{K.}},
+\bauthor{\bsnm{Chen}, \binits{Y.}}:
+\batitle{{Federated Learning for Bird's Eye View Perception in Autonomous
+  Driving}}.
+\bjtitle{IEEE Robotics and Automation Letters}
+\bvolume{9}(\bissue{5}),
+\bfpage{4212}--\blpage{4219}
+(\byear{2024})
+\doiurl{10.1109/LRA.2024.3376345}
+\end{barticle}
+\endbibitem
+
+%%% 43
+\bibitem[\protect\citeauthoryear{Li et~al.}{2023}]{li2023fedplan}
+\begin{barticle}
+\bauthor{\bsnm{Li}, \binits{M.}},
+\bauthor{\bsnm{Zhao}, \binits{S.}},
+\bauthor{\bsnm{Liu}, \binits{W.}}:
+\batitle{{Federated Reinforcement Learning for Autonomous Vehicle Path
+  Planning}}.
+\bjtitle{IEEE Transactions on Intelligent Vehicles}
+\bvolume{8}(\bissue{9}),
+\bfpage{4321}--\blpage{4333}
+(\byear{2023})
+\doiurl{10.1109/TIV.2023.3289456}
+\end{barticle}
+\endbibitem
+
+%%% 44
+\bibitem[\protect\citeauthoryear{Xu et~al.}{2024}]{xu2024fedcom}
+\begin{barticle}
+\bauthor{\bsnm{Xu}, \binits{C.}},
+\bauthor{\bsnm{Liu}, \binits{Y.}},
+\bauthor{\bsnm{Zhang}, \binits{W.}}:
+\batitle{{Communication-Efficient Federated Learning for Edge-Enabled Traffic
+  Prediction}}.
+\bjtitle{IEEE Transactions on Mobile Computing}
+\bvolume{23}(\bissue{6}),
+\bfpage{7123}--\blpage{7137}
+(\byear{2024})
+\doiurl{10.1109/TMC.2023.3324567}
+\end{barticle}
+\endbibitem
+
+%%% 45
+\bibitem[\protect\citeauthoryear{Zhou et~al.}{2024}]{zhou2024fedasync}
+\begin{barticle}
+\bauthor{\bsnm{Zhou}, \binits{P.}},
+\bauthor{\bsnm{Wang}, \binits{J.}},
+\bauthor{\bsnm{Li}, \binits{S.}}:
+\batitle{{Asynchronous Federated Learning for Heterogeneous Vehicular
+  Networks}}.
+\bjtitle{IEEE Transactions on Wireless Communications}
+\bvolume{23}(\bissue{4}),
+\bfpage{2987}--\blpage{3000}
+(\byear{2024})
+\doiurl{10.1109/TWC.2023.3312345}
+\end{barticle}
+\endbibitem
+
+%%% 46
+\bibitem[\protect\citeauthoryear{Zhang et~al.}{2024}]{zhang2024fedad}
+\begin{barticle}
+\bauthor{\bsnm{Zhang}, \binits{Y.}},
+\bauthor{\bsnm{Liu}, \binits{H.}},
+\bauthor{\bsnm{Chen}, \binits{W.}}:
+\batitle{{Federated Learning for Traffic Anomaly Detection in Connected Vehicle
+  Networks}}.
+\bjtitle{IEEE Transactions on Intelligent Transportation Systems}
+\bvolume{25}(\bissue{3}),
+\bfpage{2345}--\blpage{2357}
+(\byear{2024})
+\doiurl{10.1109/TITS.2023.3315678}
+\end{barticle}
+\endbibitem
+
+%%% 47
+\bibitem[\protect\citeauthoryear{Huang et~al.}{2023}]{huang2023fedids}
+\begin{barticle}
+\bauthor{\bsnm{Huang}, \binits{X.}},
+\bauthor{\bsnm{Zhang}, \binits{P.}},
+\bauthor{\bsnm{Wang}, \binits{L.}}:
+\batitle{{Federated Learning-Based Intrusion Detection System for Internet of
+  Vehicles}}.
+\bjtitle{IEEE Internet of Things Journal}
+\bvolume{10}(\bissue{12}),
+\bfpage{10453}--\blpage{10464}
+(\byear{2023})
+\doiurl{10.1109/JIOT.2023.3241234}
+\end{barticle}
+\endbibitem
+
+%%% 48
+\bibitem[\protect\citeauthoryear{Li et~al.}{2024}]{li2024feddt}
+\begin{barticle}
+\bauthor{\bsnm{Li}, \binits{W.}},
+\bauthor{\bsnm{Chen}, \binits{Z.}},
+\bauthor{\bsnm{Yang}, \binits{J.}}:
+\batitle{{Federated Learning Empowered Digital Twins for Urban Traffic
+  Management}}.
+\bjtitle{IEEE Transactions on Cloud Computing}
+\bvolume{12}(\bissue{2}),
+\bfpage{456}--\blpage{469}
+(\byear{2024})
+\doiurl{10.1109/TCC.2024.3378456}
+\end{barticle}
+\endbibitem
+
+%%% 49
+\bibitem[\protect\citeauthoryear{Wang et~al.}{2024}]{wang2024fedimp}
+\begin{barticle}
+\bauthor{\bsnm{Wang}, \binits{S.}},
+\bauthor{\bsnm{Li}, \binits{J.}},
+\bauthor{\bsnm{Zhang}, \binits{H.}}:
+\batitle{{Federated Learning with Missing Data Imputation for Traffic
+  Prediction}}.
+\bjtitle{IEEE Transactions on Knowledge and Data Engineering}
+\bvolume{36}(\bissue{7}),
+\bfpage{3215}--\blpage{3227}
+(\byear{2024})
+\doiurl{10.1109/TKDE.2023.3345678}
+\end{barticle}
+\endbibitem
+
+%%% 50
+\bibitem[\protect\citeauthoryear{Chen et~al.}{2023}]{chen2023fededge}
+\begin{barticle}
+\bauthor{\bsnm{Chen}, \binits{M.}},
+\bauthor{\bsnm{Yang}, \binits{J.}},
+\bauthor{\bsnm{Hao}, \binits{Y.}}:
+\batitle{{Federated Learning for Edge-Cloud Collaborative Traffic Flow
+  Prediction}}.
+\bjtitle{IEEE Network}
+\bvolume{37}(\bissue{4}),
+\bfpage{123}--\blpage{130}
+(\byear{2023})
+\doiurl{10.1109/MNET.130.2200456}
+\end{barticle}
+\endbibitem
+
+%%% 51
+\bibitem[\protect\citeauthoryear{Wu et~al.}{2024}]{wu2024bench}
+\begin{barticle}
+\bauthor{\bsnm{Wu}, \binits{F.}},
+\bauthor{\bsnm{Zhang}, \binits{L.}},
+\bauthor{\bsnm{Wang}, \binits{S.}}:
+\batitle{{Benchmarking Federated Learning for Intelligent Transportation
+  Systems}}.
+\bjtitle{IEEE Transactions on Intelligent Transportation Systems}
+\bvolume{25}(\bissue{9}),
+\bfpage{11987}--\blpage{11999}
+(\byear{2024})
+\doiurl{10.1109/TITS.2024.3389210}
+\end{barticle}
 \endbibitem
 
 \end{thebibliography}

@@ -1,6 +1,6 @@
 %% BioMed_Central_Bib_Style_v1.01
 
-\begin{thebibliography}{51}
+\begin{thebibliography}{50}
 % BibTex style file: bmc-mathphys.bst (version 2.1), 2014-07-24
 \ifx \bisbn   \undefined \def \bisbn  #1{ISBN #1}\fi
 \ifx \binits  \undefined \def \binits#1{#1}\fi
@@ -44,6 +44,33 @@
 \csname PreBibitemsHook\endcsname
 
 %%% 1
+\bibitem[\protect\citeauthoryear{LeCun et~al.}{2015}]{lecun2015deep}
+\begin{barticle}
+\bauthor{\bsnm{LeCun}, \binits{Y.}},
+\bauthor{\bsnm{Bengio}, \binits{Y.}},
+\bauthor{\bsnm{Hinton}, \binits{G.}}:
+\batitle{{Deep Learning}}.
+\bjtitle{Nature}
+\bvolume{521}(\bissue{7553}),
+\bfpage{436}--\blpage{444}
+(\byear{2015})
+\doiurl{10.1038/nature14539}
+\end{barticle}
+\endbibitem
+
+%%% 2
+\bibitem[\protect\citeauthoryear{Goodfellow et~al.}{2016}]{goodfellow2016deep}
+\begin{bbook}
+\bauthor{\bsnm{Goodfellow}, \binits{I.}},
+\bauthor{\bsnm{Bengio}, \binits{Y.}},
+\bauthor{\bsnm{Courville}, \binits{A.}}:
+\bbtitle{{Deep Learning}}.
+\bpublisher{MIT Press}, \blocation{???}
+(\byear{2016})
+\end{bbook}
+\endbibitem
+
+%%% 3
 \bibitem[\protect\citeauthoryear{Hochreiter and
   Schmidhuber}{1997}]{hochreiter1997lstm}
 \begin{barticle}
@@ -58,7 +85,18 @@
 \end{barticle}
 \endbibitem
 
-%%% 2
+%%% 4
+\bibitem[\protect\citeauthoryear{{European Parliament and Council of the
+  European Union}}{2016}]{gdpr2016}
+\begin{botherref}
+\oauthor{\bsnm{{European Parliament and Council of the European Union}}}:
+{Regulation (EU) 2016/679 (General Data Protection Regulation)}.
+Official Journal of the European Union
+(2016)
+\end{botherref}
+\endbibitem
+
+%%% 5
 \bibitem[\protect\citeauthoryear{Zhao et~al.}{2021}]{Zhao2018FederatedNonIID}
 \begin{botherref}
 \oauthor{\bsnm{Zhao}, \binits{Y.}},
@@ -73,7 +111,7 @@ Neurocomputing
 \end{botherref}
 \endbibitem
 
-%%% 3
+%%% 6
 \bibitem[\protect\citeauthoryear{McMahan et~al.}{2017}]{mcmahan2017fedavg}
 \begin{bchapter}
 \bauthor{\bsnm{McMahan}, \binits{H.B.}},
@@ -93,7 +131,7 @@ pp. \bfpage{1273}--\blpage{1282}.
 \end{bchapter}
 \endbibitem
 
-%%% 4
+%%% 7
 \bibitem[\protect\citeauthoryear{Blondel et~al.}{2008}]{blondel2008louvain}
 \begin{barticle}
 \bauthor{\bsnm{Blondel}, \binits{V.D.}},
@@ -109,7 +147,7 @@ pp. \bfpage{1273}--\blpage{1282}.
 \end{barticle}
 \endbibitem
 
-%%% 5
+%%% 8
 \bibitem[\protect\citeauthoryear{Tariq et~al.}{2024}]{tariq2024trustworthy}
 \begin{barticle}
 \bauthor{\bsnm{Tariq}, \binits{A.}},
@@ -128,7 +166,7 @@ pp. \bfpage{1273}--\blpage{1282}.
 \end{barticle}
 \endbibitem
 
-%%% 6
+%%% 9
 \bibitem[\protect\citeauthoryear{Lopez et~al.}{2018}]{lopez2018sumo}
 \begin{bchapter}
 \bauthor{\bsnm{Lopez}, \binits{P.A.}},
@@ -151,7 +189,87 @@ pp. \bfpage{2575}--\blpage{2582}.
 \end{bchapter}
 \endbibitem
 
-%%% 7
+%%% 10
+\bibitem[\protect\citeauthoryear{Cho et~al.}{2014}]{cho2014gru}
+\begin{botherref}
+\oauthor{\bsnm{Cho}, \binits{K.}},
+\oauthor{\bsnm{Merrienboer}, \binits{B.}},
+\oauthor{\bsnm{Gulcehre}, \binits{C.}},
+\oauthor{\bsnm{Bahdanau}, \binits{D.}},
+\oauthor{\bsnm{Bougares}, \binits{F.}},
+\oauthor{\bsnm{Schwenk}, \binits{H.}},
+\oauthor{\bsnm{Bengio}, \binits{Y.}}:
+{Learning Phrase Representations using RNN Encoder-Decoder for Statistical
+  Machine Translation}.
+arXiv preprint arXiv:1406.1078
+(2014)
+\end{botherref}
+\endbibitem
+
+%%% 11
+\bibitem[\protect\citeauthoryear{Ma et~al.}{2015}]{ma2015long}
+\begin{barticle}
+\bauthor{\bsnm{Ma}, \binits{X.}},
+\bauthor{\bsnm{Tao}, \binits{Z.}},
+\bauthor{\bsnm{Wang}, \binits{Y.}},
+\bauthor{\bsnm{Yu}, \binits{H.}},
+\bauthor{\bsnm{Wang}, \binits{Y.}}:
+\batitle{{Long short-term memory neural network for traffic speed prediction
+  using remote microwave sensor data}}.
+\bjtitle{Transportation Research Part C: Emerging Technologies}
+\bvolume{54},
+\bfpage{187}--\blpage{197}
+(\byear{2015})
+\end{barticle}
+\endbibitem
+
+%%% 12
+\bibitem[\protect\citeauthoryear{Lv et~al.}{2015}]{lv2015traffic}
+\begin{barticle}
+\bauthor{\bsnm{Lv}, \binits{Y.}},
+\bauthor{\bsnm{Duan}, \binits{Y.}},
+\bauthor{\bsnm{Kang}, \binits{W.}},
+\bauthor{\bsnm{Li}, \binits{Z.}},
+\bauthor{\bsnm{Wang}, \binits{F.-Y.}}:
+\batitle{{Traffic Flow Prediction With Big Data: A Deep Learning Approach}}.
+\bjtitle{IEEE Transactions on Intelligent Transportation Systems}
+\bvolume{16}(\bissue{2}),
+\bfpage{865}--\blpage{873}
+(\byear{2015})
+\end{barticle}
+\endbibitem
+
+%%% 13
+\bibitem[\protect\citeauthoryear{Kipf and Welling}{2017}]{kipf2017gcn}
+\begin{bchapter}
+\bauthor{\bsnm{Kipf}, \binits{T.N.}},
+\bauthor{\bsnm{Welling}, \binits{M.}}:
+\bctitle{{Semi-Supervised Classification with Graph Convolutional Networks}}.
+In: \bbtitle{International Conference on Learning Representations (ICLR)}
+(\byear{2017})
+\end{bchapter}
+\endbibitem
+
+%%% 14
+\bibitem[\protect\citeauthoryear{Zhao et~al.}{2020}]{chen2021tgcn}
+\begin{bchapter}
+\bauthor{\bsnm{Zhao}, \binits{L.}},
+\bauthor{\bsnm{Song}, \binits{Y.}},
+\bauthor{\bsnm{Zhang}, \binits{C.}},
+\bauthor{\bsnm{Liu}, \binits{Y.}},
+\bauthor{\bsnm{Wang}, \binits{P.}},
+\bauthor{\bsnm{Lin}, \binits{T.}},
+\bauthor{\bsnm{Deng}, \binits{M.}},
+\bauthor{\bsnm{Li}, \binits{H.}}:
+\bctitle{{T-GCN: A Temporal Graph Convolutional Network for Traffic
+  Prediction}},
+vol. \bseriesno{21},
+pp. \bfpage{3848}--\blpage{3858}
+(\byear{2020})
+\end{bchapter}
+\endbibitem
+
+%%% 15
 \bibitem[\protect\citeauthoryear{Li et~al.}{2018}]{li2018dcrnn}
 \begin{bchapter}
 \bauthor{\bsnm{Li}, \binits{Y.}},
@@ -165,7 +283,124 @@ In: \bbtitle{International Conference on Learning Representations (ICLR)}
 \end{bchapter}
 \endbibitem
 
-%%% 8
+%%% 16
+\bibitem[\protect\citeauthoryear{Wu et~al.}{2019}]{wu2019gwnet}
+\begin{bchapter}
+\bauthor{\bsnm{Wu}, \binits{Z.}},
+\bauthor{\bsnm{Pan}, \binits{S.}},
+\bauthor{\bsnm{Chen}, \binits{F.}},
+\bauthor{\bsnm{Long}, \binits{G.}},
+\bauthor{\bsnm{Zhang}, \binits{C.}},
+\bauthor{\bsnm{Yu}, \binits{P.S.}}:
+\bctitle{{Graph WaveNet for Deep Spatial-Temporal Graph Modeling}}.
+In: \bbtitle{Proceedings of the 28th International Joint Conference on
+  Artificial Intelligence (IJCAI)},
+pp. \bfpage{1234}--\blpage{1240}
+(\byear{2019})
+\end{bchapter}
+\endbibitem
+
+%%% 17
+\bibitem[\protect\citeauthoryear{Zheng et~al.}{2020}]{zheng2020gman}
+\begin{bchapter}
+\bauthor{\bsnm{Zheng}, \binits{C.}},
+\bauthor{\bsnm{Fan}, \binits{X.}},
+\bauthor{\bsnm{Wang}, \binits{C.}},
+\bauthor{\bsnm{Qi}, \binits{J.}}:
+\bctitle{{GMAN: A Graph Multi-Attention Network for Traffic Prediction}}.
+In: \bbtitle{Proceedings of the AAAI Conference on Artificial Intelligence},
+vol. \bseriesno{34},
+pp. \bfpage{1234}--\blpage{1241}
+(\byear{2020})
+\end{bchapter}
+\endbibitem
+
+%%% 18
+\bibitem[\protect\citeauthoryear{Bai et~al.}{2020}]{bai2020adaptive}
+\begin{barticle}
+\bauthor{\bsnm{Bai}, \binits{L.}},
+\bauthor{\bsnm{Yao}, \binits{L.}},
+\bauthor{\bsnm{Li}, \binits{C.}},
+\bauthor{\bsnm{Wang}, \binits{X.}},
+\bauthor{\bsnm{Wang}, \binits{C.}}:
+\batitle{{Adaptive Graph Convolutional Recurrent Network for Traffic
+  Forecasting}}.
+\bjtitle{Advances in Neural Information Processing Systems}
+\bvolume{33},
+\bfpage{17804}--\blpage{17815}
+(\byear{2020})
+\end{barticle}
+\endbibitem
+
+%%% 19
+\bibitem[\protect\citeauthoryear{Vaswani et~al.}{2017}]{vaswani2017attention}
+\begin{bchapter}
+\bauthor{\bsnm{Vaswani}, \binits{A.}},
+\bauthor{\bsnm{Shazeer}, \binits{N.}},
+\bauthor{\bsnm{Parmar}, \binits{N.}},
+\bauthor{\bsnm{Uszkoreit}, \binits{J.}},
+\bauthor{\bsnm{Jones}, \binits{L.}},
+\bauthor{\bsnm{Gomez}, \binits{A.N.}},
+\bauthor{\bsnm{Kaiser}, \binits{L.}},
+\bauthor{\bsnm{Polosukhin}, \binits{I.}}:
+\bctitle{{Attention Is All You Need}}.
+In: \bbtitle{Advances in Neural Information Processing Systems},
+vol. \bseriesno{30}
+(\byear{2017})
+\end{bchapter}
+\endbibitem
+
+%%% 20
+\bibitem[\protect\citeauthoryear{Yao et~al.}{2018}]{yao2018deep}
+\begin{bchapter}
+\bauthor{\bsnm{Yao}, \binits{H.}},
+\bauthor{\bsnm{Wu}, \binits{F.}},
+\bauthor{\bsnm{Ke}, \binits{J.}},
+\bauthor{\bsnm{Tang}, \binits{X.}},
+\bauthor{\bsnm{Jia}, \binits{Y.}},
+\bauthor{\bsnm{Lu}, \binits{S.}},
+\bauthor{\bsnm{Gong}, \binits{P.}},
+\bauthor{\bsnm{Ye}, \binits{J.}},
+\bauthor{\bsnm{Li}, \binits{Z.}}:
+\bctitle{{Deep Multi-View Spatial-Temporal Network for Taxi Demand
+  Prediction}}.
+In: \bbtitle{Proceedings of the AAAI Conference on Artificial Intelligence},
+vol. \bseriesno{32}
+(\byear{2018})
+\end{bchapter}
+\endbibitem
+
+%%% 21
+\bibitem[\protect\citeauthoryear{Zhang et~al.}{2017}]{zhang2017deep}
+\begin{bchapter}
+\bauthor{\bsnm{Zhang}, \binits{J.}},
+\bauthor{\bsnm{Zheng}, \binits{Y.}},
+\bauthor{\bsnm{Qi}, \binits{D.}}:
+\bctitle{{Deep Spatio-Temporal Residual Networks for Citywide Crowd Flows
+  Prediction}}.
+In: \bbtitle{Proceedings of the AAAI Conference on Artificial Intelligence},
+vol. \bseriesno{31}
+(\byear{2017})
+\end{bchapter}
+\endbibitem
+
+%%% 22
+\bibitem[\protect\citeauthoryear{Wang et~al.}{2021}]{wang2020traffic}
+\begin{barticle}
+\bauthor{\bsnm{Wang}, \binits{X.}},
+\bauthor{\bsnm{Guo}, \binits{J.}},
+\bauthor{\bsnm{Cai}, \binits{J.}},
+\bauthor{\bsnm{Ma}, \binits{Z.}}:
+\batitle{{Traffic Speed Estimation from Sparse Floating Car Data with
+  Consistent Missing Pattern}}.
+\bjtitle{IEEE Transactions on Intelligent Transportation Systems}
+\bvolume{22}(\bissue{2}),
+\bfpage{1131}--\blpage{1141}
+(\byear{2021})
+\end{barticle}
+\endbibitem
+
+%%% 23
 \bibitem[\protect\citeauthoryear{Liu et~al.}{2020}]{liu2020fedgru}
 \begin{barticle}
 \bauthor{\bsnm{Liu}, \binits{Y.}},
@@ -183,7 +418,7 @@ In: \bbtitle{International Conference on Learning Representations (ICLR)}
 \end{barticle}
 \endbibitem
 
-%%% 9
+%%% 24
 \bibitem[\protect\citeauthoryear{Bharati et~al.}{2022}]{bharati2022federated}
 \begin{barticle}
 \bauthor{\bsnm{Bharati}, \binits{S.}},
@@ -198,7 +433,23 @@ In: \bbtitle{International Conference on Learning Representations (ICLR)}
 \end{barticle}
 \endbibitem
 
-%%% 10
+%%% 25
+\bibitem[\protect\citeauthoryear{Kone\v{c}n{\'y}
+  et~al.}{2016}]{konecny2016federated}
+\begin{botherref}
+\oauthor{\bsnm{Kone\v{c}n{\'y}}, \binits{J.}},
+\oauthor{\bsnm{McMahan}, \binits{H.B.}},
+\oauthor{\bsnm{Yu}, \binits{F.X.}},
+\oauthor{\bsnm{Richt\'{a}rik}, \binits{P.}},
+\oauthor{\bsnm{Suresh}, \binits{A.T.}},
+\oauthor{\bsnm{Bacon}, \binits{D.}}:
+{Federated Learning: Strategies for Improving Communication Efficiency}.
+arXiv preprint arXiv:1610.05492
+(2016)
+\end{botherref}
+\endbibitem
+
+%%% 26
 \bibitem[\protect\citeauthoryear{Wei et~al.}{2020}]{Wei2020FLDP}
 \begin{barticle}
 \bauthor{\bsnm{Wei}, \binits{K.}},
@@ -219,7 +470,41 @@ In: \bbtitle{International Conference on Learning Representations (ICLR)}
 \end{barticle}
 \endbibitem
 
-%%% 11
+%%% 27
+\bibitem[\protect\citeauthoryear{Dwork and Roth}{2014}]{dwork2014differential}
+\begin{barticle}
+\bauthor{\bsnm{Dwork}, \binits{C.}},
+\bauthor{\bsnm{Roth}, \binits{A.}}:
+\batitle{{The Algorithmic Foundations of Differential Privacy}}.
+\bjtitle{Foundations and Trends in Theoretical Computer Science}
+\bvolume{9}(\bissue{3--4}),
+\bfpage{211}--\blpage{407}
+(\byear{2014})
+\end{barticle}
+\endbibitem
+
+%%% 28
+\bibitem[\protect\citeauthoryear{Bonawitz et~al.}{2017}]{bonawitz2017secagg}
+\begin{bchapter}
+\bauthor{\bsnm{Bonawitz}, \binits{K.}},
+\bauthor{\bsnm{Ivanov}, \binits{V.}},
+\bauthor{\bsnm{Kreuter}, \binits{B.}},
+\bauthor{\bsnm{Marcedone}, \binits{A.}},
+\bauthor{\bsnm{McMahan}, \binits{H.B.}},
+\bauthor{\bsnm{Patel}, \binits{S.}},
+\bauthor{\bsnm{Ramage}, \binits{D.}},
+\bauthor{\bsnm{Segal}, \binits{A.}},
+\bauthor{\bsnm{Seth}, \binits{K.}}:
+\bctitle{{Practical Secure Aggregation for Privacy-Preserving Machine
+  Learning}}.
+In: \bbtitle{Proceedings of the 2017 ACM SIGSAC Conference on Computer and
+  Communications Security (CCS)},
+pp. \bfpage{1175}--\blpage{1191}
+(\byear{2017})
+\end{bchapter}
+\endbibitem
+
+%%% 29
 \bibitem[\protect\citeauthoryear{Qi et~al.}{2020}]{Qi2020BlockchainFLTraffic}
 \begin{barticle}
 \bauthor{\bsnm{Qi}, \binits{Y.}},
@@ -235,7 +520,148 @@ In: \bbtitle{International Conference on Learning Representations (ICLR)}
 \end{barticle}
 \endbibitem
 
-%%% 12
+%%% 30
+\bibitem[\protect\citeauthoryear{Nguyen et~al.}{2021}]{nguyen2021federated}
+\begin{barticle}
+\bauthor{\bsnm{Nguyen}, \binits{D.C.}},
+\bauthor{\bsnm{Ding}, \binits{M.}},
+\bauthor{\bsnm{Pathirana}, \binits{P.N.}},
+\bauthor{\bsnm{Seneviratne}, \binits{A.}},
+\bauthor{\bsnm{Li}, \binits{J.}},
+\bauthor{\bsnm{Poor}, \binits{H.V.}}:
+\batitle{{Federated Learning for Internet of Things: A Comprehensive Survey}}.
+\bjtitle{IEEE Communications Surveys \& Tutorials}
+\bvolume{23}(\bissue{3}),
+\bfpage{1622}--\blpage{1658}
+(\byear{2021})
+\end{barticle}
+\endbibitem
+
+%%% 31
+\bibitem[\protect\citeauthoryear{Shi et~al.}{2016}]{shi2016edge}
+\begin{barticle}
+\bauthor{\bsnm{Shi}, \binits{W.}},
+\bauthor{\bsnm{Cao}, \binits{J.}},
+\bauthor{\bsnm{Zhang}, \binits{Q.}},
+\bauthor{\bsnm{Li}, \binits{Y.}},
+\bauthor{\bsnm{Xu}, \binits{L.}}:
+\batitle{{Edge Computing: Vision and Challenges}}.
+\bjtitle{IEEE Internet of Things Journal}
+\bvolume{3}(\bissue{5}),
+\bfpage{637}--\blpage{646}
+(\byear{2016})
+\end{barticle}
+\endbibitem
+
+%%% 32
+\bibitem[\protect\citeauthoryear{Mach and Becvar}{2017}]{mach2017mobile}
+\begin{barticle}
+\bauthor{\bsnm{Mach}, \binits{P.}},
+\bauthor{\bsnm{Becvar}, \binits{Z.}}:
+\batitle{{Mobile Edge Computing: A Survey on Architecture and Computation
+  Offloading}}.
+\bjtitle{IEEE Communications Surveys \& Tutorials}
+\bvolume{19}(\bissue{3}),
+\bfpage{1628}--\blpage{1656}
+(\byear{2017})
+\end{barticle}
+\endbibitem
+
+%%% 33
+\bibitem[\protect\citeauthoryear{Yuan et~al.}{2022}]{yuan2021federated}
+\begin{botherref}
+\oauthor{\bsnm{Yuan}, \binits{L.}},
+\oauthor{\bsnm{Zheng}, \binits{Z.}},
+\oauthor{\bsnm{Li}, \binits{L.}},
+\oauthor{\bsnm{Xu}, \binits{H.}},
+\oauthor{\bsnm{Liu}, \binits{Y.}}:
+{Federated Learning With Incentive Mechanism for Non-IID Medical Image Data}.
+Frontiers in Medicine
+\textbf{9}
+(2022)
+\end{botherref}
+\endbibitem
+
+%%% 34
+\bibitem[\protect\citeauthoryear{Li et~al.}{2020}]{li2020fedprox}
+\begin{botherref}
+\oauthor{\bsnm{Li}, \binits{T.}},
+\oauthor{\bsnm{Sahu}, \binits{A.K.}},
+\oauthor{\bsnm{Zaheer}, \binits{M.}},
+\oauthor{\bsnm{Sanjabi}, \binits{M.}},
+\oauthor{\bsnm{Talwalkar}, \binits{A.}},
+\oauthor{\bsnm{Smith}, \binits{V.}}:
+{Federated Optimization in Heterogeneous Networks}.
+arXiv preprint arXiv:1812.06127
+(2020)
+\end{botherref}
+\endbibitem
+
+%%% 35
+\bibitem[\protect\citeauthoryear{Karimireddy
+  et~al.}{2020}]{karimireddy2020scaffold}
+\begin{bchapter}
+\bauthor{\bsnm{Karimireddy}, \binits{S.P.}},
+\bauthor{\bsnm{Kale}, \binits{S.}},
+\bauthor{\bsnm{Mohri}, \binits{M.}},
+\bauthor{\bsnm{Reddi}, \binits{S.J.}},
+\bauthor{\bsnm{Stich}, \binits{S.U.}},
+\bauthor{\bsnm{Suresh}, \binits{A.T.}}:
+\bctitle{{SCAFFOLD: Stochastic Controlled Averaging for Federated Learning}}.
+In: \bbtitle{Proceedings of the 37th International Conference on Machine
+  Learning (ICML)},
+pp. \bfpage{5132}--\blpage{5143}
+(\byear{2020})
+\end{bchapter}
+\endbibitem
+
+%%% 36
+\bibitem[\protect\citeauthoryear{Sun et~al.}{2023}]{sun2021pain}
+\begin{barticle}
+\bauthor{\bsnm{Sun}, \binits{T.}},
+\bauthor{\bsnm{Li}, \binits{D.}},
+\bauthor{\bsnm{Wang}, \binits{B.}}:
+\batitle{{Decentralized Federated Averaging}}.
+\bjtitle{IEEE Transactions on Pattern Analysis and Machine Intelligence}
+\bvolume{45}(\bissue{4}),
+\bfpage{4289}--\blpage{4301}
+(\byear{2023})
+\end{barticle}
+\endbibitem
+
+%%% 37
+\bibitem[\protect\citeauthoryear{Liang et~al.}{2020}]{liang2020think}
+\begin{botherref}
+\oauthor{\bsnm{Liang}, \binits{P.P.}},
+\oauthor{\bsnm{Liu}, \binits{T.}},
+\oauthor{\bsnm{Ziyin}, \binits{L.}},
+\oauthor{\bsnm{Allen}, \binits{N.B.}},
+\oauthor{\bsnm{Auerbach}, \binits{R.P.}},
+\oauthor{\bsnm{Brent}, \binits{D.}},
+\oauthor{\bsnm{Salakhutdinov}, \binits{R.}},
+\oauthor{\bsnm{Morency}, \binits{L.-P.}}:
+{Think Locally, Act Globally: Federated Learning with Local and Global
+  Representations}.
+arXiv preprint arXiv:2001.01523
+(2020)
+\end{botherref}
+\endbibitem
+
+%%% 38
+\bibitem[\protect\citeauthoryear{Wang et~al.}{2020}]{wang2019adaptive}
+\begin{bchapter}
+\bauthor{\bsnm{Wang}, \binits{H.}},
+\bauthor{\bsnm{Yurochkin}, \binits{M.}},
+\bauthor{\bsnm{Sun}, \binits{Y.}},
+\bauthor{\bsnm{Papailiopoulos}, \binits{D.}},
+\bauthor{\bsnm{Khazaeni}, \binits{Y.}}:
+\bctitle{{Federated Learning with Matched Averaging}}.
+In: \bbtitle{International Conference on Learning Representations (ICLR)}
+(\byear{2020})
+\end{bchapter}
+\endbibitem
+
+%%% 39
 \bibitem[\protect\citeauthoryear{Feng et~al.}{2024}]{feng2024federated}
 \begin{barticle}
 \bauthor{\bsnm{Feng}, \binits{X.}},
@@ -251,7 +677,7 @@ In: \bbtitle{International Conference on Learning Representations (ICLR)}
 \end{barticle}
 \endbibitem
 
-%%% 13
+%%% 40
 \bibitem[\protect\citeauthoryear{Zhang et~al.}{2024}]{zhang2024personalized}
 \begin{bchapter}
 \bauthor{\bsnm{Zhang}, \binits{Y.}},
@@ -268,7 +694,7 @@ pp. \bfpage{5526}--\blpage{5534}
 \end{bchapter}
 \endbibitem
 
-%%% 14
+%%% 41
 \bibitem[\protect\citeauthoryear{Ma et~al.}{2024}]{sttn2024}
 \begin{barticle}
 \bauthor{\bsnm{Ma}, \binits{J.}},
@@ -283,7 +709,7 @@ pp. \bfpage{5526}--\blpage{5534}
 \end{barticle}
 \endbibitem
 
-%%% 15
+%%% 42
 \bibitem[\protect\citeauthoryear{Li et~al.}{2024}]{li2024fedasta}
 \begin{botherref}
 \oauthor{\bsnm{Li}, \binits{K.}},
@@ -296,7 +722,7 @@ arXiv preprint arXiv:2405.13090
 \end{botherref}
 \endbibitem
 
-%%% 16
+%%% 43
 \bibitem[\protect\citeauthoryear{Qin et~al.}{2025}]{qin2025fedcontrastive}
 \begin{barticle}
 \bauthor{\bsnm{Qin}, \binits{T.}},
@@ -315,7 +741,37 @@ arXiv preprint arXiv:2405.13090
 \end{barticle}
 \endbibitem
 
-%%% 17
+%%% 44
+\bibitem[\protect\citeauthoryear{Lin et~al.}{2018}]{lin2017deep}
+\begin{bchapter}
+\bauthor{\bsnm{Lin}, \binits{Y.}},
+\bauthor{\bsnm{Han}, \binits{S.}},
+\bauthor{\bsnm{Mao}, \binits{H.}},
+\bauthor{\bsnm{Wang}, \binits{Y.}},
+\bauthor{\bsnm{Dally}, \binits{W.J.}}:
+\bctitle{{Deep Gradient Compression: Reducing the Communication Bandwidth for
+  Distributed Training}}.
+In: \bbtitle{International Conference on Learning Representations (ICLR)}
+(\byear{2018})
+\end{bchapter}
+\endbibitem
+
+%%% 45
+\bibitem[\protect\citeauthoryear{Park et~al.}{2021}]{park2020privacy}
+\begin{bchapter}
+\bauthor{\bsnm{Park}, \binits{S.}},
+\bauthor{\bsnm{Simeone}, \binits{O.}},
+\bauthor{\bsnm{Kang}, \binits{J.}}:
+\bctitle{{Distill-and-Sparsify: Improving Communication Efficiency in Federated
+  Learning}}.
+In: \bbtitle{IEEE International Conference on Acoustics, Speech and Signal
+  Processing (ICASSP)},
+pp. \bfpage{3460}--\blpage{3464}
+(\byear{2021})
+\end{bchapter}
+\endbibitem
+
+%%% 46
 \bibitem[\protect\citeauthoryear{Li
   et~al.}{2018}]{Li2018MissingValueImputation}
 \begin{barticle}
@@ -332,7 +788,7 @@ arXiv preprint arXiv:2405.13090
 \end{barticle}
 \endbibitem
 
-%%% 18
+%%% 47
 \bibitem[\protect\citeauthoryear{Meng et~al.}{2023}]{Meng2023LaneChanging}
 \begin{barticle}
 \bauthor{\bsnm{Meng}, \binits{X.}},
@@ -347,7 +803,7 @@ arXiv preprint arXiv:2405.13090
 \end{barticle}
 \endbibitem
 
-%%% 19
+%%% 48
 \bibitem[\protect\citeauthoryear{Dai and Tang}{2025}]{dai2025short}
 \begin{barticle}
 \bauthor{\bsnm{Dai}, \binits{G.}},
@@ -361,505 +817,36 @@ arXiv preprint arXiv:2405.13090
 \end{barticle}
 \endbibitem
 
-%%% 20
-\bibitem[\protect\citeauthoryear{Khodamoradi
-  et~al.}{2025}]{khodamoradi2025vessel}
-\begin{botherref}
-\oauthor{\bsnm{Khodamoradi}, \binits{M.}},
-\oauthor{\bsnm{Figueiras}, \binits{P.}},
-\oauthor{\bsnm{Grilo}, \binits{A.}},
-\oauthor{\bsnm{Louren\c{c}o}, \binits{L.}},
-\oauthor{\bsnm{R\^{e}ga}, \binits{B.}},
-\oauthor{\bsnm{Agostinho}, \binits{C.}},
-\oauthor{\bsnm{Costa}, \binits{R.}},
-\oauthor{\bsnm{Jardim-Gon\c{v}alves}, \binits{R.}}:
-{Vessel Traffic Density Prediction: A Federated Learning Approach}.
-ISPRS International Journal of Geo-Information
-\textbf{14}
-(2025)
-\end{botherref}
-\endbibitem
-
-%%% 21
-\bibitem[\protect\citeauthoryear{Dai et~al.}{2024}]{dai2024road}
-\begin{botherref}
-\oauthor{\bsnm{Dai}, \binits{G.}},
-\oauthor{\bsnm{Tang}, \binits{J.}},
-\oauthor{\bsnm{Zeng}, \binits{J.}},
-\oauthor{\bsnm{Zhao}, \binits{C.}},
-\oauthor{\bsnm{Hu}, \binits{C.}}:
-{Road network traffic flow prediction: A personalized federated learning method
-  based on client reputation}.
-Computers \& Electrical Engineering
-\textbf{120}
-(2024)
-\end{botherref}
-\endbibitem
-
-%%% 22
-\bibitem[\protect\citeauthoryear{Li et~al.}{2024}]{10885123}
-\begin{bchapter}
-\bauthor{\bsnm{Li}, \binits{J.}},
-\bauthor{\bsnm{Wang}, \binits{J.}},
-\bauthor{\bsnm{Deng}, \binits{R.}},
-\bauthor{\bsnm{Yan}, \binits{D.}},
-\bauthor{\bsnm{Li}, \binits{Q.}}:
-\bctitle{{FedGAC: Graph Federated Learning with Gradients Aggregation
-  Calibration for Non-IID and Long-Tailed Data}}.
-In: \bbtitle{Proceedings of the IEEE International Symposium on Parallel and
-  Distributed Processing with Applications (ISPA)},
-pp. \bfpage{410}--\blpage{417}
-(\byear{2024})
-\end{bchapter}
-\endbibitem
-
-%%% 23
-\bibitem[\protect\citeauthoryear{Zhang et~al.}{2024}]{zhang2024survey}
-\begin{botherref}
-\oauthor{\bsnm{Zhang}, \binits{R.}},
-\oauthor{\bsnm{Wang}, \binits{H.}},
-\oauthor{\bsnm{Li}, \binits{B.}},
-\oauthor{\bsnm{Cheng}, \binits{X.}},
-\oauthor{\bsnm{Yang}, \binits{L.}}:
-{A Survey on Federated Learning in Intelligent Transportation Systems}.
-arXiv preprint arXiv:2403.07444
-(2024).
-Comprehensive survey of FL for traffic flow prediction, target recognition, and
-  vehicular edge computing
-\end{botherref}
-\endbibitem
-
-%%% 24
-\bibitem[\protect\citeauthoryear{Belal et~al.}{2024}]{belal2024survey}
-\begin{botherref}
-\oauthor{\bsnm{Belal}, \binits{Y.}},
-\oauthor{\bsnm{Ben~Mokhtar}, \binits{S.}}, et al.:
-{Survey of Federated Learning Models for Spatial-Temporal Mobility
-  Applications}.
-arXiv preprint arXiv:2305.05257
-(2024).
-Review of FL for human mobility, traffic prediction, and community detection
-\end{botherref}
-\endbibitem
-
-%%% 25
-\bibitem[\protect\citeauthoryear{Nguyen et~al.}{2023}]{nguyen2023fediot}
-\begin{barticle}
-\bauthor{\bsnm{Nguyen}, \binits{D.C.}},
-\bauthor{\bsnm{Ding}, \binits{M.}},
-\bauthor{\bsnm{Pathirana}, \binits{P.N.}},
-\bauthor{\bsnm{Seneviratne}, \binits{A.}},
-\bauthor{\bsnm{Li}, \binits{Y.}},
-\bauthor{\bsnm{Poor}, \binits{H.V.}}:
-\batitle{{Federated Learning for Internet of Things: A Comprehensive Survey}}.
-\bjtitle{IEEE Communications Surveys \& Tutorials}
-\bvolume{25}(\bissue{1}),
-\bfpage{387}--\blpage{430}
-(\byear{2023})
-\doiurl{10.1109/COMST.2023.3238764}
-\end{barticle}
-\endbibitem
-
-%%% 26
-\bibitem[\protect\citeauthoryear{Liu et~al.}{2025}]{liu2025refol}
-\begin{barticle}
-\bauthor{\bsnm{Liu}, \binits{Q.}},
-\bauthor{\bsnm{Sun}, \binits{S.}},
-\bauthor{\bsnm{Liang}, \binits{Y.}},
-\bauthor{\bsnm{Xu}, \binits{X.}},
-\bauthor{\bsnm{Liu}, \binits{M.}},
-\bauthor{\bsnm{Bilal}, \binits{M.}},
-\bauthor{\bsnm{Wang}, \binits{Y.}},
-\bauthor{\bsnm{Li}, \binits{X.}},
-\bauthor{\bsnm{Zheng}, \binits{Y.}}:
-\batitle{{REFOL: Resource-Efficient Federated Online Learning for Traffic Flow
-  Forecasting}}.
-\bjtitle{IEEE Transactions on Intelligent Transportation Systems}
-\bvolume{26}(\bissue{2}),
-\bfpage{2777}--\blpage{2792}
-(\byear{2025})
-\doiurl{10.1109/TITS.2024.3517823}
-\end{barticle}
-\endbibitem
-
-%%% 27
-\bibitem[\protect\citeauthoryear{Wang et~al.}{2024}]{wang2024fedstgcn}
-\begin{barticle}
-\bauthor{\bsnm{Wang}, \binits{Y.}},
-\bauthor{\bsnm{Liu}, \binits{F.}},
-\bauthor{\bsnm{Chen}, \binits{Z.}}, \betal:
-\batitle{{Federated Spatio-Temporal Graph Convolutional Networks for Traffic
-  Flow Prediction}}.
-\bjtitle{IEEE Transactions on Intelligent Transportation Systems}
-\bvolume{25}(\bissue{8}),
-\bfpage{9456}--\blpage{9468}
-(\byear{2024})
-\doiurl{10.1109/TITS.2024.3358462}
-\end{barticle}
-\endbibitem
-
-%%% 28
-\bibitem[\protect\citeauthoryear{Chen et~al.}{2023}]{chen2023fedgcn}
-\begin{barticle}
-\bauthor{\bsnm{Chen}, \binits{X.}},
-\bauthor{\bsnm{Li}, \binits{Y.}},
-\bauthor{\bsnm{Wang}, \binits{S.}},
-\bauthor{\bsnm{Zhang}, \binits{J.}}:
-\batitle{{FedGCN: Federated Graph Convolutional Network for Spatiotemporal
-  Traffic Forecasting}}.
-\bjtitle{IEEE Internet of Things Journal}
-\bvolume{10}(\bissue{16}),
-\bfpage{14343}--\blpage{14355}
-(\byear{2023})
-\doiurl{10.1109/JIOT.2023.3265231}
-\end{barticle}
-\endbibitem
-
-%%% 29
-\bibitem[\protect\citeauthoryear{Lin et~al.}{2024}]{lin2024fedatt}
-\begin{barticle}
-\bauthor{\bsnm{Lin}, \binits{H.}},
-\bauthor{\bsnm{Zhang}, \binits{L.}},
-\bauthor{\bsnm{Wu}, \binits{J.}}:
-\batitle{{Federated Learning with Multi-Head Attention for Traffic Flow
-  Prediction}}.
-\bjtitle{IEEE Transactions on Vehicular Technology}
-\bvolume{73}(\bissue{5}),
-\bfpage{6395}--\blpage{6407}
-(\byear{2024})
-\doiurl{10.1109/TVT.2023.3345672}
-\end{barticle}
-\endbibitem
-
-%%% 30
-\bibitem[\protect\citeauthoryear{Wang et~al.}{2023}]{wang2023fedsttf}
-\begin{bchapter}
-\bauthor{\bsnm{Wang}, \binits{X.}},
-\bauthor{\bsnm{Chen}, \binits{L.}},
-\bauthor{\bsnm{Zhao}, \binits{Y.}}:
-\bctitle{{Federated Spatio-Temporal Transformer for Traffic Flow Forecasting}}.
-In: \bbtitle{Proceedings of the AAAI Conference on Artificial Intelligence},
-vol. \bseriesno{37},
-pp. \bfpage{14674}--\blpage{14682}
-(\byear{2023})
-\end{bchapter}
-\endbibitem
-
-%%% 31
-\bibitem[\protect\citeauthoryear{AuthorNames}{2025}]{flaa2025v2v}
-\begin{barticle}
-\bauthor{\bsnm{AuthorNames}}:
-\batitle{{Privacy-Preserving Federated Learning With Adaptive Model Aggregation
-  for Efficient Vehicle-to-Vehicle (V2V) Communication in Intelligent
-  Transportation Systems}}.
-\bjtitle{IEEE Access}
-\bvolume{13},
-\bfpage{182393}--\blpage{182409}
-(\byear{2025})
-\doiurl{10.1109/ACCESS.2025.11196754}
-\end{barticle}
-\endbibitem
-
-%%% 32
-\bibitem[\protect\citeauthoryear{Shit and Subudhi}{2025}]{shit2025fedfair}
-\begin{botherref}
-\oauthor{\bsnm{Shit}, \binits{R.C.}},
-\oauthor{\bsnm{Subudhi}, \binits{S.}}:
-{Privacy-Preserving Federated Learning for Fair and Efficient Urban Traffic
-  Optimization}.
-arXiv preprint arXiv:2511.06363
-(2025).
-Integrates GNN with differential privacy and fairness constraints
-\end{botherref}
-\endbibitem
-
-%%% 33
-\bibitem[\protect\citeauthoryear{Li et~al.}{2024}]{li2024fedpdpa}
-\begin{botherref}
-\oauthor{\bsnm{Li}, \binits{J.}},
-\oauthor{\bsnm{Wang}, \binits{J.}},
-\oauthor{\bsnm{Deng}, \binits{R.}},
-\oauthor{\bsnm{Yan}, \binits{D.}},
-\oauthor{\bsnm{Li}, \binits{Q.}}:
-{FedGAC: Graph Federated Learning with Gradients Aggregation Calibration for
-  Non-IID and Long-Tailed Data}.
-arXiv preprint arXiv:2401.08927
-(2024)
-\end{botherref}
-\endbibitem
-
-%%% 34
-\bibitem[\protect\citeauthoryear{Wang et~al.}{2023}]{wang2023dpfl}
-\begin{barticle}
-\bauthor{\bsnm{Wang}, \binits{T.}},
-\bauthor{\bsnm{Zhang}, \binits{Y.}},
-\bauthor{\bsnm{Li}, \binits{X.}}:
-\batitle{{Differentially Private Federated Learning for Traffic Prediction}}.
-\bjtitle{IEEE Transactions on Information Forensics and Security}
-\bvolume{18},
-\bfpage{2345}--\blpage{2358}
-(\byear{2023})
-\doiurl{10.1109/TIFS.2023.3265432}
-\end{barticle}
-\endbibitem
-
-%%% 35
-\bibitem[\protect\citeauthoryear{Liu et~al.}{2023}]{liu2023hefl}
-\begin{barticle}
-\bauthor{\bsnm{Liu}, \binits{S.}},
-\bauthor{\bsnm{Zhou}, \binits{J.}},
-\bauthor{\bsnm{Wang}, \binits{Q.}}:
-\batitle{{Homomorphic Encryption Based Federated Learning for
-  Privacy-Preserving Traffic Flow Prediction}}.
-\bjtitle{IEEE Internet of Things Journal}
-\bvolume{10}(\bissue{10}),
-\bfpage{8765}--\blpage{8777}
-(\byear{2023})
-\doiurl{10.1109/JIOT.2023.3239876}
-\end{barticle}
-\endbibitem
-
-%%% 36
-\bibitem[\protect\citeauthoryear{Kou et~al.}{2025}]{kou2025pFedLVM}
-\begin{botherref}
-\oauthor{\bsnm{Kou}, \binits{W.-B.}}, et al.:
-{pFedLVM: A Large Vision Model-Driven and Latent Feature-Based Personalized
-  Federated Learning Framework in Autonomous Driving}.
-arXiv preprint arXiv:2405.04146
-(2025).
-Latest version v3, March 2025
-\end{botherref}
-\endbibitem
-
-%%% 37
-\bibitem[\protect\citeauthoryear{Wang et~al.}{2024}]{wang2024pfl}
-\begin{barticle}
-\bauthor{\bsnm{Wang}, \binits{H.}},
-\bauthor{\bsnm{Li}, \binits{Y.}},
-\bauthor{\bsnm{Zhang}, \binits{Q.}}:
-\batitle{{Personalized Federated Learning for Traffic Prediction with Non-IID
-  Data}}.
-\bjtitle{IEEE Transactions on Intelligent Transportation Systems}
-\bvolume{25}(\bissue{6}),
-\bfpage{5432}--\blpage{5444}
-(\byear{2024})
-\doiurl{10.1109/TITS.2023.3348901}
-\end{barticle}
-\endbibitem
-
-%%% 38
-\bibitem[\protect\citeauthoryear{Jiang et~al.}{2025}]{jiang2025fedstast}
-\begin{barticle}
-\bauthor{\bsnm{Jiang}, \binits{W.}},
-\bauthor{\bsnm{Mu}, \binits{J.}},
-\bauthor{\bsnm{Han}, \binits{H.}},
-\bauthor{\bsnm{Zhang}, \binits{Y.}},
-\bauthor{\bsnm{Huang}, \binits{S.}}:
-\batitle{{Federated Learning-Based Mobile Traffic Prediction in
-  Satellite-Terrestrial Integrated Networks}}.
-\bjtitle{Software: Practice and Experience}
-\bvolume{55},
-\bfpage{613}--\blpage{628}
-(\byear{2025})
-\doiurl{10.1002/spe.3386}
-\end{barticle}
-\endbibitem
-
-%%% 39
-\bibitem[\protect\citeauthoryear{Chen et~al.}{2024}]{chen2024fedtraj}
-\begin{barticle}
-\bauthor{\bsnm{Chen}, \binits{J.}},
-\bauthor{\bsnm{Wu}, \binits{W.}},
-\bauthor{\bsnm{Zhang}, \binits{Y.}}:
-\batitle{{Federated Learning for Intersection Vehicle Trajectory Prediction
-  Within Digital Twin}}.
-\bjtitle{IEEE Internet of Things Journal}
-\bvolume{11}(\bissue{14}),
-\bfpage{24678}--\blpage{24690}
-(\byear{2024})
-\doiurl{10.1109/JIOT.2024.3398765}
-\end{barticle}
-\endbibitem
-
-%%% 40
-\bibitem[\protect\citeauthoryear{Muthusamy}{2024}]{muthusamy2024feddl}
-\begin{botherref}
-\oauthor{\bsnm{Muthusamy}, \binits{S.}}:
-{Federated Deep Learning for Privacy Preserving Collaborative Data Sharing and
-  Fault Recovery in Connected Vehicles}
-(2024)
-\end{botherref}
-\endbibitem
-
-%%% 41
-\bibitem[\protect\citeauthoryear{AuthorNames}{2025}]{tailgating2025fed}
-\begin{botherref}
-\oauthor{\bsnm{AuthorNames}}:
-{Federated Deep Learning for Tailgating Behaviour Detection in Intelligent
-  Transportation Systems}.
-Directory of Open Access Journals
-(2025).
-FL with Bi-LSTM achieves >91.98% detection accuracy
-\end{botherref}
-\endbibitem
-
-%%% 42
-\bibitem[\protect\citeauthoryear{Zhang et~al.}{2024}]{zhang2024fedbev}
-\begin{barticle}
-\bauthor{\bsnm{Zhang}, \binits{L.}},
-\bauthor{\bsnm{Wang}, \binits{K.}},
-\bauthor{\bsnm{Chen}, \binits{Y.}}:
-\batitle{{Federated Learning for Bird's Eye View Perception in Autonomous
-  Driving}}.
-\bjtitle{IEEE Robotics and Automation Letters}
-\bvolume{9}(\bissue{5}),
-\bfpage{4212}--\blpage{4219}
-(\byear{2024})
-\doiurl{10.1109/LRA.2024.3376345}
-\end{barticle}
-\endbibitem
-
-%%% 43
-\bibitem[\protect\citeauthoryear{Li et~al.}{2023}]{li2023fedplan}
-\begin{barticle}
-\bauthor{\bsnm{Li}, \binits{M.}},
-\bauthor{\bsnm{Zhao}, \binits{S.}},
-\bauthor{\bsnm{Liu}, \binits{W.}}:
-\batitle{{Federated Reinforcement Learning for Autonomous Vehicle Path
-  Planning}}.
-\bjtitle{IEEE Transactions on Intelligent Vehicles}
-\bvolume{8}(\bissue{9}),
-\bfpage{4321}--\blpage{4333}
-(\byear{2023})
-\doiurl{10.1109/TIV.2023.3289456}
-\end{barticle}
-\endbibitem
-
-%%% 44
-\bibitem[\protect\citeauthoryear{Xu et~al.}{2024}]{xu2024fedcom}
-\begin{barticle}
-\bauthor{\bsnm{Xu}, \binits{C.}},
-\bauthor{\bsnm{Liu}, \binits{Y.}},
-\bauthor{\bsnm{Zhang}, \binits{W.}}:
-\batitle{{Communication-Efficient Federated Learning for Edge-Enabled Traffic
-  Prediction}}.
-\bjtitle{IEEE Transactions on Mobile Computing}
-\bvolume{23}(\bissue{6}),
-\bfpage{7123}--\blpage{7137}
-(\byear{2024})
-\doiurl{10.1109/TMC.2023.3324567}
-\end{barticle}
-\endbibitem
-
-%%% 45
-\bibitem[\protect\citeauthoryear{Zhou et~al.}{2024}]{zhou2024fedasync}
-\begin{barticle}
-\bauthor{\bsnm{Zhou}, \binits{P.}},
-\bauthor{\bsnm{Wang}, \binits{J.}},
-\bauthor{\bsnm{Li}, \binits{S.}}:
-\batitle{{Asynchronous Federated Learning for Heterogeneous Vehicular
-  Networks}}.
-\bjtitle{IEEE Transactions on Wireless Communications}
-\bvolume{23}(\bissue{4}),
-\bfpage{2987}--\blpage{3000}
-(\byear{2024})
-\doiurl{10.1109/TWC.2023.3312345}
-\end{barticle}
-\endbibitem
-
-%%% 46
-\bibitem[\protect\citeauthoryear{Zhang et~al.}{2024}]{zhang2024fedad}
-\begin{barticle}
-\bauthor{\bsnm{Zhang}, \binits{Y.}},
-\bauthor{\bsnm{Liu}, \binits{H.}},
-\bauthor{\bsnm{Chen}, \binits{W.}}:
-\batitle{{Federated Learning for Traffic Anomaly Detection in Connected Vehicle
-  Networks}}.
-\bjtitle{IEEE Transactions on Intelligent Transportation Systems}
-\bvolume{25}(\bissue{3}),
-\bfpage{2345}--\blpage{2357}
-(\byear{2024})
-\doiurl{10.1109/TITS.2023.3315678}
-\end{barticle}
-\endbibitem
-
-%%% 47
-\bibitem[\protect\citeauthoryear{Huang et~al.}{2023}]{huang2023fedids}
-\begin{barticle}
-\bauthor{\bsnm{Huang}, \binits{X.}},
-\bauthor{\bsnm{Zhang}, \binits{P.}},
-\bauthor{\bsnm{Wang}, \binits{L.}}:
-\batitle{{Federated Learning-Based Intrusion Detection System for Internet of
-  Vehicles}}.
-\bjtitle{IEEE Internet of Things Journal}
-\bvolume{10}(\bissue{12}),
-\bfpage{10453}--\blpage{10464}
-(\byear{2023})
-\doiurl{10.1109/JIOT.2023.3241234}
-\end{barticle}
-\endbibitem
-
-%%% 48
-\bibitem[\protect\citeauthoryear{Li et~al.}{2024}]{li2024feddt}
-\begin{barticle}
-\bauthor{\bsnm{Li}, \binits{W.}},
-\bauthor{\bsnm{Chen}, \binits{Z.}},
-\bauthor{\bsnm{Yang}, \binits{J.}}:
-\batitle{{Federated Learning Empowered Digital Twins for Urban Traffic
-  Management}}.
-\bjtitle{IEEE Transactions on Cloud Computing}
-\bvolume{12}(\bissue{2}),
-\bfpage{456}--\blpage{469}
-(\byear{2024})
-\doiurl{10.1109/TCC.2024.3378456}
-\end{barticle}
-\endbibitem
-
 %%% 49
-\bibitem[\protect\citeauthoryear{Wang et~al.}{2024}]{wang2024fedimp}
+\bibitem[\protect\citeauthoryear{Ye et~al.}{2020}]{ye2020edgefed}
 \begin{barticle}
-\bauthor{\bsnm{Wang}, \binits{S.}},
-\bauthor{\bsnm{Li}, \binits{J.}},
-\bauthor{\bsnm{Zhang}, \binits{H.}}:
-\batitle{{Federated Learning with Missing Data Imputation for Traffic
-  Prediction}}.
-\bjtitle{IEEE Transactions on Knowledge and Data Engineering}
-\bvolume{36}(\bissue{7}),
-\bfpage{3215}--\blpage{3227}
-(\byear{2024})
-\doiurl{10.1109/TKDE.2023.3345678}
+\bauthor{\bsnm{Ye}, \binits{Y.}},
+\bauthor{\bsnm{Li}, \binits{S.}},
+\bauthor{\bsnm{Liu}, \binits{F.}},
+\bauthor{\bsnm{Tang}, \binits{Y.}},
+\bauthor{\bsnm{Hu}, \binits{W.}}:
+\batitle{{EdgeFed: Optimized Federated Learning Based on Edge Computing}}.
+\bjtitle{IEEE Access}
+\bvolume{8},
+\bfpage{209191}--\blpage{209198}
+(\byear{2020})
 \end{barticle}
 \endbibitem
 
 %%% 50
-\bibitem[\protect\citeauthoryear{Chen et~al.}{2023}]{chen2023fededge}
+\bibitem[\protect\citeauthoryear{Chen et~al.}{2017}]{chen2019deep}
 \begin{barticle}
 \bauthor{\bsnm{Chen}, \binits{M.}},
-\bauthor{\bsnm{Yang}, \binits{J.}},
-\bauthor{\bsnm{Hao}, \binits{Y.}}:
-\batitle{{Federated Learning for Edge-Cloud Collaborative Traffic Flow
-  Prediction}}.
-\bjtitle{IEEE Network}
-\bvolume{37}(\bissue{4}),
-\bfpage{123}--\blpage{130}
-(\byear{2023})
-\doiurl{10.1109/MNET.130.2200456}
-\end{barticle}
-\endbibitem
-
-%%% 51
-\bibitem[\protect\citeauthoryear{Wu et~al.}{2024}]{wu2024bench}
-\begin{barticle}
-\bauthor{\bsnm{Wu}, \binits{F.}},
-\bauthor{\bsnm{Zhang}, \binits{L.}},
-\bauthor{\bsnm{Wang}, \binits{S.}}:
-\batitle{{Benchmarking Federated Learning for Intelligent Transportation
-  Systems}}.
-\bjtitle{IEEE Transactions on Intelligent Transportation Systems}
-\bvolume{25}(\bissue{9}),
-\bfpage{11987}--\blpage{11999}
-(\byear{2024})
-\doiurl{10.1109/TITS.2024.3389210}
+\bauthor{\bsnm{Hao}, \binits{Y.}},
+\bauthor{\bsnm{Hwang}, \binits{K.}},
+\bauthor{\bsnm{Wang}, \binits{L.}},
+\bauthor{\bsnm{Wang}, \binits{L.}}:
+\batitle{{Disease Prediction by Machine Learning Over Big Data From Healthcare
+  Communities}}.
+\bjtitle{IEEE Access}
+\bvolume{5},
+\bfpage{8869}--\blpage{8879}
+(\byear{2017})
 \end{barticle}
 \endbibitem
 

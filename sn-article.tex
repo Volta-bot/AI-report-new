@@ -134,6 +134,13 @@ To overcome the challenges of insufficient or poor-quality data at individual no
 \subsection{Federated Learning Framework and Training Process}
 The framework operates on a distributed architecture consisting of two primary roles: Local Clients and a Central Server. Local Clients function as independent computing units that manage local data, train the model using parameters dispatched by the server, and upload the updated model weights. The Central Server acts as the coordinator that operates completely independent of the clients' raw data. It is responsible for initializing the global model, distributing parameters, aggregating client updates, and generating the new global model for the next iteration.
 
+\begin{figure}[h!]
+    \centering
+    \includegraphics[width=0.7\textwidth]{Figure/collaborative_training_process.png}
+    \caption{The system architecture and training process of federated learning.}
+    \label{fig:fl_framework}
+\end{figure}
+
 The collaborative training process follows a strict sequence in each communication round \cite{mcmahan2017fedavg}:
 \begin{itemize}
     \item \textbf{Initialization \& Distribution:} The server initializes the global model weights $W_0$ and distributes the current weights $W_r$ to selected clients.

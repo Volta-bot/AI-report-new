@@ -538,16 +538,12 @@ Predictions were evaluated across three look-ahead horizons representative of sh
 
 Figure~\ref{fig:pred_metrla} illustrates how closely the model tracks ground-truth traffic speeds on METR-LA over a representative 200-sample window (MAE\,=\,1.804, RMSE\,=\,2.814). The predictions faithfully capture the general trend and respond quickly to abrupt speed drops (e.g., the congestion event near sample index 150), though the model underestimates the sharpest troughs due to the inherent smoothing effect of the LSTM's temporal memory.
 
-<<<<<<< HEAD
 \begin{figure}[H]
   \centering
   \includegraphics[width=1.0\textwidth]{Figure/metr-la-predictions_vs_truth.png}
   \caption{Ground truth vs.\ predicted traffic speed on METR-LA (MAE\,=\,1.804, RMSE\,=\,2.814). The model tracks overall trends accurately and responds to congestion events with a slight lag.}
   \label{fig:pred_metrla}
 \end{figure}
-=======
-\textbf{Reliability:} Despite the increased difficulty of long-term forecasting, all MAPE values remained significantly below the 12\% threshold. This confirms that the Multi-Horizon LSTM architecture \cite{hochreiter1997lstm} successfully captures long-range temporal dependencies without suffering from vanishing gradients, a common issue in standard RNNs \cite{goodfellow2016deep}.
->>>>>>> 03d06f3f101ca812f1a67d56d8bf1b3bf78c7794
 
 \textbf{Short-term (15 min):} Both datasets showed excellent accuracy. PeMS-BAY maintained a MAPE of 3.88\%, while METR-LA achieved 7.87\%. The higher absolute error on METR-LA reflects the greater speed variability in the urban environment; however, the relative degradation is moderate \cite{dai2025short}.
 
@@ -568,7 +564,6 @@ A critical concern in Federated Learning is whether the global model performs eq
   \label{fig:client_pems}
 \end{figure}
 
-<<<<<<< HEAD
 \begin{figure}[H]
   \centering
   \includegraphics[width=1.0\textwidth]{Figure/metr-la_client_performance_horizons.png}
@@ -583,9 +578,6 @@ A critical concern in Federated Learning is whether the global model performs eq
 \textbf{Collaborative Boost via Knowledge Transfer:} Clients in irregular zones derived significant benefits from the federated framework \cite{liu2020fedgru}. By sharing global temporal representations learned from more stable clients, even the weakest client (client\_003, MAPE 17.4\% at 60 min) performed substantially better than local-only training would permit. Personalized FL schemes \cite{liang2020think} and decentralized averaging \cite{sun2021pain} could further reduce inter-client disparity.
 
 \textbf{Scalability and Fairness:} The results confirm that no client diverges or stagnates under FedAvg aggregation \cite{mcmahan2017fedavg}. Future integration of algorithms such as FedProx \cite{li2020fedprox} specifically designed to handle non-IID drift could further narrow the performance gap for the most heterogeneous clients \cite{tariq2024trustworthy}.
-=======
-\textbf{Scalability and Fairness:} The results confirm that even in inherently difficult regions, clients can achieve reasonable accuracy through federated knowledge access without sacrificing data sovereignty \cite{tariq2024trustworthy}. Future integration of personalized FL schemes \cite{liang2020think} and decentralized averaging \cite{sun2021pain} could further improve fairness across heterogeneous clients.
->>>>>>> 03d06f3f101ca812f1a67d56d8bf1b3bf78c7794
 
 \subsubsection{The Privacy--Performance Trade-off}
 
@@ -595,25 +587,16 @@ To validate the effectiveness of the proposed framework, the FL model was benchm
 
 \textbf{Root Causes of the Performance Gap:}
 \begin{itemize}
-<<<<<<< HEAD
     \item \textit{Communication Constraints:} Unlike centralized training, which allows for continuous gradient updates with full precision, FedAvg \cite{mcmahan2017fedavg} relies on discretized aggregation at fixed communication rounds. This quantization error accounts for approximately 0.5\% of the absolute MAPE gap.
     \item \textit{Heterogeneous Local Training:} Clients with limited data or computational resources may not fully converge within the allotted local epochs, contributing 0.3--0.4\% additional error, particularly on METR-LA.
-=======
-    \item \textit{Communication Constraints:} Unlike centralized training, which allows for continuous gradient updates with full precision, FedAvg \cite{mcmahan2017fedavg} relies on discretized aggregation at fixed communication rounds.
->>>>>>> 03d06f3f101ca812f1a67d56d8bf1b3bf78c7794
     \item \textit{Data Non-IID Effects:} Statistical heterogeneity across edge nodes \cite{Zhao2018FederatedNonIID} (e.g., complex traffic patterns in port areas) creates a residual disadvantage that global averaging cannot fully eliminate. Algorithms such as FedProx \cite{li2020fedprox} and SCAFFOLD \cite{karimireddy2020scaffold} are designed precisely to mitigate this drift.
 \end{itemize}
 
 \textbf{Systemic Efficiency and Regulatory Compliance:}
 \begin{itemize}
     \item \textit{Data Privacy:} Raw sensor data never leaves the origin point, ensuring that granular mobility patterns remain local. This privacy-by-design architecture inherently satisfies strict global regulations such as GDPR \cite{gdpr2016} and CCPA \cite{tariq2024trustworthy}. Where stronger guarantees are needed, differential privacy mechanisms \cite{dwork2014differential} and secure aggregation \cite{bonawitz2017secagg} can be layered on top of FedAvg.
-<<<<<<< HEAD
     \item \textit{Bandwidth Optimization:} The framework achieved a transformative 262$\times$ reduction in communication overhead. Instead of streaming massive high-frequency raw datasets, the system only transmits compressed 20 KB model weight updates every round \cite{mcmahan2017fedavg}. Communication efficiency strategies \cite{konecny2016federated} such as gradient compression and quantization can reduce this overhead even further.
     \item \textit{Edge Readiness and Latency:} With an optimized model size of only 20 KB and approximately 5,000 parameters, the architecture is fully compatible with resource-constrained edge devices \cite{dai2025short,bharati2022federated}. This enables real-time local inference with latencies below 100 ms, facilitating immediate proactive traffic management that centralized systems (burdened by round-trip query times) cannot match. The edge deployment is consistent with established MEC paradigms \cite{shi2016edge,mach2017mobile}.
-=======
-    \item \textit{Bandwidth Optimization:} The framework achieved a transformative 262$\times$ reduction in communication overhead. Instead of streaming massive high-frequency raw datasets, the system only transmits compressed model parameters (weights) every round \cite{mcmahan2017fedavg}. Communication efficiency strategies \cite{konecny2016federated} such as gradient compression and quantization can reduce this overhead even further.
-    \item \textit{Edge Readiness and Latency:} With an optimized model size of only 20 KB, the architecture is fully compatible with resource-constrained edge devices \cite{dai2025short,bharati2022federated}. This enables real-time local inference with latencies below 100 ms, facilitating immediate proactive traffic management that centralized systems (burdened by round-trip query times) cannot match. The edge deployment is consistent with established MEC paradigms \cite{shi2016edge,mach2017mobile}.
->>>>>>> 03d06f3f101ca812f1a67d56d8bf1b3bf78c7794
 \end{itemize}
 
 \textbf{Operational Conclusion:} For Intelligent Transportation Systems, where signal control algorithms typically tolerate a $\pm$5--10\% error margin, the FL model's performance is functionally equivalent to centralized systems while offering superior operational resilience, data sovereignty, and security \cite{tariq2024trustworthy,liu2020fedgru}.

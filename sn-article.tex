@@ -262,7 +262,12 @@ This report uses data collected from PeMS-BAY and METR-LA \cite{li2018dcrnn}, tw
     \label{fig:pems-bay-dataset}
 \end{figure}
 
-The \textbf{PeMS-BAY} dataset \cite{li2018dcrnn} contains traffic data from 325 sensors in the Bay Area, collected over six months (January--May 2017) at 5-minute intervals. Missing values are handled using linear interpolation \cite{Li2018MissingValueImputation}, and the data is normalized using Z-score normalization to improve model performance.
+\begin{itemize}
+    \item \textbf{Source} 325 sensors in the Bay Area.
+    \item \textbf{Duration} 6 months of data (Jan 1, 2017 - May 31, 2017).
+    \item \textbf{Interval} Traffic speed readings aggregated every 5 minutes.
+    \item \textbf{Preprocessing} Missing values are imputed using linear interpolation. The data is normalized using Z-Score normalization to have zero mean and unit variance, which accelerates model convergence.
+\end{itemize}
 
 \begin{figure}[H]
     \centering

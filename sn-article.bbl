@@ -67,12 +67,8 @@
 \bbtitle{{Deep Learning}}.
 \bpublisher{MIT Press},
 \blocation{Cambridge, MA}
-<<<<<<< HEAD
 (\byear{2016}).
 \burl{https://www.deeplearningbook.org/}
-=======
-(\byear{2016})
->>>>>>> 03d06f3f101ca812f1a67d56d8bf1b3bf78c7794
 \end{bbook}
 \endbibitem
 
@@ -94,19 +90,6 @@
 %%% 4
 \bibitem[\protect\citeauthoryear{{European Parliament and Council of the
   European Union}}{2016}]{gdpr2016}
-<<<<<<< HEAD
-=======
-\begin{botherref}
-\oauthor{\bsnm{{European Parliament and Council of the European Union}}}:
-{Regulation (EU) 2016/679 (General Data Protection Regulation)}.
-Official Journal of the European Union
-(2016)
-\end{botherref}
-\endbibitem
-
-%%% 5
-\bibitem[\protect\citeauthoryear{Zhao et~al.}{2021}]{Zhao2018FederatedNonIID}
->>>>>>> 03d06f3f101ca812f1a67d56d8bf1b3bf78c7794
 \begin{botherref}
 \oauthor{\bsnm{{European Parliament and Council of the European Union}}}:
 {Regulation (EU) 2016/679 (General Data Protection Regulation)}.
@@ -116,7 +99,6 @@ Official Journal of the European Union
 \end{botherref}
 \endbibitem
 
-<<<<<<< HEAD
 %%% 5
 \bibitem[\protect\citeauthoryear{Zhao et~al.}{2018}]{Zhao2018FederatedNonIID}
 \begin{barticle}
@@ -135,8 +117,6 @@ Official Journal of the European Union
 \end{barticle}
 \endbibitem
 
-=======
->>>>>>> 03d06f3f101ca812f1a67d56d8bf1b3bf78c7794
 %%% 6
 \bibitem[\protect\citeauthoryear{McMahan et~al.}{2017}]{mcmahan2017fedavg}
 \begin{bchapter}
@@ -154,12 +134,8 @@ vol. \bseriesno{54},
 pp. \bfpage{1273}--\blpage{1282}.
 \bpublisher{PMLR},
 \blocation{Fort Lauderdale, FL}
-<<<<<<< HEAD
 (\byear{2017}).
 \burl{https://proceedings.mlr.press/v54/mcmahan17a.html}
-=======
-(\byear{2017})
->>>>>>> 03d06f3f101ca812f1a67d56d8bf1b3bf78c7794
 \end{bchapter}
 \endbibitem
 
@@ -218,19 +194,14 @@ In: \bbtitle{2018 21st International Conference on Intelligent Transportation
 pp. \bfpage{2575}--\blpage{2582}.
 \bpublisher{IEEE},
 \blocation{Maui, HI}
-<<<<<<< HEAD
 (\byear{2018}).
 \doiurl{10.1109/ITSC.2018.8569938} .
 \burl{https://doi.org/10.1109/ITSC.2018.8569938}
-=======
-(\byear{2018})
->>>>>>> 03d06f3f101ca812f1a67d56d8bf1b3bf78c7794
 \end{bchapter}
 \endbibitem
 
 %%% 10
 \bibitem[\protect\citeauthoryear{Cho et~al.}{2014}]{cho2014gru}
-<<<<<<< HEAD
 \begin{bchapter}
 \bauthor{\bsnm{Cho}, \binits{K.}},
 \bauthor{\bsnm{Merrienboer}, \binits{B.}},
@@ -250,21 +221,6 @@ pp. \bfpage{1724}--\blpage{1734}.
 \doiurl{10.3115/v1/D14-1179} .
 \burl{https://doi.org/10.3115/v1/D14-1179}
 \end{bchapter}
-=======
-\begin{botherref}
-\oauthor{\bsnm{Cho}, \binits{K.}},
-\oauthor{\bsnm{Merrienboer}, \binits{B.}},
-\oauthor{\bsnm{Gulcehre}, \binits{C.}},
-\oauthor{\bsnm{Bahdanau}, \binits{D.}},
-\oauthor{\bsnm{Bougares}, \binits{F.}},
-\oauthor{\bsnm{Schwenk}, \binits{H.}},
-\oauthor{\bsnm{Bengio}, \binits{Y.}}:
-{Learning Phrase Representations using RNN Encoder-Decoder for Statistical
-  Machine Translation}.
-arXiv preprint arXiv:1406.1078
-(2014)
-\end{botherref}
->>>>>>> 03d06f3f101ca812f1a67d56d8bf1b3bf78c7794
 \endbibitem
 
 %%% 11
@@ -281,10 +237,7 @@ arXiv preprint arXiv:1406.1078
 \bvolume{54},
 \bfpage{187}--\blpage{197}
 (\byear{2015})
-<<<<<<< HEAD
 \doiurl{10.1016/j.trc.2015.03.014}
-=======
->>>>>>> 03d06f3f101ca812f1a67d56d8bf1b3bf78c7794
 \end{barticle}
 \endbibitem
 
@@ -301,10 +254,7 @@ arXiv preprint arXiv:1406.1078
 \bvolume{16}(\bissue{2}),
 \bfpage{865}--\blpage{873}
 (\byear{2015})
-<<<<<<< HEAD
 \doiurl{10.1109/TITS.2014.2345663}
-=======
->>>>>>> 03d06f3f101ca812f1a67d56d8bf1b3bf78c7794
 \end{barticle}
 \endbibitem
 
@@ -313,17 +263,11 @@ arXiv preprint arXiv:1406.1078
 \begin{bchapter}
 \bauthor{\bsnm{Kipf}, \binits{T.N.}},
 \bauthor{\bsnm{Welling}, \binits{M.}}:
-<<<<<<< HEAD
 \bctitle{Semi-supervised classification with graph convolutional networks}.
 In: \bbtitle{International Conference on Learning Representations (ICLR)}
 (\byear{2017}).
 \doiurl{10.48550/arXiv.1609.02907} .
 \burl{https://arxiv.org/abs/1609.02907}
-=======
-\bctitle{{Semi-Supervised Classification with Graph Convolutional Networks}}.
-In: \bbtitle{International Conference on Learning Representations (ICLR)}
-(\byear{2017})
->>>>>>> 03d06f3f101ca812f1a67d56d8bf1b3bf78c7794
 \end{bchapter}
 \endbibitem
 
@@ -344,10 +288,7 @@ In: \bbtitle{International Conference on Learning Representations (ICLR)}
 \bvolume{21}(\bissue{9}),
 \bfpage{3848}--\blpage{3858}
 (\byear{2020})
-<<<<<<< HEAD
 \doiurl{10.1109/TITS.2019.2935152}
-=======
->>>>>>> 03d06f3f101ca812f1a67d56d8bf1b3bf78c7794
 \end{barticle}
 \endbibitem
 
@@ -378,15 +319,10 @@ In: \bbtitle{International Conference on Learning Representations (ICLR)}
 \bctitle{{Graph WaveNet for Deep Spatial-Temporal Graph Modeling}}.
 In: \bbtitle{Proceedings of the 28th International Joint Conference on
   Artificial Intelligence (IJCAI)},
-<<<<<<< HEAD
 pp. \bfpage{1907}--\blpage{1913}
 (\byear{2019}).
 \doiurl{10.24963/ijcai.2019/264} .
 \burl{https://doi.org/10.24963/ijcai.2019/264}
-=======
-pp. \bfpage{1234}--\blpage{1240}
-(\byear{2019})
->>>>>>> 03d06f3f101ca812f1a67d56d8bf1b3bf78c7794
 \end{bchapter}
 \endbibitem
 
@@ -401,13 +337,9 @@ pp. \bfpage{1234}--\blpage{1240}
 In: \bbtitle{Proceedings of the AAAI Conference on Artificial Intelligence},
 vol. \bseriesno{34},
 pp. \bfpage{1234}--\blpage{1241}
-<<<<<<< HEAD
 (\byear{2020}).
 \doiurl{10.1609/aaai.v34i01.5477} .
 \burl{https://doi.org/10.1609/aaai.v34i01.5477}
-=======
-(\byear{2020})
->>>>>>> 03d06f3f101ca812f1a67d56d8bf1b3bf78c7794
 \end{bchapter}
 \endbibitem
 
@@ -424,12 +356,8 @@ pp. \bfpage{1234}--\blpage{1241}
 \bjtitle{Advances in Neural Information Processing Systems}
 \bvolume{33},
 \bfpage{17804}--\blpage{17815}
-<<<<<<< HEAD
 (\byear{2020}).
 \bcomment{\url{https://arxiv.org/abs/2012.02911}}
-=======
-(\byear{2020})
->>>>>>> 03d06f3f101ca812f1a67d56d8bf1b3bf78c7794
 \end{barticle}
 \endbibitem
 
@@ -447,12 +375,8 @@ pp. \bfpage{1234}--\blpage{1241}
 \bctitle{{Attention Is All You Need}}.
 In: \bbtitle{Advances in Neural Information Processing Systems},
 vol. \bseriesno{30}
-<<<<<<< HEAD
 (\byear{2017}).
 \burl{https://arxiv.org/abs/1706.03762}
-=======
-(\byear{2017})
->>>>>>> 03d06f3f101ca812f1a67d56d8bf1b3bf78c7794
 \end{bchapter}
 \endbibitem
 
@@ -471,16 +395,11 @@ vol. \bseriesno{30}
 \bctitle{{Deep Multi-View Spatial-Temporal Network for Taxi Demand
   Prediction}}.
 In: \bbtitle{Proceedings of the AAAI Conference on Artificial Intelligence},
-<<<<<<< HEAD
 vol. \bseriesno{32},
 pp. \bfpage{2588}--\blpage{2595}
 (\byear{2018}).
 \doiurl{10.1609/aaai.v32i1.11836} .
 \burl{https://doi.org/10.1609/aaai.v32i1.11836}
-=======
-vol. \bseriesno{32}
-(\byear{2018})
->>>>>>> 03d06f3f101ca812f1a67d56d8bf1b3bf78c7794
 \end{bchapter}
 \endbibitem
 
@@ -494,13 +413,9 @@ vol. \bseriesno{32}
   Prediction}}.
 In: \bbtitle{Proceedings of the AAAI Conference on Artificial Intelligence},
 vol. \bseriesno{31}
-<<<<<<< HEAD
 (\byear{2017}).
 \doiurl{10.1609/aaai.v31i1.10735} .
 \burl{https://doi.org/10.1609/aaai.v31i1.10735}
-=======
-(\byear{2017})
->>>>>>> 03d06f3f101ca812f1a67d56d8bf1b3bf78c7794
 \end{bchapter}
 \endbibitem
 
@@ -517,10 +432,7 @@ vol. \bseriesno{31}
 \bvolume{22}(\bissue{2}),
 \bfpage{1131}--\blpage{1141}
 (\byear{2021})
-<<<<<<< HEAD
 \doiurl{10.1109/TITS.2019.2954500}
-=======
->>>>>>> 03d06f3f101ca812f1a67d56d8bf1b3bf78c7794
 \end{barticle}
 \endbibitem
 
@@ -538,6 +450,7 @@ vol. \bseriesno{31}
 \bvolume{7}(\bissue{8}),
 \bfpage{7751}--\blpage{7763}
 (\byear{2020})
+\doiurl{10.1109/JIOT.2020.2991401}
 \end{barticle}
 \endbibitem
 
@@ -569,12 +482,8 @@ vol. \bseriesno{31}
 \oauthor{\bsnm{Bacon}, \binits{D.}}:
 {Federated Learning: Strategies for Improving Communication Efficiency}.
 arXiv preprint arXiv:1610.05492
-<<<<<<< HEAD
 (2016).
 \url{https://arxiv.org/abs/1610.05492}
-=======
-(2016)
->>>>>>> 03d06f3f101ca812f1a67d56d8bf1b3bf78c7794
 \end{botherref}
 \endbibitem
 
@@ -610,10 +519,7 @@ arXiv preprint arXiv:1610.05492
 \bvolume{9}(\bissue{3--4}),
 \bfpage{211}--\blpage{407}
 (\byear{2014})
-<<<<<<< HEAD
 \doiurl{10.1561/0400000042}
-=======
->>>>>>> 03d06f3f101ca812f1a67d56d8bf1b3bf78c7794
 \end{barticle}
 \endbibitem
 
@@ -634,14 +540,10 @@ arXiv preprint arXiv:1610.05492
 In: \bbtitle{Proceedings of the 2017 ACM SIGSAC Conference on Computer and
   Communications Security (CCS)},
 pp. \bfpage{1175}--\blpage{1191}
-<<<<<<< HEAD
 (\byear{2017}).
 \doiurl{10.1145/3133956.3133982} .
 \bcomment{\url{https://doi.org/10.1145/3133956.3133982}}.
 \burl{https://doi.org/10.1145/3133956.3133982}
-=======
-(\byear{2017})
->>>>>>> 03d06f3f101ca812f1a67d56d8bf1b3bf78c7794
 \end{bchapter}
 \endbibitem
 
@@ -676,10 +578,7 @@ pp. \bfpage{1175}--\blpage{1191}
 \bvolume{23}(\bissue{3}),
 \bfpage{1622}--\blpage{1658}
 (\byear{2021})
-<<<<<<< HEAD
 \doiurl{10.1109/COMST.2021.3075439}
-=======
->>>>>>> 03d06f3f101ca812f1a67d56d8bf1b3bf78c7794
 \end{barticle}
 \endbibitem
 
@@ -696,10 +595,7 @@ pp. \bfpage{1175}--\blpage{1191}
 \bvolume{3}(\bissue{5}),
 \bfpage{637}--\blpage{646}
 (\byear{2016})
-<<<<<<< HEAD
 \doiurl{10.1109/JIOT.2016.2579198}
-=======
->>>>>>> 03d06f3f101ca812f1a67d56d8bf1b3bf78c7794
 \end{barticle}
 \endbibitem
 
@@ -714,10 +610,7 @@ pp. \bfpage{1175}--\blpage{1191}
 \bvolume{19}(\bissue{3}),
 \bfpage{1628}--\blpage{1656}
 (\byear{2017})
-<<<<<<< HEAD
 \doiurl{10.1109/COMST.2017.2682318}
-=======
->>>>>>> 03d06f3f101ca812f1a67d56d8bf1b3bf78c7794
 \end{barticle}
 \endbibitem
 
@@ -733,16 +626,12 @@ pp. \bfpage{1175}--\blpage{1191}
 Frontiers in Medicine
 \textbf{9}
 (2022)
-<<<<<<< HEAD
 \doiurl{10.3389/fmed.2022.876190}
-=======
->>>>>>> 03d06f3f101ca812f1a67d56d8bf1b3bf78c7794
 \end{botherref}
 \endbibitem
 
 %%% 34
 \bibitem[\protect\citeauthoryear{Li et~al.}{2020}]{li2020fedprox}
-<<<<<<< HEAD
 \begin{bchapter}
 \bauthor{\bsnm{Li}, \binits{T.}},
 \bauthor{\bsnm{Sahu}, \binits{A.K.}},
@@ -756,19 +645,6 @@ In: \bbtitle{International Conference on Learning Representations (ICLR)}
 \bcomment{\url{https://openreview.net/forum?id=B1l4SgHKDH}}.
 \burl{https://openreview.net/forum?id=B1l4SgHKDH}
 \end{bchapter}
-=======
-\begin{botherref}
-\oauthor{\bsnm{Li}, \binits{T.}},
-\oauthor{\bsnm{Sahu}, \binits{A.K.}},
-\oauthor{\bsnm{Zaheer}, \binits{M.}},
-\oauthor{\bsnm{Sanjabi}, \binits{M.}},
-\oauthor{\bsnm{Talwalkar}, \binits{A.}},
-\oauthor{\bsnm{Smith}, \binits{V.}}:
-{Federated Optimization in Heterogeneous Networks}.
-arXiv preprint arXiv:1812.06127
-(2020)
-\end{botherref}
->>>>>>> 03d06f3f101ca812f1a67d56d8bf1b3bf78c7794
 \endbibitem
 
 %%% 35
@@ -783,7 +659,6 @@ arXiv preprint arXiv:1812.06127
 \bauthor{\bsnm{Suresh}, \binits{A.T.}}:
 \bctitle{{SCAFFOLD: Stochastic Controlled Averaging for Federated Learning}}.
 In: \bbtitle{Proceedings of the 37th International Conference on Machine
-<<<<<<< HEAD
   Learning (ICML)}.
 \bsertitle{Proceedings of Machine Learning Research},
 vol. \bseriesno{119},
@@ -791,11 +666,6 @@ pp. \bfpage{5132}--\blpage{5143}.
 \bpublisher{PMLR}, \blocation{???}
 (\byear{2020}).
 \burl{https://proceedings.mlr.press/v119/karimireddy20a.html}
-=======
-  Learning (ICML)},
-pp. \bfpage{5132}--\blpage{5143}
-(\byear{2020})
->>>>>>> 03d06f3f101ca812f1a67d56d8bf1b3bf78c7794
 \end{bchapter}
 \endbibitem
 
@@ -810,10 +680,7 @@ pp. \bfpage{5132}--\blpage{5143}
 \bvolume{45}(\bissue{4}),
 \bfpage{4289}--\blpage{4301}
 (\byear{2023})
-<<<<<<< HEAD
 \doiurl{10.1109/TPAMI.2022.3160699}
-=======
->>>>>>> 03d06f3f101ca812f1a67d56d8bf1b3bf78c7794
 \end{barticle}
 \endbibitem
 
@@ -831,12 +698,8 @@ pp. \bfpage{5132}--\blpage{5143}
 {Think Locally, Act Globally: Federated Learning with Local and Global
   Representations}.
 arXiv preprint arXiv:2001.01523
-<<<<<<< HEAD
 (2020).
 \url{https://arxiv.org/abs/2001.01523}
-=======
-(2020)
->>>>>>> 03d06f3f101ca812f1a67d56d8bf1b3bf78c7794
 \end{botherref}
 \endbibitem
 
@@ -850,12 +713,8 @@ arXiv preprint arXiv:2001.01523
 \bauthor{\bsnm{Khazaeni}, \binits{Y.}}:
 \bctitle{{Federated Learning with Matched Averaging}}.
 In: \bbtitle{International Conference on Learning Representations (ICLR)}
-<<<<<<< HEAD
 (\byear{2020}).
 \burl{https://openreview.net/forum?id=BkluqlSFDS}
-=======
-(\byear{2020})
->>>>>>> 03d06f3f101ca812f1a67d56d8bf1b3bf78c7794
 \end{bchapter}
 \endbibitem
 
@@ -955,12 +814,8 @@ arXiv preprint arXiv:2405.13090
 \bctitle{{Deep Gradient Compression: Reducing the Communication Bandwidth for
   Distributed Training}}.
 In: \bbtitle{International Conference on Learning Representations (ICLR)}
-<<<<<<< HEAD
 (\byear{2018}).
 \burl{https://openreview.net/forum?id=SkhQHMW0W}
-=======
-(\byear{2018})
->>>>>>> 03d06f3f101ca812f1a67d56d8bf1b3bf78c7794
 \end{bchapter}
 \endbibitem
 
@@ -975,13 +830,9 @@ In: \bbtitle{International Conference on Learning Representations (ICLR)}
 In: \bbtitle{IEEE International Conference on Acoustics, Speech and Signal
   Processing (ICASSP)},
 pp. \bfpage{3460}--\blpage{3464}
-<<<<<<< HEAD
 (\byear{2021}).
 \doiurl{10.1109/ICASSP39728.2021.9414063} .
 \burl{https://doi.org/10.1109/ICASSP39728.2021.9414063}
-=======
-(\byear{2021})
->>>>>>> 03d06f3f101ca812f1a67d56d8bf1b3bf78c7794
 \end{bchapter}
 \endbibitem
 
@@ -1047,10 +898,7 @@ pp. \bfpage{3460}--\blpage{3464}
 \bvolume{8},
 \bfpage{209191}--\blpage{209198}
 (\byear{2020})
-<<<<<<< HEAD
 \doiurl{10.1109/ACCESS.2020.3038287}
-=======
->>>>>>> 03d06f3f101ca812f1a67d56d8bf1b3bf78c7794
 \end{barticle}
 \endbibitem
 
@@ -1068,10 +916,7 @@ pp. \bfpage{3460}--\blpage{3464}
 \bvolume{5},
 \bfpage{8869}--\blpage{8879}
 (\byear{2017})
-<<<<<<< HEAD
 \doiurl{10.1109/ACCESS.2017.2694446}
-=======
->>>>>>> 03d06f3f101ca812f1a67d56d8bf1b3bf78c7794
 \end{barticle}
 \endbibitem
 

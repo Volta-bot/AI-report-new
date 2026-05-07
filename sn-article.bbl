@@ -65,7 +65,8 @@
 \bauthor{\bsnm{Bengio}, \binits{Y.}},
 \bauthor{\bsnm{Courville}, \binits{A.}}:
 \bbtitle{{Deep Learning}}.
-\bpublisher{MIT Press}, \blocation{???}
+\bpublisher{MIT Press},
+\blocation{Cambridge, MA}
 (\byear{2016})
 \end{bbook}
 \endbibitem
@@ -126,7 +127,8 @@ In: \bbtitle{Proceedings of the 20th International Conference on Artificial
 \bsertitle{Proceedings of Machine Learning Research},
 vol. \bseriesno{54},
 pp. \bfpage{1273}--\blpage{1282}.
-\bpublisher{PMLR}, \blocation{???}
+\bpublisher{PMLR},
+\blocation{Fort Lauderdale, FL}
 (\byear{2017})
 \end{bchapter}
 \endbibitem
@@ -183,9 +185,9 @@ pp. \bfpage{1273}--\blpage{1282}.
 In: \bbtitle{2018 21st International Conference on Intelligent Transportation
   Systems (ITSC)},
 pp. \bfpage{2575}--\blpage{2582}.
-\bpublisher{IEEE}, \blocation{???}
-(\byear{2018}).
-\doiurl{10.1109/ITSC.2018.8569938}
+\bpublisher{IEEE},
+\blocation{Maui, HI}
+(\byear{2018})
 \end{bchapter}
 \endbibitem
 
@@ -252,7 +254,7 @@ In: \bbtitle{International Conference on Learning Representations (ICLR)}
 
 %%% 14
 \bibitem[\protect\citeauthoryear{Zhao et~al.}{2020}]{chen2021tgcn}
-\begin{bchapter}
+\begin{barticle}
 \bauthor{\bsnm{Zhao}, \binits{L.}},
 \bauthor{\bsnm{Song}, \binits{Y.}},
 \bauthor{\bsnm{Zhang}, \binits{C.}},
@@ -261,12 +263,13 @@ In: \bbtitle{International Conference on Learning Representations (ICLR)}
 \bauthor{\bsnm{Lin}, \binits{T.}},
 \bauthor{\bsnm{Deng}, \binits{M.}},
 \bauthor{\bsnm{Li}, \binits{H.}}:
-\bctitle{{T-GCN: A Temporal Graph Convolutional Network for Traffic
-  Prediction}},
-vol. \bseriesno{21},
-pp. \bfpage{3848}--\blpage{3858}
+\batitle{{T-GCN: A Temporal Graph Convolutional Network for Traffic
+  Prediction}}.
+\bjtitle{IEEE Transactions on Intelligent Transportation Systems}
+\bvolume{21}(\bissue{9}),
+\bfpage{3848}--\blpage{3858}
 (\byear{2020})
-\end{bchapter}
+\end{barticle}
 \endbibitem
 
 %%% 15
@@ -414,7 +417,6 @@ vol. \bseriesno{31}
 \bvolume{7}(\bissue{8}),
 \bfpage{7751}--\blpage{7763}
 (\byear{2020})
-\doiurl{10.1109/JIOT.2020.2991401}
 \end{barticle}
 \endbibitem
 

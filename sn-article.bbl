@@ -837,6 +837,41 @@ pp. \bfpage{3460}--\blpage{3464}
 \endbibitem
 
 %%% 46
+\bibitem[\protect\citeauthoryear{Ye et~al.}{2020}]{ye2020edgefed}
+\begin{barticle}
+\bauthor{\bsnm{Ye}, \binits{Y.}},
+\bauthor{\bsnm{Li}, \binits{S.}},
+\bauthor{\bsnm{Liu}, \binits{F.}},
+\bauthor{\bsnm{Tang}, \binits{Y.}},
+\bauthor{\bsnm{Hu}, \binits{W.}}:
+\batitle{{EdgeFed: Optimized Federated Learning Based on Edge Computing}}.
+\bjtitle{IEEE Access}
+\bvolume{8},
+\bfpage{209191}--\blpage{209198}
+(\byear{2020})
+\doiurl{10.1109/ACCESS.2020.3038287}
+\end{barticle}
+\endbibitem
+
+%%% 47
+\bibitem[\protect\citeauthoryear{Chen et~al.}{2017}]{chen2019deep}
+\begin{barticle}
+\bauthor{\bsnm{Chen}, \binits{M.}},
+\bauthor{\bsnm{Hao}, \binits{Y.}},
+\bauthor{\bsnm{Hwang}, \binits{K.}},
+\bauthor{\bsnm{Wang}, \binits{L.}},
+\bauthor{\bsnm{Wang}, \binits{L.}}:
+\batitle{{Disease Prediction by Machine Learning Over Big Data From Healthcare
+  Communities}}.
+\bjtitle{IEEE Access}
+\bvolume{5},
+\bfpage{8869}--\blpage{8879}
+(\byear{2017})
+\doiurl{10.1109/ACCESS.2017.2694446}
+\end{barticle}
+\endbibitem
+
+%%% 48
 \bibitem[\protect\citeauthoryear{Li
   et~al.}{2018}]{Li2018MissingValueImputation}
 \begin{barticle}
@@ -854,7 +889,7 @@ pp. \bfpage{3460}--\blpage{3464}
 \end{barticle}
 \endbibitem
 
-%%% 47
+%%% 49
 \bibitem[\protect\citeauthoryear{Meng et~al.}{2023}]{Meng2023LaneChanging}
 \begin{barticle}
 \bauthor{\bsnm{Meng}, \binits{X.}},
@@ -870,7 +905,7 @@ pp. \bfpage{3460}--\blpage{3464}
 \end{barticle}
 \endbibitem
 
-%%% 48
+%%% 50
 \bibitem[\protect\citeauthoryear{Dai and Tang}{2025}]{dai2025short}
 \begin{barticle}
 \bauthor{\bsnm{Dai}, \binits{G.}},
@@ -882,41 +917,6 @@ pp. \bfpage{3460}--\blpage{3464}
 \bfpage{967}
 (\byear{2025})
 \doiurl{10.3390/s25030967}
-\end{barticle}
-\endbibitem
-
-%%% 49
-\bibitem[\protect\citeauthoryear{Ye et~al.}{2020}]{ye2020edgefed}
-\begin{barticle}
-\bauthor{\bsnm{Ye}, \binits{Y.}},
-\bauthor{\bsnm{Li}, \binits{S.}},
-\bauthor{\bsnm{Liu}, \binits{F.}},
-\bauthor{\bsnm{Tang}, \binits{Y.}},
-\bauthor{\bsnm{Hu}, \binits{W.}}:
-\batitle{{EdgeFed: Optimized Federated Learning Based on Edge Computing}}.
-\bjtitle{IEEE Access}
-\bvolume{8},
-\bfpage{209191}--\blpage{209198}
-(\byear{2020})
-\doiurl{10.1109/ACCESS.2020.3038287}
-\end{barticle}
-\endbibitem
-
-%%% 50
-\bibitem[\protect\citeauthoryear{Chen et~al.}{2017}]{chen2019deep}
-\begin{barticle}
-\bauthor{\bsnm{Chen}, \binits{M.}},
-\bauthor{\bsnm{Hao}, \binits{Y.}},
-\bauthor{\bsnm{Hwang}, \binits{K.}},
-\bauthor{\bsnm{Wang}, \binits{L.}},
-\bauthor{\bsnm{Wang}, \binits{L.}}:
-\batitle{{Disease Prediction by Machine Learning Over Big Data From Healthcare
-  Communities}}.
-\bjtitle{IEEE Access}
-\bvolume{5},
-\bfpage{8869}--\blpage{8879}
-(\byear{2017})
-\doiurl{10.1109/ACCESS.2017.2694446}
 \end{barticle}
 \endbibitem
 

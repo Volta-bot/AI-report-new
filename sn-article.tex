@@ -28,6 +28,7 @@
 
 \raggedbottom
 
+
 \begin{document}
 \title{Edge-based Traffic Prediction via Federated Learning}
 \author*[1]{\fnm{Hoang} \sur{Anh} - 202417093}
@@ -176,7 +177,7 @@ client updates, and generating the new global model for the next iteration.
 
 \begin{figure}[h!]
     \centering
-    \includegraphics[width=0.7\textwidth]{Figure/collaborative_training_process.png}
+    \includegraphics[width=1.0\textwidth]{Figure/collaborative_training_process.png}
     \caption{The system architecture and training process of federated learning.}
     \label{fig:fl_framework}
 \end{figure}
@@ -505,21 +506,6 @@ supports a \textbf{tiered management response}:
     activation, and demand-side management strategies for public transit
     corridors.
 \end{itemize}
-
-This tiered response is illustrated in Figure~\ref{fig:congestion_mgmt}, which
-depicts the information flow from edge-level LSTM predictions through congestion
-classification to ITS actuation.
-
-% Placeholder figure note:
-% \begin{figure}[h!]
-%     \centering
-%     \includegraphics[width=0.85\textwidth]{Figure/congestion_management_flow.png}
-%     \caption{Tiered congestion management flow: LSTM forecasts at each edge client
-%     are mapped to congestion levels and aggregated by the FL server into a global
-%     congestion map, which drives adaptive signal control, route advisories, and
-%     demand management.}
-%     \label{fig:congestion_mgmt}
-% \end{figure}
 
 % - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
 \subsubsection{Privacy Preservation in Congestion Management}
@@ -910,14 +896,14 @@ The efficiency of the Federated Averaging (FedAvg) algorithm \cite{mcmahan2017fe
 
 \begin{figure}[H]
   \centering
-  \includegraphics[width=0.85\textwidth]{Figure/metr-la-fl_convergence_rounds.png}
+  \includegraphics[width=1.0\textwidth]{Figure/metr-la-fl_convergence_rounds.png}
   \caption{FL convergence on METR-LA: 68.4\% MSE reduction over 50 rounds (initial loss 0.2401, final loss 0.0901).}
   \label{fig:convergence_metrla}
 \end{figure}
 
 \begin{figure}[H]
   \centering
-  \includegraphics[width=0.85\textwidth]{Figure/pems-bay-fl_convergence_rounds.png}
+  \includegraphics[width=1.0\textwidth]{Figure/pems-bay-fl_convergence_rounds.png}
   \caption{FL convergence on PeMS-BAY: 62.5\% MSE reduction over 50 rounds (initial loss 0.1989, final loss 0.0628).}
   \label{fig:convergence_pemsbay}
 \end{figure}
